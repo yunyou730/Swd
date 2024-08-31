@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: de93fbf9beb457f4383ec617ec4015d7
   m_SerializeEntries:
   - m_GUID: 66b43c6ebdf61684c84247e14b9e79ca
-    m_Address: Assets/Resources_moved/Pal3Res/105/Prefabs/C01.MV3.prefab
+    m_Address: Pal3Res/105/Prefabs/C01.MV3.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

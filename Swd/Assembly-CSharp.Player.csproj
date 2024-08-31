@@ -45,8 +45,11 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.38f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ResManager\LoadWithLabel.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Scripts\ResManager\LoadWithReference.cs" />
     <Compile Include="Assets\Scripts\Swd\CharacterController.cs" />
+    <Compile Include="Assets\Scripts\ResManager\LoadWithAddress.cs" />
     <Compile Include="Assets\Scripts\Swd\CharacterActionController.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.38f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.dll</HintPath>
@@ -644,6 +647,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Unity.Addressables.Player.csproj">
+      <Project>{ee68f592-e8f4-e1b9-63f6-2740d88f411d}</Project>
+      <Name>Unity.Addressables.Player</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Burst.Player.csproj">
       <Project>{84635139-8aba-0170-e887-28aad2b7f28d}</Project>
       <Name>Unity.Burst.Player</Name>
@@ -680,9 +687,9 @@
       <Project>{58a24586-da50-d0ac-05b5-fc8005ce5e96}</Project>
       <Name>Unity.VisualScripting.State.Player</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.Addressables.Player.csproj">
-      <Project>{ee68f592-e8f4-e1b9-63f6-2740d88f411d}</Project>
-      <Name>Unity.Addressables.Player</Name>
+    <ProjectReference Include="Unity.Profiling.Core.Player.csproj">
+      <Project>{63696fbf-21b4-dd10-71e5-7d17b62e5ea1}</Project>
+      <Name>Unity.Profiling.Core.Player</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

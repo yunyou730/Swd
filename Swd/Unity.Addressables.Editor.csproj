@@ -26,7 +26,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\Unity.Addressables.Editor\</OutputPath>
-    <DefineConstants>UNITY_2022_3_38;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_INITIALIZES_MEMORY_MANAGER_EXPLICITLY;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;NONRECURSIVE_DEPENDENCY_DATA;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;UNITY_EDITOR_ONLY_COMPILATION</DefineConstants>
+    <DefineConstants>UNITY_2022_3_38;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_INITIALIZES_MEMORY_MANAGER_EXPLICITLY;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;NONRECURSIVE_DEPENDENCY_DATA;ENABLE_ADDRESSABLE_PROFILER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;UNITY_EDITOR_ONLY_COMPILATION</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
@@ -62,12 +62,12 @@
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Settings\AddressableAssetProfileSettings.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\DataBuilders\BuildScriptPackedPlayMode.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\GUI\Graph\GraphLayerBackground.cs" />
+    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\MonoScriptBundleNaming.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Settings\ProjectConfigData.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\ShaderBundleNaming.cs" />
-    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\MonoScriptBundleNaming.cs" />
-    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Settings\AddressablesFileEnumeration.cs" />
-    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\BuildReportVisualizer\IAddressableView.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\Data\EventDataStream.cs" />
+    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\BuildReportVisualizer\IAddressableView.cs" />
+    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Settings\AddressablesFileEnumeration.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\BuildPipelineTasks\GenerateLocationListsTask.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\AnalyzeRules\CheckSceneDupeDependencies.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Settings\BuiltinSceneCache.cs" />
@@ -108,8 +108,8 @@
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\AnalyzeRules\AnalyzeSystem.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Settings\LabelTable.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\AddressablesBuildScriptHooks.cs" />
-    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\HostingServices\HostingServicesManager.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\GUI\ProfileWindow.cs" />
+    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\HostingServices\HostingServicesManager.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\AddressableAssetSettingsDefaultObject.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\Profiler\ContentSearch.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\Data\EventDataSample.cs" />
@@ -130,10 +130,10 @@
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\DataBuilders\BuildScriptPackedMode.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\Profiler\ContentDataTreeView.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Settings\AddressableAssetGroup.cs" />
+    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Settings\AddressableScenesManager.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\GUI\UpgradeNotifications.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\HostingServices\BaseHostingService.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\BuildReportVisualizer\Utility\BuildReportUtility.cs" />
-    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Settings\AddressableScenesManager.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\GUI\CacheInitializationDataDrawer.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\AddressablesDataBuilders.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\BuildReportVisualizer\BuildReportWindow.cs" />
@@ -161,8 +161,8 @@
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Settings\GroupSchemas\BundledAssetGroupSchema.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\GUI\AddressableAssetGroupInspector.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\GUI\Graph\GraphLayerLabel.cs" />
-    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\Data\EventDataPlayerSession.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\GUI\BuildProfileSettingsEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\Data\EventDataPlayerSession.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\BuildReportVisualizer\ContentView\GroupsContentView.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\GUI\AnalyzeRuleGUI.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\DirectoryUtility.cs" />
@@ -174,9 +174,9 @@
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\GUI\Graph\GraphLayerBarChart.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\GUI\Graph\GraphLayerEventMarker.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Settings\AddressableAssetPostProcessor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\GUI\AddressablesGUIUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Settings\GroupSchemas\ContentUpdateGroupSchema.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\Profiler\UXML\InspectorPane.cs" />
-    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\GUI\AddressablesGUIUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\GUI\EventViewerWindow.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\GUI\EventListView.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\GUI\AssetLabelReferenceDrawer.cs" />
@@ -190,11 +190,11 @@
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\GUI\GUIElements\RibbonButton.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\DataBuilders\BuildScriptBase.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Settings\CacheInitializationSettings.cs" />
-    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\GUI\AddressableAssetsWindow.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\Profiler\UXML\HelpDisplay.cs" />
+    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\GUI\AddressableAssetsWindow.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\AddressableAnalytics.cs" />
-    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\Profiler\ProfilerStrings.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\DataBuilders\BuildScriptVirtualMode.cs" />
+    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\Profiler\ProfilerStrings.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\DataBuilderInterfaces.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\FastModeInitializationOperation.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\BuildReportVisualizer\ToggleTextExpansionButton.cs" />
@@ -211,8 +211,8 @@
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\GUI\GUIElements\GUIUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\LinkXMLGenerator.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\ResourceManagerCacheWindow.cs" />
-    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\HostingServices\IHostingServiceConfigurationProvider.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\AddressablesDataBuilderInput.cs" />
+    <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\HostingServices\IHostingServiceConfigurationProvider.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\Profiler\AddressablesProfilerDetailsTreeView.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Diagnostics\Profiler\UXML\TreeViewPane.cs" />
     <Compile Include="Library\PackageCache\com.unity.addressables@1.21.21\Editor\Build\Layout\BuildLayout.cs" />

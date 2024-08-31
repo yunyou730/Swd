@@ -66,8 +66,8 @@
     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Shared\BuildParameters.cs" />
     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Shared\BundleExplictObjectLayout.cs" />
     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Tasks\RebuildSpriteAtlasCache.cs" />
-    <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Shared\BuildExtendedAssetData.cs" />
     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Profiler\BuildProfiler.cs" />
+    <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Shared\BuildExtendedAssetData.cs" />
     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Injector\ContextInjector.cs" />
     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Utilities\PlayerSettingsApi.cs" />
     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Utilities\QualitySettingsApi.cs" />
@@ -94,8 +94,8 @@
     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Interfaces\IBundleExplictObjectLayout.cs" />
     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Utilities\USerializeTools\DumpToText.cs" />
     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Shared\Unity5PackedIdentifiers.cs" />
-    <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Utilities\ProgressTracker.cs" />
     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Shared\PrefabPackedIdentifiers.cs" />
+    <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Utilities\ProgressTracker.cs" />
     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Tasks\PreviewSceneDependencyData.cs" />
     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Utilities\SpookyHash.cs" />
     <Compile Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\Editor\Shared\BuildContent.cs" />

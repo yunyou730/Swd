@@ -45,8 +45,11 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.38f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ResManager\LoadWithLabel.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Scripts\ResManager\LoadWithReference.cs" />
     <Compile Include="Assets\Scripts\Swd\CharacterController.cs" />
+    <Compile Include="Assets\Scripts\ResManager\LoadWithAddress.cs" />
     <Compile Include="Assets\Scripts\Swd\CharacterActionController.cs" />
     <None Include="Library\PackageCache\com.unity.burst@1.8.16\package.json" />
     <None Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\package.json" />
@@ -70,6 +73,7 @@
     <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.22\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF_SSD.cginc" />
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.4.3\ValidationConfig.json" />
+    <None Include="Library\PackageCache\com.unity.profiling.core@1.0.2\package.json" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_Properties.cginc" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF Internal Editor.shader" />
     <None Include="Library\PackageCache\com.unity.ide.vscode@1.2.5\ValidationExceptions.json" />
@@ -738,6 +742,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Unity.Addressables.csproj">
+      <Project>{615747d4-c4dd-ebf9-cd0b-12a2066f9a2b}</Project>
+      <Name>Unity.Addressables</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Burst.Editor.csproj">
       <Project>{9f8e3d89-c9fe-abd5-23ad-017114a352d2}</Project>
       <Name>Unity.Burst.Editor</Name>
@@ -838,9 +846,9 @@
       <Project>{cc0e976c-46f8-c4fb-10ca-1f812461a822}</Project>
       <Name>Unity.ScriptableBuildPipeline.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.Addressables.csproj">
-      <Project>{615747d4-c4dd-ebf9-cd0b-12a2066f9a2b}</Project>
-      <Name>Unity.Addressables</Name>
+    <ProjectReference Include="Unity.Profiling.Core.csproj">
+      <Project>{42d4df99-b9d4-fd3c-8655-2c7a7e2503a7}</Project>
+      <Name>Unity.Profiling.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
