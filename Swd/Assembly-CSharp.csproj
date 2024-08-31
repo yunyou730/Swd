@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Scripts\Swd\CharacterController.cs" />
     <Compile Include="Assets\Scripts\Swd\CharacterActionController.cs" />
     <None Include="Library\PackageCache\com.unity.burst@1.8.16\package.json" />
     <None Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\package.json" />
@@ -53,10 +54,12 @@
     <None Include="Library\PackageCache\com.unity.timeline@1.7.6\package.json" />
     <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.22\ValidationConfig.json" />
     <None Include="Library\PackageCache\com.unity.mathematics@1.2.6\package.json" />
+    <None Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\package.json" />
     <None Include="Library\PackageCache\com.unity.burst@1.8.16\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.visualscripting@1.9.4\package.json" />
     <None Include="Library\PackageCache\com.unity.timeline@1.7.6\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.4.3\package.json" />
+    <None Include="Library\PackageCache\com.unity.addressables@1.21.21\package.json" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\PackageConversionData.json" />
     <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.22\package.json" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\ValidationExceptions.json" />
@@ -73,6 +76,7 @@
     <None Include="Library\PackageCache\com.unity.visualscripting@1.9.4\ValidationConfig.json" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\PackageConversionData_Assets.json" />
     <None Include="Library\PackageCache\com.unity.mathematics@1.2.6\ValidationExceptions.json" />
+    <None Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.burst@1.8.16\Unity.Burst.Unsafe.xml" />
     <None Include="Library\PackageCache\com.unity.ide.vscode@1.2.5\package.json" />
     <Reference Include="UnityEngine">
@@ -746,6 +750,10 @@
       <Project>{531ab4d1-549f-539e-06a4-e42d56fe90d5}</Project>
       <Name>Unity.PlasticSCM.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.ResourceManager.csproj">
+      <Project>{c517be56-b104-960a-adb1-a48d36c8eac2}</Project>
+      <Name>Unity.ResourceManager</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
       <Project>{de1283a1-b156-e2fc-6c38-5989f10af9b9}</Project>
       <Name>Unity.Timeline.Editor</Name>
@@ -753,6 +761,10 @@
     <ProjectReference Include="Unity.VisualScripting.Shared.Editor.csproj">
       <Project>{fe811846-00b7-4513-457a-e612eff93721}</Project>
       <Name>Unity.VisualScripting.Shared.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ScriptableBuildPipeline.csproj">
+      <Project>{7211351a-f42a-8ca6-295b-486656528792}</Project>
+      <Name>Unity.ScriptableBuildPipeline</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualStudio.Editor.csproj">
       <Project>{a5a29533-6b35-46a6-7dea-c4ce1eb80662}</Project>
@@ -790,6 +802,10 @@
       <Project>{4e0a691d-615b-8838-c3ac-56d7bcc565ba}</Project>
       <Name>Unity.VisualScripting.SettingsProvider.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Addressables.Editor.csproj">
+      <Project>{2a0dbdde-fa0c-f2c0-1bf2-4b7141f9de84}</Project>
+      <Name>Unity.Addressables.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.State.Editor.csproj">
       <Project>{1bc7ed27-a15d-da30-037a-98341968febc}</Project>
       <Name>Unity.VisualScripting.State.Editor</Name>
@@ -817,6 +833,14 @@
     <ProjectReference Include="Unity.VSCode.Editor.csproj">
       <Project>{5ddc6c98-1a2c-7468-743f-c10f3714bbac}</Project>
       <Name>Unity.VSCode.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ScriptableBuildPipeline.Editor.csproj">
+      <Project>{cc0e976c-46f8-c4fb-10ca-1f812461a822}</Project>
+      <Name>Unity.ScriptableBuildPipeline.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Addressables.csproj">
+      <Project>{615747d4-c4dd-ebf9-cd0b-12a2066f9a2b}</Project>
+      <Name>Unity.Addressables</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

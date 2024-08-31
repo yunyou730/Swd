@@ -28,7 +28,7 @@ namespace swd.character
         
         void Start()
         {
-                
+            
         }
 
         void Update()
