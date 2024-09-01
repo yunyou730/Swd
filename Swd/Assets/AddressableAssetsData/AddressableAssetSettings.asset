@@ -68,6 +68,12 @@ MonoBehaviour:
         m_Value: ServerData/[BuildTarget]
       - m_Id: c75656edb10f3d14aa31f6682d965bb7
         m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+      - m_Id: 5965f42e5c2f0cd4c90a13c64c362f34
+        m_Value: D:/code/pal3_dev/Swd/MyAddressableBuild
+      - m_Id: fef7ac7e352325c488b3aac42d3c11c5
+        m_Value: D:/code/pal3_dev/Swd/MyAddressableBuild
+      - m_Id: 6ac10bb01405b704696e4cba9de1db0a
+        m_Value: D:/code/pal3_dev/Swd/MyAddressableBuild
     m_ProfileEntryNames:
     - m_Id: 158e214235dbfaf489551be902266dd3
       m_Name: BuildTarget
@@ -84,10 +90,20 @@ MonoBehaviour:
     - m_Id: c75656edb10f3d14aa31f6682d965bb7
       m_Name: Remote.LoadPath
       m_InlineUsage: 0
+    - m_Id: 5965f42e5c2f0cd4c90a13c64c362f34
+      m_Name: New Entry
+      m_InlineUsage: 0
+    - m_Id: fef7ac7e352325c488b3aac42d3c11c5
+      m_Name: New Entry1.BuildPath
+      m_InlineUsage: 0
+    - m_Id: 6ac10bb01405b704696e4cba9de1db0a
+      m_Name: New Entry1.LoadPath
+      m_InlineUsage: 0
     m_ProfileVersion: 1
   m_LabelTable:
     m_LabelNames:
     - default
+    - longkui
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: bbb05a5638a95774580e04bda04277f8, type: 2}

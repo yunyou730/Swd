@@ -47,10 +47,12 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ResManager\LoadWithLabel.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Scripts\SwdGame.cs" />
     <Compile Include="Assets\Scripts\ResManager\LoadWithReference.cs" />
     <Compile Include="Assets\Scripts\Swd\CharacterController.cs" />
     <Compile Include="Assets\Scripts\ResManager\LoadWithAddress.cs" />
     <Compile Include="Assets\Scripts\Swd\CharacterActionController.cs" />
+    <Compile Include="Assets\Scripts\ResManager\ResManager.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.38f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.dll</HintPath>
     </Reference>

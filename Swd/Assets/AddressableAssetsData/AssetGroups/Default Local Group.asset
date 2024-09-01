@@ -20,12 +20,20 @@ MonoBehaviour:
   - m_GUID: e68784bbdf4ac824fab65404c2683264
     m_Address: Pal3Res/105/Prefabs/C03.MV3
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - longkui
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db619daa76cb4e64c971933d45916306
     m_Address: Pal3Res/105/Prefabs/C02.MV3
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - longkui
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66b43c6ebdf61684c84247e14b9e79ca
+    m_Address: Pal3Res/105/Prefabs/C01.MV3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - longkui
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1e4692e58b2dfb74fa30cb0946e47401, type: 2}

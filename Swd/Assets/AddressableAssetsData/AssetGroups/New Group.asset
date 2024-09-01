@@ -16,12 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 7f43ca6fbef8d3a4dab05786b5937abc
-  m_SerializeEntries:
-  - m_GUID: 66b43c6ebdf61684c84247e14b9e79ca
-    m_Address: Pal3Res/105/Prefabs/C01.MV3
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1e4692e58b2dfb74fa30cb0946e47401, type: 2}
   m_SchemaSet:
