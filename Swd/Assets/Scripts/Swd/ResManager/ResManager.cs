@@ -12,6 +12,7 @@ namespace swd
     public class ResManager
     {
         private Dictionary<string, AsyncOperationHandle<GameObject>> _cache = null;
+        private Dictionary<string, AsyncOperationHandle<UnityEngine.Object>> _anyCache = null;
 
 
         public ResManager()
@@ -60,6 +61,13 @@ namespace swd
                 handle.WaitForCompletion();
                 return handle.Result;
             }
+        }
+        
+        public T GetAsset<T>(string key)
+        {
+            AsyncOperationHandle<T> handle = Addressables.LoadAssetAsync<T>(key);
+            handle.WaitForCompletion();
+            return handle.Result;
         }
 
         public void ReleaseCache()

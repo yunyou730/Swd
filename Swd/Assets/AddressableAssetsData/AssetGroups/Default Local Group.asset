@@ -35,6 +35,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - longkui
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5440f375d64ee854da0322a4d81bebdd
+    m_Address: configs/test1.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1e4692e58b2dfb74fa30cb0946e47401, type: 2}
   m_SchemaSet:

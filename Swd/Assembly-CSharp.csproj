@@ -45,14 +45,26 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.38f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ResManager\LoadWithLabel.cs" />
+    <Compile Include="Assets\Scripts\Swd\Gameplay\camera\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Swd\ResManager\ResManager.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\JsonMapper.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\IJsonWrapper.cs" />
+    <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithLabel.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\JsonReader.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
-    <Compile Include="Assets\Scripts\SwdGame.cs" />
-    <Compile Include="Assets\Scripts\ResManager\LoadWithReference.cs" />
-    <Compile Include="Assets\Scripts\Swd\CharacterController.cs" />
-    <Compile Include="Assets\Scripts\ResManager\LoadWithAddress.cs" />
-    <Compile Include="Assets\Scripts\Swd\CharacterActionController.cs" />
-    <Compile Include="Assets\Scripts\ResManager\ResManager.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\Lexer.cs" />
+    <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithReference.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\JsonMockWrapper.cs" />
+    <Compile Include="Assets\Scripts\Swd\Gameplay\GameplayManager.cs" />
+    <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActionController.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\JsonData.cs" />
+    <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithAddress.cs" />
+    <Compile Include="Assets\Scripts\Swd\SwdGame.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />
+    <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterController.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\ParserToken.cs" />
     <None Include="Library\PackageCache\com.unity.burst@1.8.16\package.json" />
     <None Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\package.json" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\package.json" />
@@ -61,6 +73,7 @@
     <None Include="Library\PackageCache\com.unity.mathematics@1.2.6\package.json" />
     <None Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\package.json" />
     <None Include="Library\PackageCache\com.unity.burst@1.8.16\ValidationExceptions.json" />
+    <None Include="Assets\Resources_moved\configs\test1.json" />
     <None Include="Library\PackageCache\com.unity.visualscripting@1.9.4\package.json" />
     <None Include="Library\PackageCache\com.unity.timeline@1.7.6\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.4.3\package.json" />

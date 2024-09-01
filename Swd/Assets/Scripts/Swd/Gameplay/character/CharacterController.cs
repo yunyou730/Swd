@@ -11,7 +11,6 @@ namespace swd.character
     public class ActionCfgItem
     {
         public CharacterController.EActionType ActionType;
-        // public CharacterActionController ActionCtrl;
         public AssetReference ActionCtrlPrefab;
     }
 
@@ -29,11 +28,8 @@ namespace swd.character
         public List<ActionCfgItem> ActionConfig = null;
         
         // private Dictionary<EActionType, CharacterActionController> _actionMap = new Dictionary<EActionType, CharacterActionController>();
-
-
         // public AssetReference ar = null;
-
-
+        
         public void Awake()
         {
             InitActionMap();
