@@ -1,12 +1,13 @@
 {
-  "test1": 1,
-  "characters": [
-    {
-      "key": "105",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    }
-    
-  ]
+	"test1":true,
+  
+	"map_tag": "terrain/BaseTerrain.prefab",
+  	"map_width": 10,
+  	"map_height": 10,
+  
+  	"main_character": "105",
+  	"mc_spawn_x": 5,
+  	"mc_spawn_y": 5,
+  
+  	"camera_distance": 15.0
 }
