@@ -906,6 +906,10 @@
       <Project>{8589254c-7c78-4bbe-a2b2-280e8de1d50b}</Project>
       <Name>Unity.Rider.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Formats.Fbx.Runtime.csproj">
+      <Project>{cdd881b4-7b0f-5cb1-5cd6-ab3e48fe3ddf}</Project>
+      <Name>Unity.Formats.Fbx.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
       <Project>{7f4db12d-2b12-1377-9368-d8b43bb50579}</Project>
       <Name>Unity.VisualScripting.Flow</Name>
@@ -930,9 +934,21 @@
       <Project>{2a0dbdde-fa0c-f2c0-1bf2-4b7141f9de84}</Project>
       <Name>Unity.Addressables.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Formats.Fbx.Editor.csproj">
+      <Project>{27d6ad73-ca9a-d8b1-5e21-288b77ed3a89}</Project>
+      <Name>Unity.Formats.Fbx.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Autodesk.Fbx.csproj">
+      <Project>{0c506130-f9bc-573b-7a02-f08ac3ad3a5c}</Project>
+      <Name>Autodesk.Fbx</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.State.Editor.csproj">
       <Project>{1bc7ed27-a15d-da30-037a-98341968febc}</Project>
       <Name>Unity.VisualScripting.State.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Autodesk.Fbx.Editor.csproj">
+      <Project>{667fb428-7956-2f98-89d3-e1e0ca56e80f}</Project>
+      <Name>Autodesk.Fbx.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.csproj">
       <Project>{9ffa5ba0-d7ef-b9d2-9565-8331463c8c1b}</Project>

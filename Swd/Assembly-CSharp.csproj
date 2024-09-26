@@ -46,29 +46,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Swd\Gameplay\camera\CameraController.cs" />
-    <Compile Include="Assets\Scripts\Swd\ResManager\ResManager.cs" />
-    <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMapper.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\IJsonWrapper.cs" />
-    <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithLabel.cs" />
     <Compile Include="Assets\Scripts\Swd\Config\ActorEnums.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonReader.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\Swd\Config\ActorConstants.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Lexer.cs" />
+    <Compile Include="Assets\Scripts\Swd\Gameplay\GameplayData.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\JsonData.cs" />
+    <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithAddress.cs" />
+    <Compile Include="Assets\Scripts\Swd\SwdGame.cs" />
+    <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterController.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\ParserToken.cs" />
+    <Compile Include="Assets\Scripts\Swd\ResManager\ResManager.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
+    <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithLabel.cs" />
     <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithReference.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMockWrapper.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\GameplayManager.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActionController.cs" />
-    <Compile Include="Assets\Scripts\Swd\Gameplay\GameplayData.cs" />
-    <Compile Include="Assets\Scripts\3rd\LitJson\JsonData.cs" />
-    <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithAddress.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActor.cs" />
-    <Compile Include="Assets\Scripts\Swd\SwdGame.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />
-    <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterController.cs" />
-    <Compile Include="Assets\Scripts\3rd\LitJson\ParserToken.cs" />
     <None Include="Library\PackageCache\com.unity.burst@1.8.16\package.json" />
     <None Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\package.json" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\package.json" />
@@ -81,6 +81,7 @@
     <None Include="Library\PackageCache\com.unity.visualscripting@1.9.4\package.json" />
     <None Include="Library\PackageCache\com.unity.timeline@1.7.6\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.4.3\package.json" />
+    <None Include="Library\PackageCache\com.autodesk.fbx@4.2.1\package.json" />
     <None Include="Library\PackageCache\com.unity.addressables@1.21.21\package.json" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\PackageConversionData.json" />
     <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.22\package.json" />
@@ -95,9 +96,11 @@
     <None Include="Library\PackageCache\com.unity.profiling.core@1.0.2\package.json" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_Properties.cginc" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\Editor Resources\Shaders\TMP_SDF Internal Editor.shader" />
+    <None Include="Library\PackageCache\com.unity.formats.fbx@4.2.1\package.json" />
     <None Include="Library\PackageCache\com.unity.ide.vscode@1.2.5\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.visualscripting@1.9.4\ValidationConfig.json" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\PackageConversionData_Assets.json" />
+    <None Include="Library\PackageCache\com.autodesk.fbx@4.2.1\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.mathematics@1.2.6\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.scriptablebuildpipeline@1.21.23\ValidationExceptions.json" />
     <None Include="Assets\Resources_moved\configs\action_file_map.json" />
@@ -810,6 +813,10 @@
       <Project>{8589254c-7c78-4bbe-a2b2-280e8de1d50b}</Project>
       <Name>Unity.Rider.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Formats.Fbx.Runtime.csproj">
+      <Project>{cdd881b4-7b0f-5cb1-5cd6-ab3e48fe3ddf}</Project>
+      <Name>Unity.Formats.Fbx.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
       <Project>{7f4db12d-2b12-1377-9368-d8b43bb50579}</Project>
       <Name>Unity.VisualScripting.Flow</Name>
@@ -834,9 +841,21 @@
       <Project>{2a0dbdde-fa0c-f2c0-1bf2-4b7141f9de84}</Project>
       <Name>Unity.Addressables.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Formats.Fbx.Editor.csproj">
+      <Project>{27d6ad73-ca9a-d8b1-5e21-288b77ed3a89}</Project>
+      <Name>Unity.Formats.Fbx.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Autodesk.Fbx.csproj">
+      <Project>{0c506130-f9bc-573b-7a02-f08ac3ad3a5c}</Project>
+      <Name>Autodesk.Fbx</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.State.Editor.csproj">
       <Project>{1bc7ed27-a15d-da30-037a-98341968febc}</Project>
       <Name>Unity.VisualScripting.State.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Autodesk.Fbx.Editor.csproj">
+      <Project>{667fb428-7956-2f98-89d3-e1e0ca56e80f}</Project>
+      <Name>Autodesk.Fbx.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.csproj">
       <Project>{9ffa5ba0-d7ef-b9d2-9565-8331463c8c1b}</Project>

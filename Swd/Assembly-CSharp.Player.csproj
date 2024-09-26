@@ -46,29 +46,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Swd\Gameplay\camera\CameraController.cs" />
-    <Compile Include="Assets\Scripts\Swd\ResManager\ResManager.cs" />
-    <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMapper.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\IJsonWrapper.cs" />
-    <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithLabel.cs" />
     <Compile Include="Assets\Scripts\Swd\Config\ActorEnums.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonReader.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\Swd\Config\ActorConstants.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Lexer.cs" />
+    <Compile Include="Assets\Scripts\Swd\Gameplay\GameplayData.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\JsonData.cs" />
+    <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithAddress.cs" />
+    <Compile Include="Assets\Scripts\Swd\SwdGame.cs" />
+    <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterController.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\ParserToken.cs" />
+    <Compile Include="Assets\Scripts\Swd\ResManager\ResManager.cs" />
+    <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
+    <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithLabel.cs" />
     <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithReference.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMockWrapper.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\GameplayManager.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActionController.cs" />
-    <Compile Include="Assets\Scripts\Swd\Gameplay\GameplayData.cs" />
-    <Compile Include="Assets\Scripts\3rd\LitJson\JsonData.cs" />
-    <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithAddress.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActor.cs" />
-    <Compile Include="Assets\Scripts\Swd\SwdGame.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />
-    <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterController.cs" />
-    <Compile Include="Assets\Scripts\3rd\LitJson\ParserToken.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.38f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.dll</HintPath>
     </Reference>
@@ -685,6 +685,10 @@
       <Project>{68318a83-d6e7-0cc7-6155-39d1a0d27464}</Project>
       <Name>Unity.VisualScripting.Core.Player</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Formats.Fbx.Runtime.Player.csproj">
+      <Project>{8ba83df4-6841-081e-b555-5beb072f1c23}</Project>
+      <Name>Unity.Formats.Fbx.Runtime.Player</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Flow.Player.csproj">
       <Project>{3e716a05-01cd-5e15-3b1c-62727281bd0e}</Project>
       <Name>Unity.VisualScripting.Flow.Player</Name>
@@ -692,6 +696,10 @@
     <ProjectReference Include="Unity.Timeline.Player.csproj">
       <Project>{3c402cb3-c443-aaa8-ebfd-569b3fdea2b9}</Project>
       <Name>Unity.Timeline.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="Autodesk.Fbx.Player.csproj">
+      <Project>{bf594b06-df54-2513-d235-618f80d7e02a}</Project>
+      <Name>Autodesk.Fbx.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.Player.csproj">
       <Project>{ae8b4d32-9aea-fa23-373a-092ecaf15a5d}</Project>
