@@ -58,8 +58,8 @@
     <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxNodeAttribute.cs" />
     <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxPropertyString.cs" />
     <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxLayerElementArrayTemplateFbxVector4.cs" />
-    <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxPropertyEntryView.cs" />
     <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxAnimCurveKey.cs" />
+    <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxPropertyEntryView.cs" />
     <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxIOPluginRegistry.cs" />
     <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxPropertyEProjectionType.cs" />
     <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxProperty.cs" />
@@ -94,8 +94,8 @@
     <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\EFbxType.cs" />
     <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxConstraintParent.cs" />
     <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxAnimCurveDef.cs" />
-    <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxLayerElementArrayTemplateFbxVector2.cs" />
     <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxManager.cs" />
+    <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxLayerElementArrayTemplateFbxVector2.cs" />
     <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxConstraintAim.cs" />
     <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxAnimLayer.cs" />
     <Compile Include="Library\PackageCache\com.autodesk.fbx@4.2.1\Runtime\Scripts\FbxLayerElementUV.cs" />

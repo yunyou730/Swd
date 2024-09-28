@@ -32,7 +32,7 @@ namespace swd
             LoadConfig();
             StartGameplay();
         }
-        
+
         private void DoStart()
         {
             var prefab = _resManager.GetAsset("Pal3Res/105/Prefabs/C03.MV3");
@@ -55,15 +55,13 @@ namespace swd
             if (textAsset != null)
             {
                 Debug.Log(textAsset.text);
-                
+
                 // LitJson.JsonData jsonData = LitJson.pars
                 LitJson.JsonData jsonData = JsonMapper.ToObject(textAsset.text);
-                
-                _gameplay = new GameplayManager(gameObject,_cameraGameObject);
-                _gameplay.Prepare(jsonData,()=>{
-                    _gameplay.Start();    
-                });
-                
+
+                _gameplay = new GameplayManager(gameObject, _cameraGameObject);
+                _gameplay.Prepare(jsonData, () => { _gameplay.Start(); });
+
 
                 /*
                 // jsonData["te"]
@@ -78,10 +76,14 @@ namespace swd
                 }
                 */
 
-
-
             }
-            
         }
+
+
+        public ResManager GetResManager()
+        {
+            return _resManager;
+        }
+
     }
 }

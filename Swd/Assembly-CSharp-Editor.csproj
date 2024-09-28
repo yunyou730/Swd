@@ -946,13 +946,13 @@
       <Project>{1bc7ed27-a15d-da30-037a-98341968febc}</Project>
       <Name>Unity.VisualScripting.State.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Autodesk.Fbx.Editor.csproj">
-      <Project>{667fb428-7956-2f98-89d3-e1e0ca56e80f}</Project>
-      <Name>Autodesk.Fbx.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.csproj">
       <Project>{9ffa5ba0-d7ef-b9d2-9565-8331463c8c1b}</Project>
       <Name>Unity.Mathematics</Name>
+    </ProjectReference>
+    <ProjectReference Include="Autodesk.Fbx.Editor.csproj">
+      <Project>{667fb428-7956-2f98-89d3-e1e0ca56e80f}</Project>
+      <Name>Autodesk.Fbx.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
       <Project>{65663b1c-3754-2b0a-78f8-d2d5478595d6}</Project>

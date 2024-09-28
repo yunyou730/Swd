@@ -45,6 +45,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8549d4801a7924d48a348ba4ba856d8b
+    m_Address: Assets/Resources_moved/terrain/TileTest.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1e4692e58b2dfb74fa30cb0946e47401, type: 2}
   m_SchemaSet:
