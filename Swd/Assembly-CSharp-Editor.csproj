@@ -46,6 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+    <Compile Include="Assets\SurfaceGraph\Editor\SurfaceGraphWindow.cs" />
+    <Compile Include="Assets\SurfaceGraph\Editor\SurfaceGraphNode.cs" />
+    <Compile Include="Assets\SurfaceGraph\Editor\SurfaceGraphView.cs" />
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.4.3\Lib\Editor\PlasticSCM\Localization\plastic-gui.zh-Hans.txt" />
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.4.3\Lib\Editor\PlasticSCM\Localization\configurehelper.zh-Hant.txt" />
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.4.3\Lib\Editor\PlasticSCM\Localization\plastic-gui.zh-Hant.txt" />
