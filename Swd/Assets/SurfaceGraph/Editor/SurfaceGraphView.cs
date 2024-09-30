@@ -13,6 +13,8 @@ public class SurfaceGraphView : GraphView
     
     public SurfaceGraphView()
     {
+        SetupZoom(ContentZoomer.DefaultMinScale,ContentZoomer.DefaultMaxScale);
+        
         this.AddManipulator(new ContentDragger());
         this.AddManipulator(new SelectionDragger());
         this.AddManipulator(new RectangleSelector());
