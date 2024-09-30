@@ -13,11 +13,19 @@ public class SurfaceGraphView : GraphView
     
     public SurfaceGraphView()
     {
+        StyleSheet ss = Resources.Load<StyleSheet>("SurfaceGraph");
+        if(ss != null)
+            styleSheets.Add(ss);
+        
         SetupZoom(ContentZoomer.DefaultMinScale,ContentZoomer.DefaultMaxScale);
         
         this.AddManipulator(new ContentDragger());
         this.AddManipulator(new SelectionDragger());
         this.AddManipulator(new RectangleSelector());
+
+        var grid = new GridBackground();
+        Insert(0,grid);
+        grid.StretchToParentSize();
 
         AddElement(GenerateEntryPointNode());
     }

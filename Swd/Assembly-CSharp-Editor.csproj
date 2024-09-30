@@ -88,6 +88,7 @@
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.4.3\Lib\Editor\PlasticSCM\Localization\i3.es.txt" />
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.4.3\Lib\Editor\PlasticSCM\Localization\clientcommon.es.txt" />
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.4.3\Lib\Editor\PlasticSCM\Localization\xdiff.zh-Hant.txt" />
+    <None Include="Assets\SurfaceGraph\Editor\Resources\SurfaceGraph.uss" />
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.4.3\Lib\Editor\PlasticSCM\Localization\workspaceserver.ja.txt" />
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.4.3\Lib\Editor\PlasticSCM\Localization\semantic.es.txt" />
     <None Include="Library\PackageCache\com.unity.collab-proxy@2.4.3\Lib\Editor\PlasticSCM\Localization\i3.zh-Hant.txt" />
