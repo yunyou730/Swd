@@ -37,6 +37,14 @@ public class SurfaceGraphView : GraphView
         var inputPort = GeneratePort(surfaceGraphNode, Direction.Input, Port.Capacity.Multi);
         inputPort.portName = "Input";
         surfaceGraphNode.inputContainer.Add(inputPort);
+
+
+        var button = new Button(()=>{
+            AddChoicePort(surfaceGraphNode);
+        });
+        button.text = "New Choice";
+        surfaceGraphNode.titleContainer.Add(button);
+        
         
         surfaceGraphNode.RefreshExpandedState();
         surfaceGraphNode.RefreshPorts();
@@ -44,6 +52,20 @@ public class SurfaceGraphView : GraphView
         
         
         return surfaceGraphNode;
+    }
+    
+    public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
+    {
+        // var test = base.GetCompatiblePorts(startPort, nodeAdapter); // Count = 0
+        var compatiblePorts = new List<Port>();
+        ports.ForEach((port) =>
+        {
+            if (startPort != port && startPort.node != port.node)
+            {
+                compatiblePorts.Add(port);
+            }
+        });
+        return compatiblePorts;
     }
 
     private SurfaceGraphNode GenerateEntryPointNode()
@@ -71,6 +93,18 @@ public class SurfaceGraphView : GraphView
     private Port GeneratePort(SurfaceGraphNode node, Direction portDirection,Port.Capacity capacity = Port.Capacity.Single)
     {
         return node.InstantiatePort(Orientation.Horizontal, portDirection, capacity, typeof(float));
+    }
+
+
+    private void AddChoicePort(SurfaceGraphNode node)
+    {
+        var generatePort = GeneratePort(node, Direction.Output);
+
+        var outputPortCount = node.outputContainer.Query("connector").ToList().Count;
+        generatePort.portName = $"Choise {outputPortCount}";
+        node.outputContainer.Add(generatePort);
+        node.RefreshExpandedState();
+        node.RefreshPorts();
     }
 
 }
