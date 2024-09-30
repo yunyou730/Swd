@@ -8,26 +8,69 @@ using UnityEngine.UIElements;
 
 public class SurfaceGraphView : GraphView
 {
+    private readonly Vector2 kDefaultNodeSize = new Vector2(150,200);
+    
+    
     public SurfaceGraphView()
     {
         this.AddManipulator(new ContentDragger());
         this.AddManipulator(new SelectionDragger());
         this.AddManipulator(new RectangleSelector());
-        
+
         AddElement(GenerateEntryPointNode());
     }
 
+    public void CreateNode(string nodeName)
+    {
+        AddElement(CreateSurfaceGraphNode(nodeName));
+    }
 
-    SurfaceGraphNode GenerateEntryPointNode()
+    public SurfaceGraphNode CreateSurfaceGraphNode(string nodeName)
+    {
+        var surfaceGraphNode = new SurfaceGraphNode
+        {
+            title = nodeName,
+            InfoText = nodeName,
+            GUID = Guid.NewGuid().ToString()
+        };
+
+        var inputPort = GeneratePort(surfaceGraphNode, Direction.Input, Port.Capacity.Multi);
+        inputPort.portName = "Input";
+        surfaceGraphNode.inputContainer.Add(inputPort);
+        
+        surfaceGraphNode.RefreshExpandedState();
+        surfaceGraphNode.RefreshPorts();
+        surfaceGraphNode.SetPosition(new Rect(Vector2.zero,kDefaultNodeSize));
+        
+        
+        return surfaceGraphNode;
+    }
+
+    private SurfaceGraphNode GenerateEntryPointNode()
     {
         var node = new SurfaceGraphNode
         {
             title = "START",
             GUID = Guid.NewGuid().ToString(),
             InfoText = "EntryPoint",
-            EntryPoint =  true
+            EntryPoint = true
         };
-        node.SetPosition(new Rect(100,200,100,150));
+        
+        var generatedPort = GeneratePort(node, Direction.Output);
+        generatedPort.portName = "Next";
+        node.outputContainer.Add(generatedPort);
+        
+        node.RefreshExpandedState();
+        node.RefreshPorts();
+        
+        node.SetPosition(new Rect(100, 200, 100, 150));
         return node;
     }
+
+
+    private Port GeneratePort(SurfaceGraphNode node, Direction portDirection,Port.Capacity capacity = Port.Capacity.Single)
+    {
+        return node.InstantiatePort(Orientation.Horizontal, portDirection, capacity, typeof(float));
+    }
+
 }
