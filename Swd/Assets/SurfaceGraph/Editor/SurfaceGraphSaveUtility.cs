@@ -155,14 +155,21 @@ public class SurfaceGraphSaveUtility
 
     void LinkNodes(Port output,Port input)
     {
-        var tempEdge = new Edge()
-        {
-            output = output,
-            input = input,
-        };
+        // var tempEdge = new Edge()
+        // {
+        //     output = output,
+        //     input = input,
+        // };
         
-        tempEdge.input.Connect(tempEdge);
-        tempEdge.output.Connect(tempEdge);
+        // tempEdge.input.Connect(tempEdge);
+        // tempEdge.output.Connect(tempEdge);
+
+        var tempEdge = new Edge();
+        tempEdge.input = input;
+        tempEdge.output = output;
+        
+        input.Connect(tempEdge);
+        output.Connect(tempEdge);
         
         _targetGraphView.Add(tempEdge);
     }
