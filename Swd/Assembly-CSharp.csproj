@@ -61,14 +61,17 @@
     <Compile Include="Assets\Scripts\3rd\LitJson\ParserToken.cs" />
     <Compile Include="Assets\Scripts\Swd\ResManager\ResManager.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
+    <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphNodeData.cs" />
     <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithLabel.cs" />
     <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithReference.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMockWrapper.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\GameplayManager.cs" />
+    <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphDataContainer.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActionController.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActor.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />
+    <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphLinkData.cs" />
     <None Include="Library\PackageCache\com.unity.burst@1.8.16\package.json" />
     <None Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\package.json" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\package.json" />

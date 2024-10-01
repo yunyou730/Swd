@@ -61,14 +61,17 @@
     <Compile Include="Assets\Scripts\3rd\LitJson\ParserToken.cs" />
     <Compile Include="Assets\Scripts\Swd\ResManager\ResManager.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
+    <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphNodeData.cs" />
     <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithLabel.cs" />
     <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithReference.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMockWrapper.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\GameplayManager.cs" />
+    <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphDataContainer.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActionController.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActor.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />
+    <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphLinkData.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.38f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.dll</HintPath>
     </Reference>

@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
 public class SurfaceGraphWindow : EditorWindow
 {
     private SurfaceGraphView _graphView = null;
+    private string _fileName = "my surface graph";
     
     
     [MenuItem("SurfaceGraph/Surface Graph")]
@@ -44,6 +45,22 @@ public class SurfaceGraphWindow : EditorWindow
     private void GenerateToolbar()
     {
         var toolbar = new Toolbar();
+        
+        // Graph name and saving graph
+        var fileNameTextField = new TextField("File Name:");
+        fileNameTextField.SetValueWithoutNotify(_fileName);
+        fileNameTextField.MarkDirtyRepaint();
+        fileNameTextField.RegisterValueChangedCallback((evt) =>
+        {
+            _fileName = evt.newValue;
+        });
+        toolbar.Add(fileNameTextField);
+        
+        // Save and Load button
+        toolbar.Add(new Button(SaveData){text = "Save Data"});
+        toolbar.Add(new Button(LoadData){text = "Load Data"});
+
+        // Create node button
         var nodeCreateButton = new Button(() =>
         {
             _graphView.CreateNode("Surface Node");
@@ -52,4 +69,16 @@ public class SurfaceGraphWindow : EditorWindow
         toolbar.Add(nodeCreateButton);
         rootVisualElement.Add(toolbar);
     }
+    
+    private void SaveData()
+    {
+        Debug.Log($"Save Data: {_fileName}");
+        SurfaceGraphSaveUtility.GetInstance(_graphView).SaveGraph(_fileName);
+    }
+    
+    private void LoadData()
+    {
+        Debug.Log($"Load Data: {_fileName}");
+    }
+    
 }
