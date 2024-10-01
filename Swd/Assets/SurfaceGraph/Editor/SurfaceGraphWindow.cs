@@ -59,8 +59,8 @@ public class SurfaceGraphWindow : EditorWindow
         toolbar.Add(fileNameTextField);
         
         // Save and Load button
-        toolbar.Add(new Button(SaveData){text = "Save Data"});
-        toolbar.Add(new Button(LoadData){text = "Load Data"});
+        toolbar.Add(new Button(()=>RequestDataOperation(true)){text = "Save Data"});
+        toolbar.Add(new Button(()=>RequestDataOperation(false)){text = "Load Data"});
 
         // Create node button
         var nodeCreateButton = new Button(() =>
@@ -79,15 +79,23 @@ public class SurfaceGraphWindow : EditorWindow
         _graphView.Add(minimap);
     }
 
-    private void SaveData()
+    private void RequestDataOperation(bool bSave)
     {
-        Debug.Log($"Save Data: {_fileName}");
-        SurfaceGraphSaveUtility.GetInstance(_graphView).SaveGraph(_fileName);
+        Debug.Log($"RequestDataOperation: {_fileName}");
+        if (string.IsNullOrEmpty(_fileName))
+        {
+            EditorUtility.DisplayDialog("Invalid file name!", "Please enter a valid file name", "OK");
+            return;
+        }
+
+        var saveUtility = SurfaceGraphSaveUtility.GetInstance(_graphView);
+        if (bSave)
+        {
+            saveUtility.SaveGraph(_fileName);    
+        }
+        else
+        {
+            saveUtility.LoadGraph(_fileName);
+        }
     }
-    
-    private void LoadData()
-    {
-        Debug.Log($"Load Data: {_fileName}");
-    }
-    
 }

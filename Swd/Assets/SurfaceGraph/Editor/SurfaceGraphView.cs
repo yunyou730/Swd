@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -8,9 +9,9 @@ using UnityEngine.UIElements;
 
 public class SurfaceGraphView : GraphView
 {
-    private readonly Vector2 kDefaultNodeSize = new Vector2(150,200);
-    
-    
+    public readonly Vector2 kDefaultNodeSize = new Vector2(200,200);
+
+
     public SurfaceGraphView()
     {
         StyleSheet ss = Resources.Load<StyleSheet>("SurfaceGraph");
@@ -106,15 +107,67 @@ public class SurfaceGraphView : GraphView
     }
 
 
-    private void AddChoicePort(SurfaceGraphNode node)
+    public void AddChoicePort(SurfaceGraphNode node,string portName = null)
     {
         var generatePort = GeneratePort(node, Direction.Output);
 
+        // var oldLabel = generatePort.contentContainer.Q<Label>("type");
+        // generatePort.contentContainer.Remove(oldLabel);
+        
+
         var outputPortCount = node.outputContainer.Query("connector").ToList().Count;
-        generatePort.portName = $"Choise {outputPortCount}";
+        string choisePortName = string.IsNullOrEmpty(portName) ? $"Choice {outputPortCount}" : portName;
+         
+
+        // rename text field
+        // var textField = new TextField()
+        // {
+        //     name = string.Empty,
+        //     value = choisePortName,
+        // };
+        // textField.RegisterValueChangedCallback(evt => generatePort.portName = evt.newValue);
+        // generatePort.contentContainer.Add(new Label("   "));
+        // generatePort.contentContainer.Add(textField);
+        
+        
+        // delete button
+        var deleteButton = new Button(() => { RemovePort(node,generatePort);})
+        {
+            text = "X"  
+        };
+        generatePort.contentContainer.Add(deleteButton);
+        
+        // set port name at last
+        generatePort.portName = choisePortName;
         node.outputContainer.Add(generatePort);
         node.RefreshExpandedState();
         node.RefreshPorts();
+    }
+
+
+    void RemovePort(SurfaceGraphNode node,Port port)
+    {
+        var targetEdge = edges.ToList().Where(x => x.output.portName == port.portName && x.output.node == port.node);
+        // var targetEdge = edges.ToList().Where(
+        //     x => x.output.portName == port.portName
+        // );
+        if (targetEdge.Any())
+        {
+            foreach (var edge in targetEdge)
+            {
+                edge.input.Disconnect(edge);
+                RemoveElement(edge);
+            }
+
+            // var edge = targetEdge.First();
+            // edge.input.Disconnect(edge);
+            // RemoveElement(edge);
+            // RemoveElement(targetEdge.First());
+        }
+
+        node.outputContainer.Remove(port);
+        node.RefreshPorts();
+        node.RefreshExpandedState();
     }
 
 }
