@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -24,6 +25,7 @@ public class SurfaceGraphWindow : EditorWindow
     {
         ConstructGraphView();
         GenerateToolbar();
+        GenerateMinimap();
     }
 
     private void OnDisable()
@@ -70,6 +72,13 @@ public class SurfaceGraphWindow : EditorWindow
         rootVisualElement.Add(toolbar);
     }
     
+    private void GenerateMinimap()
+    {
+        var minimap = new MiniMap() { anchored = true, };
+        minimap.SetPosition(new Rect(10,30,200,140));
+        _graphView.Add(minimap);
+    }
+
     private void SaveData()
     {
         Debug.Log($"Save Data: {_fileName}");
