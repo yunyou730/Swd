@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
     <Compile Include="Assets\SurfaceGraph\Editor\SurfaceGraphWindow.cs" />
+    <Compile Include="Assets\SurfaceGraph\Editor\SurfaceGraphNodeSearchWindow.cs" />
     <Compile Include="Assets\SurfaceGraph\Editor\SurfaceGraphNode.cs" />
     <Compile Include="Assets\SurfaceGraph\Editor\SurfaceGraphView.cs" />
     <Compile Include="Assets\SurfaceGraph\Editor\SurfaceGraphSaveUtility.cs" />

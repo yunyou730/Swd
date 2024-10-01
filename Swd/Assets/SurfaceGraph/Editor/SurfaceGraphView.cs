@@ -10,9 +10,10 @@ using UnityEngine.UIElements;
 public class SurfaceGraphView : GraphView
 {
     public readonly Vector2 kDefaultNodeSize = new Vector2(200,200);
+    private SurfaceGraphNodeSearchWindow _searchWindow = null;
 
 
-    public SurfaceGraphView()
+    public SurfaceGraphView(EditorWindow editorWindow)
     {
         StyleSheet ss = Resources.Load<StyleSheet>("SurfaceGraph");
         if(ss != null)
@@ -29,14 +30,15 @@ public class SurfaceGraphView : GraphView
         grid.StretchToParentSize();
 
         AddElement(GenerateEntryPointNode());
+        AddSearchWindow(editorWindow);
     }
 
-    public void CreateNode(string nodeName)
+    public void CreateNode(string nodeName,Vector2 position)
     {
-        AddElement(CreateSurfaceGraphNode(nodeName));
+        AddElement(CreateSurfaceGraphNode(nodeName,position));
     }
 
-    public SurfaceGraphNode CreateSurfaceGraphNode(string nodeName)
+    public SurfaceGraphNode CreateSurfaceGraphNode(string nodeName,Vector2 position)
     {
         var surfaceGraphNode = new SurfaceGraphNode
         {
@@ -59,7 +61,7 @@ public class SurfaceGraphView : GraphView
         
         surfaceGraphNode.RefreshExpandedState();
         surfaceGraphNode.RefreshPorts();
-        surfaceGraphNode.SetPosition(new Rect(Vector2.zero,kDefaultNodeSize));
+        surfaceGraphNode.SetPosition(new Rect(position,kDefaultNodeSize));
         
         
         return surfaceGraphNode;
@@ -168,6 +170,16 @@ public class SurfaceGraphView : GraphView
         node.outputContainer.Remove(port);
         node.RefreshPorts();
         node.RefreshExpandedState();
+    }
+
+    private void AddSearchWindow(EditorWindow window)
+    {
+        _searchWindow = ScriptableObject.CreateInstance<SurfaceGraphNodeSearchWindow>();
+        _searchWindow.Init(window,this);
+        nodeCreationRequest = (context) =>
+        {
+            SearchWindow.Open(new SearchWindowContext(context.screenMousePosition), _searchWindow);
+        };
     }
 
 }

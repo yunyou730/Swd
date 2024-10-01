@@ -35,7 +35,7 @@ public class SurfaceGraphWindow : EditorWindow
     
     private void ConstructGraphView()
     {
-        _graphView = new SurfaceGraphView
+        _graphView = new SurfaceGraphView(this)
         {
             name = "Surface Graph"
         };
@@ -65,7 +65,7 @@ public class SurfaceGraphWindow : EditorWindow
         // Create node button
         var nodeCreateButton = new Button(() =>
         {
-            _graphView.CreateNode("Surface Node");
+            _graphView.CreateNode("Surface Node",Vector2.zero);
         });
         nodeCreateButton.text = "Create Node";
         toolbar.Add(nodeCreateButton);

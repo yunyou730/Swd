@@ -105,7 +105,7 @@ public class SurfaceGraphSaveUtility
         foreach(var nodeData in _containerCache.NodeData)
         {
             // Create the node
-            var tempNode = _targetGraphView.CreateSurfaceGraphNode(nodeData.InfoText);
+            var tempNode = _targetGraphView.CreateSurfaceGraphNode(nodeData.InfoText,Vector2.zero);
             tempNode.GUID = nodeData.Guid;
             _targetGraphView.AddElement(tempNode);
             
