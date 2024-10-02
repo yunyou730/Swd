@@ -27,6 +27,25 @@ public class SurfaceGraphSaveUtility
     public void SaveGraph(string fileName)
     {
         var dataContainer = ScriptableObject.CreateInstance<SurfaceGraphDataContainer>();
+        SaveNodes(dataContainer);
+        SaveExposedProperties(dataContainer);
+        
+        
+        // Write file
+        if (!Directory.Exists("Assets/Resources"))
+        {
+            Directory.CreateDirectory("Assets/Resources");
+        }
+        
+        AssetDatabase.CreateAsset(dataContainer,$"Assets/Resources/{fileName}.asset");
+        AssetDatabase.SaveAssets();
+    }
+    
+    
+    private bool SaveNodes(SurfaceGraphDataContainer dataContainer)
+    {
+        if (!Edges.Any()) return false;
+        
         
         // Save edges
         Edge[] connectedPortEdges = Edges.Where((e) => { return e.input.node != null; }).ToArray();
@@ -56,14 +75,13 @@ public class SurfaceGraphSaveUtility
         }
             
         
-        // Write file
-        if (!Directory.Exists("Assets/Resources"))
-        {
-            Directory.CreateDirectory("Assets/Resources");
-        }
-        
-        AssetDatabase.CreateAsset(dataContainer,$"Assets/Resources/{fileName}.asset");
-        AssetDatabase.SaveAssets();
+        return true;
+    }
+
+
+    private void SaveExposedProperties(SurfaceGraphDataContainer dataContainer)
+    {
+        dataContainer.ExposedProperties.AddRange(_targetGraphView.ExposedProperties);
     }
 
     public void LoadGraph(string fileName)
@@ -78,6 +96,7 @@ public class SurfaceGraphSaveUtility
         ClearGraph();
         CreateNodes();
         ConnectNodes();
+        CreateExposedProperties();
     }
     
     // Remove all nodes and edges, except EntryPoint node
@@ -173,5 +192,18 @@ public class SurfaceGraphSaveUtility
         
         _targetGraphView.Add(tempEdge);
     }
+
+    private void CreateExposedProperties()
+    {   
+        // Clear Existing properties on hod-reload
+        _targetGraphView.ClearBlackBoardAndExposedProperties();
+        
+        // Add properties from data
+        foreach (var property in _containerCache.ExposedProperties)
+        {
+            _targetGraphView.AddPropertyToBlackBoard(property);
+        }
+    }
+
 
 }

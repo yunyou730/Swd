@@ -12,5 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8c8099ff5892a458b339d92f736077, type: 3}
   m_Name: my surface graph
   m_EditorClassIdentifier: 
-  NodeData: []
-  NodeLinks: []
+  NodeData:
+  - Guid: 3a92e360-dd5c-45d1-9055-014e00a40f93
+    InfoText: Surface Node
+    Position: {x: 463, y: 218}
+  NodeLinks:
+  - BaseNodeGuid: 8decf079-bebf-433d-a81e-3df341357451
+    PortName: Next
+    TargetNodeGuid: 3a92e360-dd5c-45d1-9055-014e00a40f93
+  ExposedProperties:
+  - PropertyName: new string
+    PropertyValue: new value
+  - PropertyName: new string(1)
+    PropertyValue: new value

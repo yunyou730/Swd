@@ -184,7 +184,12 @@ public class SurfaceGraphView : GraphView
         };
     }
 
-
+    public void ClearBlackBoardAndExposedProperties()
+    {
+        ExposedProperties.Clear();
+        _blackboard.Clear();
+    }
+    
     public void AddPropertyToBlackBoard(SurfaceGraphExposedProperty exposedProperty)
     {
 

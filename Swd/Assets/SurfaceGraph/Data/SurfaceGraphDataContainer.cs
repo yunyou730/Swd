@@ -8,4 +8,5 @@ public class SurfaceGraphDataContainer : ScriptableObject
 {
     public List<SurfaceGraphNodeData> NodeData = new List<SurfaceGraphNodeData>();
     public List<SurfaceGraphLinkData> NodeLinks = new List<SurfaceGraphLinkData>();
+    public List<SurfaceGraphExposedProperty> ExposedProperties = new List<SurfaceGraphExposedProperty>();
 }
