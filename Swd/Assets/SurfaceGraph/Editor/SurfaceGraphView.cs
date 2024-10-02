@@ -187,10 +187,17 @@ public class SurfaceGraphView : GraphView
 
     public void AddPropertyToBlackBoard(SurfaceGraphExposedProperty exposedProperty)
     {
+
+        var localPropertyName = exposedProperty.PropertyName;
+        var localPropertyValue = exposedProperty.PropertyValue;
+        while (ExposedProperties.Any(x=>x.PropertyName == localPropertyName))
+            localPropertyName = $"{localPropertyName}(1)";
+
+
         var property = new SurfaceGraphExposedProperty()
         {
-            PropertyName = exposedProperty.PropertyName,
-            PropertyValue = exposedProperty.PropertyValue,
+            PropertyName = localPropertyName,
+            PropertyValue = localPropertyValue,
         };
         ExposedProperties.Add(property);
 
@@ -210,7 +217,7 @@ public class SurfaceGraphView : GraphView
         propertyValueTextField.RegisterValueChangedCallback(evt =>
         {
             var chagingIndex = ExposedProperties.FindIndex(
-                x => x.PropertyName == exposedProperty.PropertyName
+                x => x.PropertyName == property.PropertyName
             );
             ExposedProperties[chagingIndex].PropertyValue = evt.newValue;
         });
