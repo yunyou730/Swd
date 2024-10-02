@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
@@ -99,6 +100,21 @@ public class SurfaceGraphWindow : EditorWindow
         {
             _graphView.AddPropertyToBlackBoard(new SurfaceGraphExposedProperty());
         };
+        blackboard.editTextRequested = (board,element,newValue) =>
+        {
+            var oldPropertyName = ((BlackboardField)element).text;
+            if (_graphView.ExposedProperties.Any(x=>x.PropertyName == oldPropertyName))
+            {
+                EditorUtility.DisplayDialog("Error", "This property name already exists,pleasse enter another one.",
+                    "OK");
+                return;
+            }
+
+            var propertyIndex = _graphView.ExposedProperties.FindIndex(x=>x.PropertyName == oldPropertyName);
+            _graphView.ExposedProperties[propertyIndex].PropertyName = newValue;
+            ((BlackboardField)element).text = newValue;
+        };
+
         blackboard.SetPosition(new Rect(10,30,200,300));
 
         _graphView._blackboard = blackboard;
