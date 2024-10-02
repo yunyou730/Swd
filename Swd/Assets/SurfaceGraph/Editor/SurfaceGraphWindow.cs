@@ -26,6 +26,7 @@ public class SurfaceGraphWindow : EditorWindow
         ConstructGraphView();
         GenerateToolbar();
         GenerateMinimap();
+        GenerateBlackboard();
     }
 
     private void OnDisable()
@@ -75,8 +76,33 @@ public class SurfaceGraphWindow : EditorWindow
     private void GenerateMinimap()
     {
         var minimap = new MiniMap() { anchored = true, };
-        minimap.SetPosition(new Rect(10,30,200,140));
+
+        //int w = (int)this.rootVisualElement.contentContainer.contentRect.width;   
+        //var coords = _graphView.contentViewContainer.WorldToLocal(new Vector2(maxSize.x - 10,30));
+        // int w = (int)_graphView.contentViewContainer.contentRect.width;
+        // float w = this.position.width;
+        //var coords = _graphView.contentViewContainer.WorldToLocal(new Vector2(w - 10,30));
+        var coords = _graphView.contentViewContainer.WorldToLocal(new Vector2(10,30));
+        minimap.SetPosition(new Rect(coords.x,coords.y,200,140));
         _graphView.Add(minimap);
+    }
+
+    private void GenerateBlackboard()
+    {
+        var blackboard = new Blackboard(_graphView);
+        blackboard.Add(new BlackboardSection()
+        {
+            title = "Exposed Properties",
+        });
+
+        blackboard.addItemRequested = (board) =>
+        {
+            _graphView.AddPropertyToBlackBoard(new SurfaceGraphExposedProperty());
+        };
+        blackboard.SetPosition(new Rect(10,30,200,300));
+
+        _graphView._blackboard = blackboard;
+        _graphView.Add(blackboard);
     }
 
     private void RequestDataOperation(bool bSave)

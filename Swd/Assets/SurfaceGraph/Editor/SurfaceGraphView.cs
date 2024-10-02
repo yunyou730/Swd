@@ -10,8 +10,10 @@ using UnityEngine.UIElements;
 public class SurfaceGraphView : GraphView
 {
     public readonly Vector2 kDefaultNodeSize = new Vector2(200,200);
+    public List<SurfaceGraphExposedProperty> ExposedProperties = new List<SurfaceGraphExposedProperty>();
+    public Blackboard _blackboard = null;
     private SurfaceGraphNodeSearchWindow _searchWindow = null;
-
+        
 
     public SurfaceGraphView(EditorWindow editorWindow)
     {
@@ -180,6 +182,44 @@ public class SurfaceGraphView : GraphView
         {
             SearchWindow.Open(new SearchWindowContext(context.screenMousePosition), _searchWindow);
         };
+    }
+
+
+    public void AddPropertyToBlackBoard(SurfaceGraphExposedProperty exposedProperty)
+    {
+        var property = new SurfaceGraphExposedProperty()
+        {
+            PropertyName = exposedProperty.PropertyName,
+            PropertyValue = exposedProperty.PropertyValue,
+        };
+        ExposedProperties.Add(property);
+
+
+        var container = new VisualElement();
+        var blackboardField = new BlackboardField()
+        {
+            text = property.PropertyName,
+            typeText = "string property"
+        };
+
+        var propertyValueTextField = new TextField()
+        {
+            value = property.PropertyValue
+        };
+
+        propertyValueTextField.RegisterValueChangedCallback(evt =>
+        {
+            var chagingIndex = ExposedProperties.FindIndex(
+                x => x.PropertyName == exposedProperty.PropertyName
+            );
+            ExposedProperties[chagingIndex].PropertyValue = evt.newValue;
+        });
+
+        var blackBoardValueRow = new BlackboardRow(blackboardField,propertyValueTextField);
+        
+        
+        container.Add(blackBoardValueRow);
+        _blackboard.Add(container);
     }
 
 }

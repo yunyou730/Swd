@@ -69,6 +69,7 @@
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphDataContainer.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActionController.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActor.cs" />
+    <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphExposedProperty.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphLinkData.cs" />
