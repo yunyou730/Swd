@@ -1,4 +1,5 @@
 ﻿using System;
+using clash.gameplay.Utilities;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -61,12 +62,7 @@ namespace clash.gameplay.GameObject
             {
                 for (int z = 0;z < height;z++)
                 {
-                    Vector3 center = new Vector3(x,0,z);
-                    
-                    // vertices[vertIndex] = new Vector3(-x,0,-z) * 0.5f;
-                    // vertices[vertIndex + 1] = new Vector3( x,0,-z) * 0.5f;
-                    // vertices[vertIndex + 2] = new Vector3( x,0, z) * 0.5f;
-                    // vertices[vertIndex + 3] = new Vector3(-x,0, z) * 0.5f;
+                    Vector3 center = ClashUtility.GetPositionAtTile(x, z);
 
                     vertices[vertIndex] = center + new Vector3(-1, 0, -1) * 0.5f;
                     vertices[vertIndex + 1] = center + new Vector3(1, 0, -1) * 0.5f;
