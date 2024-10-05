@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Swd\Gameplay\camera\CameraController.cs" />
+    <Compile Include="Assets\Scripts\ResManager\LoadWithLabel.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\ClashWorld.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMapper.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\IJsonWrapper.cs" />
     <Compile Include="Assets\Scripts\Swd\Config\ActorEnums.cs" />
@@ -53,25 +55,31 @@
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\Swd\Config\ActorConstants.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Lexer.cs" />
+    <Compile Include="Assets\Scripts\ResManager\LoadWithReference.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\GameplayData.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\ClashBaseEntity.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\ClashGameEnum.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonData.cs" />
-    <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithAddress.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\ClashBaseWorld.cs" />
     <Compile Include="Assets\Scripts\Swd\SwdGame.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterController.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\ParserToken.cs" />
-    <Compile Include="Assets\Scripts\Swd\ResManager\ResManager.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\Systems\SceneCreationSystem.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\Components\ClashBaseComponent.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphNodeData.cs" />
-    <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithLabel.cs" />
-    <Compile Include="Assets\Scripts\Swd\ResManager\LoadWithReference.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMockWrapper.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\GameplayManager.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphDataContainer.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActionController.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\ClashGame.cs" />
+    <Compile Include="Assets\Scripts\ResManager\LoadWithAddress.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActor.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\Systems\ClashBaseSystem.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphExposedProperty.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />
+    <Compile Include="Assets\Scripts\ResManager\ResManager.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphLinkData.cs" />
     <None Include="Library\PackageCache\com.unity.burst@1.8.16\package.json" />
     <None Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\package.json" />

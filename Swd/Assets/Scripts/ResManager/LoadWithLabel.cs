@@ -23,6 +23,7 @@ public class LoadWithLabel : MonoBehaviour
                 {
                     x = 0;
                     z++;
+                    
                 }
             }
         }, Addressables.MergeMode.Union,false);
