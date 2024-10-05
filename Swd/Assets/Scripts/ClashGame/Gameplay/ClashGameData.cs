@@ -9,5 +9,6 @@ namespace clash.gameplay
         public string SceneName;
         public int GridWidth;
         public int GridHeight;
+        public bool EnableDebugGrid;
     }
 }

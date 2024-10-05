@@ -1,12 +1,13 @@
 ﻿using System;
+using UnityEngine;
 
-namespace clash.gameplay.WorldComponents
+namespace clash.gameplay
 {
     public class ClashBaseWorldComponent : IDisposable
     {
-        public void Dispose()
+        public virtual void Dispose()
         {
-            
+            Debug.Log("ClashBaseWorldComponent::Dispose()");
         }
     }
 }

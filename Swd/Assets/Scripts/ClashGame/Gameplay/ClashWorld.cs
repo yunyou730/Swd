@@ -25,8 +25,10 @@ namespace clash.gameplay
         
         private void InitWorldComponents()
         {
-            // @miao @todo
-            
+            var gameStart = CreateWorldComponent<GameStartWorldComponent>();
+            gameStart.SceneName = _gameData.SceneName;
+            gameStart.GridWidth = _gameData.GridWidth;
+            gameStart.GridHeight = _gameData.GridHeight;
         }
         
         private void InitSystems()
@@ -36,7 +38,7 @@ namespace clash.gameplay
             _updatableSystems = new List<IUpdateSystem>();
             _tickableSystems = new List<ITickSystem>();
             
-            RegisterSystem(new SceneCreationSystem());
+            RegisterSystem(new SceneCreationSystem(this));
         }
 
         private void RegisterSystem(ClashBaseSystem system)
@@ -60,12 +62,18 @@ namespace clash.gameplay
 
         public override void OnStart()
         {
-            
+            foreach (var sys in _startableSystems)
+            {
+                sys.OnStart();
+            }
         }
 
         public override void OnUpdate(float deltaTime)
         {
-            
+            foreach(var sys in _updatableSystems)
+            {
+                sys.OnUpdate(deltaTime);
+            }
         }
 
         public void Dispose()

@@ -70,6 +70,8 @@
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Systems\SceneCreationSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Components\ClashBaseComponent.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphNodeData.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\GameObject\DebugGrid.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\GameStartWorldComp.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMockWrapper.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\GameplayManager.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphDataContainer.cs" />

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: ClashGameData_1
   m_EditorClassIdentifier: 
   SceneName: test1
-  GridWidth: 8
-  GridHeight: 12
+  GridWidth: 17
+  GridHeight: 30
+  EnableDebugGrid: 1
