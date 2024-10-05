@@ -12,12 +12,23 @@ namespace clash.gameplay
         private List<IStartSystem> _startableSystems = null;
         private List<IUpdateSystem> _updatableSystems = null;
         private List<ITickSystem> _tickableSystems = null;
+        
+        private ClashGameData _gameData = null;
 
-        public void Start()
+        public void Start(ClashGameData gameData)
         {
+            _gameData = gameData;
+            
+            InitWorldComponents();
             InitSystems();
         }
-
+        
+        private void InitWorldComponents()
+        {
+            // @miao @todo
+            
+        }
+        
         private void InitSystems()
         {
             _systems = new List<ClashBaseSystem>();
@@ -45,13 +56,25 @@ namespace clash.gameplay
                 _tickableSystems.Add((ITickSystem)system);
             }
         }
-        
+
+
+        public override void OnStart()
+        {
+            
+        }
+
+        public override void OnUpdate(float deltaTime)
+        {
+            
+        }
+
         public void Dispose()
         {
             base.Dispose();
             Debug.Log("ClashWorld::Dispose()");
             
             DisposeAllSystems();
+            _gameData = null;
         }
 
         private void DisposeAllSystems()

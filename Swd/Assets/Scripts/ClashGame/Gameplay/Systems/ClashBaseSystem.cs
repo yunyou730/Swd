@@ -4,20 +4,20 @@
     {
         public abstract void Dispose();
     }
+    
+    
+    public interface IStartSystem
+    {
+        void OnStart();
+    }
 
     public interface IUpdateSystem
     {
-        void Update(float deltaTime);
+        void OnUpdate(float deltaTime);
     }
 
     public interface ITickSystem
     {
-        void Tick(int frameIndex);
+        void OnTick(int frameIndex);
     }
-
-    public interface IStartSystem
-    {
-        void Start();
-    }
-
 }

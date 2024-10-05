@@ -50,6 +50,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8eb8c27cbecc4a84ca1a987e53458f00
+    m_Address: Assets/Resources_moved/clashgame/data/ClashGameData_1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21755258f99a0594288cc615b026dcd3
+    m_Address: Assets/Resources_moved/clashgame/data/ClashGameData_2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1e4692e58b2dfb74fa30cb0946e47401, type: 2}
   m_SchemaSet:

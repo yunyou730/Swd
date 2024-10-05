@@ -2,11 +2,10 @@
 {
     public class SceneCreationSystem : ClashBaseSystem, IStartSystem
     {
-        public void Start()
+        public void OnStart()
         {
-            // GenerateSceneTerrain();
-            // GenerateSceneDecoration();
-            // GenerateTowers();
+            GenerateSceneTerrain();
+            GenerateSceneDecoration();
         }
 
         public override void Dispose()
@@ -20,11 +19,6 @@
         }
         
         private void GenerateSceneDecoration()
-        {
-            
-        }
-        
-        private void GenerateTowers()
         {
             
         }
