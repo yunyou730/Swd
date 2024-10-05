@@ -60,6 +60,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34a09b87b0ea2704c82706efc1d52d29
+    m_Address: Assets/Resources_moved/clashgame/scenes/grid_debugger/GridDebugger
+      Variant.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 1e4692e58b2dfb74fa30cb0946e47401, type: 2}
   m_SchemaSet:

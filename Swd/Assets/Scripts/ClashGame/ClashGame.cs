@@ -16,7 +16,12 @@ namespace clash
         // private ClashGameEnum.EClashGameState _state = ClashGameEnum.EClashGameState.Ready;
         private ClashWorld _world = null;
         private ResManager _resManager = null;
+        
 
+        private void Awake()
+        {
+            
+        }
 
         public void Start()
         {
@@ -25,20 +30,26 @@ namespace clash
             var gameData2 = _resManager.GetAsset<ClashGameData>("Assets/Resources_moved/clashgame/data/ClashGameData_2.asset");
             
             _world = new ClashWorld();
-            _world.Start(gameData1);
+            _world.Start(gameData1,gameObject,_resManager);
             _world.OnStart();
         }
         
         private void Update()
         {
-            float dt = Time.deltaTime;
-            _world.OnUpdate(dt);
+            if (_world != null)
+            {
+                float dt = Time.deltaTime;
+                _world.OnUpdate(dt);
+            }
         }
 
         public void OnDestroy()
         {
-            _world.Dispose();
-            _world = null;
+            if (_world != null)
+            {
+                _world.Dispose();
+                _world = null;    
+            }
         }
 
 
@@ -47,11 +58,11 @@ namespace clash
             return _resManager;
         }
         
-        [ConsoleMethod( "cube", "Creates a cube at specified position" )]
-        public static void CreateCubeAt( Vector3 position )
-        {
-            GameObject.CreatePrimitive( PrimitiveType.Cube ).transform.position = position;
-        }
+        // [ConsoleMethod( "cube", "Creates a cube at specified position" )]
+        // public static void CreateCubeAt( Vector3 position )
+        // {
+        //     GameObject.CreatePrimitive( PrimitiveType.Cube ).transform.position = position;
+        // }
         
     }
 }

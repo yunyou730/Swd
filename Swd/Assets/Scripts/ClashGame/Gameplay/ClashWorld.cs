@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using swd;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,17 +8,27 @@ namespace clash.gameplay
 {
     public class ClashWorld : ClashBaseWorld
     {
+        private ResManager _resManager = null;
+        public ResManager ResManager { get { return _resManager; } }
+        
+        // All Systems
         private List<ClashBaseSystem> _systems = null;
-
+        
         private List<IStartSystem> _startableSystems = null;
         private List<IUpdateSystem> _updatableSystems = null;
         private List<ITickSystem> _tickableSystems = null;
         
+        // Initialize data
         private ClashGameData _gameData = null;
+        private UnityEngine.GameObject _rootGameObject = null;
+        public ClashGameData GameData { get { return this._gameData; } }
+        public UnityEngine.GameObject RootGameObject { get { return _rootGameObject; } }
 
-        public void Start(ClashGameData gameData)
+        public void Start(ClashGameData gameData,UnityEngine.GameObject rootGameObject,ResManager resManager)
         {
             _gameData = gameData;
+            _rootGameObject = rootGameObject;
+            _resManager = resManager;
             
             InitWorldComponents();
             InitSystems();
