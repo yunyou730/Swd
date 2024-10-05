@@ -688,6 +688,10 @@
       <Project>{ee68f592-e8f4-e1b9-63f6-2740d88f411d}</Project>
       <Name>Unity.Addressables.Player</Name>
     </ProjectReference>
+    <ProjectReference Include="IngameDebugConsole.Runtime.Player.csproj">
+      <Project>{75daf896-6c3f-ab29-a895-59b8294be88c}</Project>
+      <Name>IngameDebugConsole.Runtime.Player</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Burst.Player.csproj">
       <Project>{84635139-8aba-0170-e887-28aad2b7f28d}</Project>
       <Name>Unity.Burst.Player</Name>
