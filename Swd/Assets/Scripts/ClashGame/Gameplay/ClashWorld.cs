@@ -23,13 +23,16 @@ namespace clash.gameplay
         private ClashGameData _gameData = null;
         private ClashConfig _clashConfig = null;
         private ClashAllUnitsConfig _allUnits = null;
-        // private ClashCfgUnits _unitsConfig = null;
+        public ClashAllUnitsConfig AllUnitsCfg { get { return _allUnits; } }
         private UnityEngine.GameObject _rootGameObject = null;
 
         // Root GameObject
         public UnityEngine.GameObject RootGameObject { get { return _rootGameObject; } }
+        
+        
+        
 
-
+        // FPS & Tick Logic
         private float _logicFPS = 16.0f;
         private float _logicDeltaTime = 0.0f;
         private float _deltaTimeCounter = 0.0f;
