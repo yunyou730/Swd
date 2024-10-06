@@ -20,13 +20,16 @@ namespace clash.gameplay
         
         // Initialize data
         private ClashGameData _gameData = null;
+        private ClashConfig _clashConfig = null;
         private UnityEngine.GameObject _rootGameObject = null;
-        public ClashGameData GameData { get { return this._gameData; } }
+        // public ClashGameData GameData { get { return this._gameData; } }
+        // public ClashConfig ClashConfig { get { return _clashConfig; } }
         public UnityEngine.GameObject RootGameObject { get { return _rootGameObject; } }
 
-        public void Start(ClashGameData gameData,UnityEngine.GameObject rootGameObject,ResManager resManager)
+        public void Start(ClashGameData gameData,ClashConfig clashConfig,UnityEngine.GameObject rootGameObject,ResManager resManager)
         {
             _gameData = gameData;
+            _clashConfig = clashConfig;
             _rootGameObject = rootGameObject;
             _resManager = resManager;
             
@@ -40,6 +43,11 @@ namespace clash.gameplay
             gameStart.SceneName = _gameData.SceneName;
             gameStart.GridWidth = _gameData.GridWidth;
             gameStart.GridHeight = _gameData.GridHeight;
+            
+            var clashConfig = CreateWorldComponent<ClashConfigWorldComponent>();
+            clashConfig.TileSize = _clashConfig.kTileSize;
+            clashConfig.TileBaseX = _clashConfig.kTileBaseX;
+            clashConfig.TileBaseZ = _clashConfig.kTileBaseZ;
         }
         
         private void InitSystems()

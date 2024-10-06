@@ -28,9 +28,13 @@ namespace clash
             _resManager = new ResManager();
             var gameData1 = _resManager.GetAsset<ClashGameData>("Assets/Resources_moved/clashgame/data/ClashGameData_1.asset");
             var gameData2 = _resManager.GetAsset<ClashGameData>("Assets/Resources_moved/clashgame/data/ClashGameData_2.asset");
+            var config = _resManager.GetAsset<ClashConfig>("Assets/Resources_moved/clashgame/data/ClashGameConfig.asset");
+
+            var gameData = gameData1;
+            Debug.Assert(gameData != null && config != null);
             
             _world = new ClashWorld();
-            _world.Start(gameData1,gameObject,_resManager);
+            _world.Start(gameData,config,gameObject,_resManager);
             _world.OnStart();
         }
         

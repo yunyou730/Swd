@@ -10,22 +10,20 @@ namespace clash.gameplay.GameObject
     {
         private UnityEngine.GameObject _parentGameObject = null;
         private UnityEngine.GameObject _go = null;
-        // private ClashWorld _world = null;
+        private ClashWorld _world = null;
 
-        public DebugGrid(UnityEngine.GameObject parentGameObject)
+        public DebugGrid(ClashWorld world,UnityEngine.GameObject parentGameObject)
         {
+            _world = world;
             _parentGameObject = parentGameObject;
             _go = new UnityEngine.GameObject("[Clash][DebugGrid]");
             _go.transform.SetParent(_parentGameObject.transform);
         }
 
-        public void BuildMesh(UnityEngine.Material material,GameStartWorldComponent gameStart)
+        public void BuildMesh(UnityEngine.Material material,GameStartWorldComponent gameStart,ClashConfigWorldComponent config)
         {
-            // _world.GameData.GridWidth;
-
-
             // Build Mesh 
-            Mesh mesh = BuildGridMesh(material,gameStart);
+            Mesh mesh = BuildGridMesh(material,gameStart,config);
             
 
             // Mesh
@@ -39,7 +37,7 @@ namespace clash.gameplay.GameObject
         }
 
 
-        private Mesh BuildGridMesh(UnityEngine.Material material,GameStartWorldComponent gameStart)
+        private Mesh BuildGridMesh(UnityEngine.Material material,GameStartWorldComponent gameStart,ClashConfigWorldComponent clashConfig)
         {
             // _world.GameData.GridWidth;
 
@@ -54,20 +52,19 @@ namespace clash.gameplay.GameObject
             int[] triangles = new int[width * height * 6];
             Vector2[] uvs = new Vector2[width * height * 4];
 
-
+            
             int vertIndex = 0;
-            // int triangleIndex = 0;
             int faceIndex = 0;
             for (int x = 0;x < width;x++)
             {
                 for (int z = 0;z < height;z++)
                 {
-                    Vector3 center = ClashUtility.GetPositionAtTile(x, z);
+                    Vector3 center = ClashUtility.GetPositionAtTile(_world,x, z);
 
-                    vertices[vertIndex] = center + new Vector3(-1, 0, -1) * 0.5f;
-                    vertices[vertIndex + 1] = center + new Vector3(1, 0, -1) * 0.5f;
-                    vertices[vertIndex + 2] = center + new Vector3(1, 0, 1) * 0.5f;
-                    vertices[vertIndex + 3] = center + new Vector3(-1, 0, 1) * 0.5f;
+                    vertices[vertIndex] = center + new Vector3(-1, 0, -1) * clashConfig.TileSize * 0.5f;
+                    vertices[vertIndex + 1] = center + new Vector3(1, 0, -1) * clashConfig.TileSize * 0.5f;
+                    vertices[vertIndex + 2] = center + new Vector3(1, 0, 1) * clashConfig.TileSize * 0.5f;
+                    vertices[vertIndex + 3] = center + new Vector3(-1, 0, 1) * clashConfig.TileSize * 0.5f;
 
                     uvs[vertIndex] = new Vector2(0, 0);
                     uvs[vertIndex + 1] = new Vector2(1, 0);
@@ -82,7 +79,6 @@ namespace clash.gameplay.GameObject
                     triangles[faceIndex++] = vertIndex + 2;
 
                     vertIndex += 4;
-                    // triangleIndex += 4;
                 }
             }
             

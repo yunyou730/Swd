@@ -84,9 +84,11 @@
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActor.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Components\PositionComponent.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Systems\ClashBaseSystem.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\ClashConfigWorldComponent.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphExposedProperty.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\Utilities\ClashConfig.cs" />
     <Compile Include="Assets\Scripts\ResManager\ResManager.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphLinkData.cs" />
     <Reference Include="UnityEngine">

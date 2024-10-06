@@ -21,13 +21,12 @@ namespace clash.gameplay
         private void GenerateDebugGrid()
         {
             ClashWorld world = GetWorld<ClashWorld>();
-            
-            _debugGrid = new DebugGrid(world.RootGameObject);
-
-            
             var gameStart = world.GetWorldComponent<GameStartWorldComponent>();
+            var clashConfig = world.GetWorldComponent<ClashConfigWorldComponent>();
             var material = world.ResManager.GetAsset<UnityEngine.Material>("Assets/Resources_moved/clashgame/scenes/grid_debugger/GridDebugger Variant.mat");
-            _debugGrid.BuildMesh(material,gameStart);
+            
+            _debugGrid = new DebugGrid(world,world.RootGameObject);
+            _debugGrid.BuildMesh(material,gameStart,clashConfig);
         }
 
         private void GenerateSceneTerrain()
