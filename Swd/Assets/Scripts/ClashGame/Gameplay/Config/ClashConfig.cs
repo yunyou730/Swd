@@ -9,5 +9,7 @@ namespace clash.gameplay
         public float kTileSize = 1.0f;
         public float kTileBaseX = 0;
         public float kTileBaseZ = 0;
+        
+        public int kLogicFPS = 16;
     }
 }

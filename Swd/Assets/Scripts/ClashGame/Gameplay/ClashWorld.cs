@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using LitJson;
 using swd;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,7 +11,7 @@ namespace clash.gameplay
     {
         private ResManager _resManager = null;
         public ResManager ResManager { get { return _resManager; } }
-        
+
         // All Systems
         private List<ClashBaseSystem> _systems = null;
         
@@ -18,25 +19,48 @@ namespace clash.gameplay
         private List<IUpdateSystem> _updatableSystems = null;
         private List<ITickSystem> _tickableSystems = null;
         
-        // Initialize data
+        // Initialize data & configs
         private ClashGameData _gameData = null;
         private ClashConfig _clashConfig = null;
+        private ClashAllUnitsConfig _allUnits = null;
+        // private ClashCfgUnits _unitsConfig = null;
         private UnityEngine.GameObject _rootGameObject = null;
-        // public ClashGameData GameData { get { return this._gameData; } }
-        // public ClashConfig ClashConfig { get { return _clashConfig; } }
+
+        // Root GameObject
         public UnityEngine.GameObject RootGameObject { get { return _rootGameObject; } }
 
-        public void Start(ClashGameData gameData,ClashConfig clashConfig,UnityEngine.GameObject rootGameObject,ResManager resManager)
+
+        private float _logicFPS = 16.0f;
+        private float _logicDeltaTime = 0.0f;
+        private float _deltaTimeCounter = 0.0f;
+        private int _frameIndex = 0;
+
+        public void Start(ClashGameData gameData,
+                            ClashConfig clashConfig,
+                            JsonData unitsJson,
+                            UnityEngine.GameObject rootGameObject,
+                            ResManager resManager)
         {
             _gameData = gameData;
             _clashConfig = clashConfig;
             _rootGameObject = rootGameObject;
             _resManager = resManager;
+
+            // configs
+            _allUnits = new ClashAllUnitsConfig(this,unitsJson);
             
+            InitLogicFPS(clashConfig);
             InitWorldComponents();
             InitSystems();
         }
-        
+
+
+        private void InitLogicFPS(ClashConfig clashConfig)
+        {
+            _logicFPS = clashConfig.kLogicFPS;
+            _logicDeltaTime = 1.0f / _logicFPS;
+        }
+
         private void InitWorldComponents()
         {
             var gameStart = CreateWorldComponent<GameStartWorldComponent>();
@@ -48,6 +72,8 @@ namespace clash.gameplay
             clashConfig.TileSize = _clashConfig.kTileSize;
             clashConfig.TileBaseX = _clashConfig.kTileBaseX;
             clashConfig.TileBaseZ = _clashConfig.kTileBaseZ;
+            
+            CreateWorldComponent<UnitFactoryWorldComp>();
         }
         
         private void InitSystems()
@@ -56,8 +82,9 @@ namespace clash.gameplay
             _startableSystems = new List<IStartSystem>();
             _updatableSystems = new List<IUpdateSystem>();
             _tickableSystems = new List<ITickSystem>();
-            
+
             RegisterSystem(new SceneCreationSystem(this));
+            RegisterSystem(new UnitCreationSystem(this));
         }
 
         private void RegisterSystem(ClashBaseSystem system)
@@ -89,10 +116,38 @@ namespace clash.gameplay
 
         public override void OnUpdate(float deltaTime)
         {
+            // Debug.Log("[clash]OnUpdate");
             foreach(var sys in _updatableSystems)
             {
                 sys.OnUpdate(deltaTime);
             }
+            
+            HandleForLogicTick(deltaTime);
+        }
+
+        private void HandleForLogicTick(float deltaTime)
+        {
+            _deltaTimeCounter += deltaTime;
+            if (_deltaTimeCounter >= _logicDeltaTime)
+            {
+                int times = (int)(_deltaTimeCounter / _logicDeltaTime);
+                _deltaTimeCounter -= times * _logicDeltaTime;
+                for (var i = 0;i < times;i++)
+                {
+                    OnTick();
+                }
+            }
+        }
+
+
+        private void OnTick()
+        {
+            // Debug.Log("[clash]OnTick");
+            foreach (var sys in _tickableSystems)
+            {
+                sys.OnTick(_frameIndex);
+            }
+            _frameIndex++;
         }
 
         public void Dispose()
@@ -101,7 +156,12 @@ namespace clash.gameplay
             Debug.Log("ClashWorld::Dispose()");
             
             DisposeAllSystems();
+            
+            // dispose configs
             _gameData = null;
+            
+            _allUnits.Dispose();
+            _allUnits = null;
         }
 
         private void DisposeAllSystems()

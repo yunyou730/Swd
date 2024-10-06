@@ -60,7 +60,6 @@
     <Compile Include="Assets\Scripts\ResManager\LoadWithReference.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Debug\ClashConsole.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\GameplayData.cs" />
-    <Compile Include="Assets\Scripts\ClashGame\Gameplay\Config\ClashCfgUnits.cs" />
     <Compile Include="Assets\Scripts\ClashGame\ClashGameEnum.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonData.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\ClashBaseWorld.cs" />
@@ -70,10 +69,12 @@
     <Compile Include="Assets\Scripts\3rd\LitJson\ParserToken.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Config\ClashCfgUnitEntry.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\Config\ClashAllUnitsConfig.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Systems\SceneCreationSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Components\ClashBaseComponent.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphNodeData.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\GameObject\DebugGrid.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\Systems\UnitCreationSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\GameStartWorldComp.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Config\ClashConfig.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMockWrapper.cs" />
@@ -88,12 +89,14 @@
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Components\PositionComponent.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Systems\ClashBaseSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\ClashConfigWorldComponent.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\UnitFactoryWorldComp.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphExposedProperty.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />
     <Compile Include="Assets\Scripts\ResManager\ResManager.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphLinkData.cs" />
     <None Include="Library\PackageCache\com.unity.burst@1.8.16\package.json" />
+    <None Include="Assets\Resources_moved\clashgame\config\unit\units.json" />
     <None Include="Library\PackageCache\com.unity.ext.nunit@1.0.6\package.json" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\package.json" />
     <None Include="Library\PackageCache\com.unity.timeline@1.7.6\package.json" />

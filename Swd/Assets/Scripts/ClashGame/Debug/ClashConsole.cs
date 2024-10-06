@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using clash.gameplay;
+using UnityEngine;
 using IngameDebugConsole;
 
 namespace clash.debug
@@ -10,6 +11,19 @@ namespace clash.debug
         {
             Debug.Log("test1");
             GameObject.CreatePrimitive( PrimitiveType.Cube ).transform.position = position;
+        }
+
+        [ConsoleMethod("CreateUnitAt","Create Unit at Tile")]
+        public static void CreateUnitAt(string unitTag,int tileX,int tileY)
+        {
+            GameObject go = GameObject.Find("ClashGame");
+            if (go != null)
+            {
+                var clashGame = go.GetComponent<ClashGame>();
+                var world = clashGame.World;
+                var unitFactory = world.GetWorldComponent<UnitFactoryWorldComp>();
+                unitFactory.Datas.Add(new UnitGenerateData(unitTag,tileX,tileY));
+            }
         }
     }
 }
