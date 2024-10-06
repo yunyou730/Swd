@@ -22,8 +22,8 @@ namespace clash.gameplay
         // Initialize data & configs
         private ClashGameData _gameData = null;
         private ClashConfig _clashConfig = null;
-        private ClashAllUnitsConfig _allUnits = null;
-        public ClashAllUnitsConfig AllUnitsCfg { get { return _allUnits; } }
+        private ClashAllUnitsConfig _allUnitsConfig = null;
+        public ClashAllUnitsConfig AllUnitsCfg { get { return _allUnitsConfig; } }
         private UnityEngine.GameObject _rootGameObject = null;
 
         // Root GameObject
@@ -50,7 +50,7 @@ namespace clash.gameplay
             _resManager = resManager;
 
             // configs
-            _allUnits = new ClashAllUnitsConfig(this,unitsJson);
+            _allUnitsConfig = new ClashAllUnitsConfig(this,unitsJson);
             
             InitLogicFPS(clashConfig);
             InitWorldComponents();
@@ -153,7 +153,7 @@ namespace clash.gameplay
             _frameIndex++;
         }
 
-        public void Dispose()
+        public new void Dispose()
         {
             base.Dispose();
             Debug.Log("ClashWorld::Dispose()");
@@ -163,8 +163,8 @@ namespace clash.gameplay
             // dispose configs
             _gameData = null;
             
-            _allUnits.Dispose();
-            _allUnits = null;
+            _allUnitsConfig.Dispose();
+            _allUnitsConfig = null;
         }
 
         private void DisposeAllSystems()

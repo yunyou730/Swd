@@ -26,6 +26,7 @@ namespace clash.gameplay
         public ClashBaseEntity CreateEntity()
         {
             var entity = new ClashBaseEntity(++_uuidSeed);
+            _entityMap.Add(entity.UUID,entity);
             return entity;
         }
 
@@ -38,7 +39,6 @@ namespace clash.gameplay
 
         public T GetWorldComponent<T>() where T:ClashBaseWorldComponent
         {
-            ClashBaseWorldComponent result = null;
             return (T)_worldComponentMap[typeof(T)];
         }
 

@@ -5,11 +5,9 @@ namespace clash.gameplay
 {
     public class UnitCreationSystem:ClashBaseSystem, IStartSystem,ITickSystem
     {
-        UnitFactoryWorldComp _unitFactory = null;
-        
+        private UnitFactoryWorldComp _unitFactory = null;
         private ClashWorld _clashWorld = null;
-        private ResManager _resManager = null;
-        
+
         public UnitCreationSystem(ClashBaseWorld world) : base(world)
         {
             _unitFactory = world.GetWorldComponent<UnitFactoryWorldComp>();
@@ -50,6 +48,15 @@ namespace clash.gameplay
             
             UnityEngine.Vector3 pos = ClashUtility.GetPositionAtTile(_clashWorld, data.TileX, data.TileY);
             go.transform.position = pos;
+            
+            ClashBaseEntity entity = _world.CreateEntity();
+            var gfxComp = entity.AttachComponent<GfxComponent>();
+            var posComp = entity.AttachComponent<PositionComponent>();
+            var rotComp = entity.AttachComponent<RotationComponent>();
+            
+            gfxComp.GO = go;
+            posComp.Pos = pos;
+            rotComp.Degree = 0.0f;
         }
     }
 }

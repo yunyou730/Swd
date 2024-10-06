@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.XR;
+using Object = UnityEngine.Object;
 
 namespace swd
 {
@@ -18,6 +19,7 @@ namespace swd
         public ResManager()
         {
             _cache = new Dictionary<string, AsyncOperationHandle<GameObject>>();
+            _anyCache = new Dictionary<string, AsyncOperationHandle<Object>>();
         }
         
         public void PreloadAssetList(List<string> assetList,Action callback)
@@ -63,11 +65,20 @@ namespace swd
             }
         }
         
-        public T GetAsset<T>(string key)
+        public T GetAsset<T>(string key) where T:UnityEngine.Object
         {
-            AsyncOperationHandle<T> handle = Addressables.LoadAssetAsync<T>(key);
-            handle.WaitForCompletion();
-            return handle.Result;
+            if (_anyCache.ContainsKey(key))
+            {
+                AsyncOperationHandle<UnityEngine.Object> handle = _anyCache[key];
+                handle.WaitForCompletion();
+                return (T)handle.Result;
+            }
+            else
+            {
+                AsyncOperationHandle<T> handle = Addressables.LoadAssetAsync<T>(key);
+                handle.WaitForCompletion();
+                return handle.Result;    
+            }
         }
 
         public void ReleaseCache()
@@ -77,6 +88,12 @@ namespace swd
                 Addressables.Release(handle);
             }
             _cache.Clear();
+
+            foreach (var handle in _anyCache.Values)
+            {
+                Addressables.Release(handle);
+            }
+            _anyCache.Clear();
         }
         
     }

@@ -5,7 +5,7 @@ namespace clash.gameplay
 {
     public abstract class ClashBaseComponent : IDisposable
     {
-        public void Dispose()
+        public virtual void Dispose()
         {
             Debug.Log("ClashBaseComponent::Dispose()");
         }

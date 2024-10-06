@@ -59,6 +59,7 @@ namespace clash
                 _world.Dispose();
                 _world = null;    
             }
+            _resManager.ReleaseCache();
         }
 
 

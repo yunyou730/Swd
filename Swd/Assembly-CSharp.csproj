@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Entities\ClashBaseEntity.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterController.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\ParserToken.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\Components\GfxComponent.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Config\ClashCfgUnitEntry.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Config\ClashAllUnitsConfig.cs" />
