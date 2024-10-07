@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using clash.gameplay;
+using clash.ui;
 using IngameDebugConsole;
 using LitJson;
 using swd;
@@ -16,31 +17,28 @@ namespace clash
         // private ClashGameEnum.EClashGameState _state = ClashGameEnum.EClashGameState.Ready;
         private ClashWorld _world = null;
         private ResManager _resManager = null;
+        private MenuManager _menuManager = null;
+
+        public static ClashGame Instance = null;
+        public ResManager ResManager { get { return _resManager; } }
+        public MenuManager MenuManager { get { return _menuManager; } }
+        
         
         public ClashWorld World { get { return _world; } }
         
 
         private void Awake()
         {
-            
+            Instance = this;
         }
 
         public void Start()
         {
             _resManager = new ResManager();
-            var gameData1 = _resManager.GetAsset<ClashGameData>("Assets/Resources_moved/clashgame/data/ClashGameData_1.asset");
-            // var gameData2 = _resManager.GetAsset<ClashGameData>("Assets/Resources_moved/clashgame/data/ClashGameData_2.asset");
-            var config = _resManager.GetAsset<ClashConfig>("Assets/Resources_moved/clashgame/data/ClashGameConfig.asset");
+            _menuManager = new MenuManager(gameObject);
             
-            TextAsset textAsset = _resManager.GetAsset<TextAsset>("Assets/Resources_moved/clashgame/config/unit/units.json");
-            LitJson.JsonData unitsJsonData = JsonMapper.ToObject(textAsset.text);
-
-            var gameData = gameData1;
-            Debug.Assert(gameData != null && config != null);
-            
-            _world = new ClashWorld();
-            _world.Start(gameData,config,unitsJsonData,gameObject,_resManager);
-            _world.OnStart();
+            StartGame();
+            ShowGameMenu();
         }
         
         private void Update()
@@ -59,7 +57,14 @@ namespace clash
                 _world.Dispose();
                 _world = null;    
             }
+            
+            _menuManager.Dispose();
+            _menuManager = null;
+            
             _resManager.ReleaseCache();
+            _resManager = null;
+            
+            Instance = null;
         }
 
 
@@ -67,12 +72,29 @@ namespace clash
         {
             return _resManager;
         }
-        
-        // [ConsoleMethod( "cube", "Creates a cube at specified position" )]
-        // public static void CreateCubeAt( Vector3 position )
-        // {
-        //     GameObject.CreatePrimitive( PrimitiveType.Cube ).transform.position = position;
-        // }
-        
+
+        private void StartGame()
+        {
+            var gameData1 = _resManager.GetAsset<ClashGameData>("Assets/Resources_moved/clashgame/data/ClashGameData_1.asset");
+            // var gameData2 = _resManager.GetAsset<ClashGameData>("Assets/Resources_moved/clashgame/data/ClashGameData_2.asset");
+            var config = _resManager.GetAsset<ClashConfig>("Assets/Resources_moved/clashgame/data/ClashGameConfig.asset");
+            
+            TextAsset textAsset = _resManager.GetAsset<TextAsset>("Assets/Resources_moved/clashgame/config/unit/units.json");
+            LitJson.JsonData unitsJsonData = JsonMapper.ToObject(textAsset.text);
+
+            var gameData = gameData1;
+            Debug.Assert(gameData != null && config != null);
+            
+            _world = new ClashWorld();
+            _world.Start(gameData,config,unitsJsonData,gameObject,_resManager);
+            _world.OnStart();           
+        }
+
+
+        private void ShowGameMenu()
+        {
+            _menuManager.ShowMenu(EMenuType.GameplayDebug);
+        }
+
     }
 }

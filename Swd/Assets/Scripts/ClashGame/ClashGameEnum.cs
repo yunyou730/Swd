@@ -1,13 +1,21 @@
 ﻿namespace clash
 {
-    public class ClashGameEnum
+    public enum EClashGameState
     {
-        public enum EClashGameState
-        {
-            Loading,
-            Ready,
-            Playing,
-            Ending,
-        }
+        Loading,
+        Ready,
+        Playing,
+        Ending,
     }
+
+
+    public enum EMenuType
+    {
+        GameplayDebug,
+    }
+    
+    // public class ClashGameEnum
+    // {
+    //     
+    // }
 }

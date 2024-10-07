@@ -25,5 +25,29 @@ namespace clash.debug
                 unitFactoryMeta.Datas.Add(new UnitGenerateData(unitTag,tileX,tileY));
             }
         }
+
+        [ConsoleMethod("ShowMenu","ShowMenu")]
+        public static void ShowMenu(EMenuType menuType)
+        {
+            Debug.Log("ShowMenu");
+            GameObject go = GameObject.Find("ClashGame");
+            if (go != null)
+            {
+                var clashGame = go.GetComponent<ClashGame>();
+                clashGame.MenuManager.ShowMenu(menuType);
+            }
+        }
+        
+        [ConsoleMethod("CloseMenu","CloseMenu")]
+        public static void CloseMenu(EMenuType menuType)
+        {
+            Debug.Log("CloseMenu");
+            GameObject go = GameObject.Find("ClashGame");
+            if (go != null)
+            {
+                var clashGame = go.GetComponent<ClashGame>();
+                clashGame.MenuManager.CloseMenu(menuType);
+            }            
+        }
     }
 }
