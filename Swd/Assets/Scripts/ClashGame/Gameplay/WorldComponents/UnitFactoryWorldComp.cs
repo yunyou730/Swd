@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace clash.gameplay
 {
-    public class UnitFactoryWorldComp : ClashBaseWorldComponent
+    public class UnitFactoryMeta : ClashBaseMetaInfo
     {
         public List<UnitGenerateData> Datas = new List<UnitGenerateData>();
         

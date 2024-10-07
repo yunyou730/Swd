@@ -868,10 +868,6 @@
       <Project>{615747d4-c4dd-ebf9-cd0b-12a2066f9a2b}</Project>
       <Name>Unity.Addressables</Name>
     </ProjectReference>
-    <ProjectReference Include="IngameDebugConsole.Runtime.csproj">
-      <Project>{18cb0d57-dabf-ce57-ee87-6ee3cb79c87b}</Project>
-      <Name>IngameDebugConsole.Runtime</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.Burst.Editor.csproj">
       <Project>{9f8e3d89-c9fe-abd5-23ad-017114a352d2}</Project>
       <Name>Unity.Burst.Editor</Name>
@@ -991,6 +987,10 @@
     <ProjectReference Include="Unity.ScriptableBuildPipeline.Editor.csproj">
       <Project>{cc0e976c-46f8-c4fb-10ca-1f812461a822}</Project>
       <Name>Unity.ScriptableBuildPipeline.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="IngameDebugConsole.Runtime.csproj">
+      <Project>{18cb0d57-dabf-ce57-ee87-6ee3cb79c87b}</Project>
+      <Name>IngameDebugConsole.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Profiling.Core.csproj">
       <Project>{42d4df99-b9d4-fd3c-8655-2c7a7e2503a7}</Project>

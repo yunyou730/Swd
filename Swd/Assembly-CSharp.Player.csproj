@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonData.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\ClashBaseWorld.cs" />
     <Compile Include="Assets\Scripts\Swd\SwdGame.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\TileMapWorldComponent.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Entities\ClashBaseEntity.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterController.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\ParserToken.cs" />
@@ -82,9 +83,10 @@
     <Compile Include="Assets\Scripts\Swd\Gameplay\GameplayManager.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphDataContainer.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActionController.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\ClashBaseMetaInfo.cs" />
     <Compile Include="Assets\Scripts\ClashGame\ClashGame.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\ClashEnum.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Components\RotationComponent.cs" />
-    <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\ClashBaseWorldComponent.cs" />
     <Compile Include="Assets\Scripts\ResManager\LoadWithAddress.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActor.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Components\PositionComponent.cs" />
@@ -696,10 +698,6 @@
       <Project>{ee68f592-e8f4-e1b9-63f6-2740d88f411d}</Project>
       <Name>Unity.Addressables.Player</Name>
     </ProjectReference>
-    <ProjectReference Include="IngameDebugConsole.Runtime.Player.csproj">
-      <Project>{75daf896-6c3f-ab29-a895-59b8294be88c}</Project>
-      <Name>IngameDebugConsole.Runtime.Player</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.Burst.Player.csproj">
       <Project>{84635139-8aba-0170-e887-28aad2b7f28d}</Project>
       <Name>Unity.Burst.Player</Name>
@@ -743,6 +741,10 @@
     <ProjectReference Include="Unity.VisualScripting.State.Player.csproj">
       <Project>{58a24586-da50-d0ac-05b5-fc8005ce5e96}</Project>
       <Name>Unity.VisualScripting.State.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="IngameDebugConsole.Runtime.Player.csproj">
+      <Project>{75daf896-6c3f-ab29-a895-59b8294be88c}</Project>
+      <Name>IngameDebugConsole.Runtime.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Profiling.Core.Player.csproj">
       <Project>{63696fbf-21b4-dd10-71e5-7d17b62e5ea1}</Project>

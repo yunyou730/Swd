@@ -5,12 +5,12 @@ namespace clash.gameplay
 {
     public class UnitCreationSystem:ClashBaseSystem, IStartSystem,ITickSystem
     {
-        private UnitFactoryWorldComp _unitFactory = null;
+        private UnitFactoryMeta _unitFactory = null;
         private ClashWorld _clashWorld = null;
 
         public UnitCreationSystem(ClashBaseWorld world) : base(world)
         {
-            _unitFactory = world.GetWorldComponent<UnitFactoryWorldComp>();
+            _unitFactory = world.GetWorldComponent<UnitFactoryMeta>();
             _clashWorld = (ClashWorld)_world;
         }
 

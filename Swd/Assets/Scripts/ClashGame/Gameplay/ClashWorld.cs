@@ -66,17 +66,17 @@ namespace clash.gameplay
 
         private void InitWorldComponents()
         {
-            var gameStart = CreateWorldComponent<GameStartWorldComponent>();
+            var gameStart = CreateWorldComponent<GameStartMeta>();
             gameStart.SceneName = _gameData.SceneName;
             gameStart.GridWidth = _gameData.GridWidth;
             gameStart.GridHeight = _gameData.GridHeight;
             
-            var clashConfig = CreateWorldComponent<ClashConfigWorldComponent>();
+            var clashConfig = CreateWorldComponent<ClashConfigMeta>();
             clashConfig.TileSize = _clashConfig.kTileSize;
             clashConfig.TileBaseX = _clashConfig.kTileBaseX;
             clashConfig.TileBaseZ = _clashConfig.kTileBaseZ;
             
-            CreateWorldComponent<UnitFactoryWorldComp>();
+            CreateWorldComponent<UnitFactoryMeta>();
         }
         
         private void InitSystems()

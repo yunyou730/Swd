@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace clash.gameplay
 {
-    public class ClashBaseWorldComponent : IDisposable
+    public class ClashBaseMetaInfo : IDisposable
     {
         public virtual void Dispose()
         {
-            Debug.Log("ClashBaseWorldComponent::Dispose()");
+            Debug.Log("ClashBaseMetaInfo::Dispose()");
         }
     }
 }

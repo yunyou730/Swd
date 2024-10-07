@@ -2,7 +2,7 @@
 
 namespace clash.gameplay
 {
-    public class GameStartWorldComponent : ClashBaseWorldComponent
+    public class GameStartMeta : ClashBaseMetaInfo
     {
         public string SceneName;
         public int GridWidth;

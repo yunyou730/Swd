@@ -20,10 +20,10 @@ namespace clash.gameplay.GameObject
             _go.transform.SetParent(_parentGameObject.transform);
         }
 
-        public void BuildMesh(UnityEngine.Material material,GameStartWorldComponent gameStart,ClashConfigWorldComponent config)
+        public void BuildMesh(UnityEngine.Material material,GameStartMeta gameStartMeta,ClashConfigMeta configMeta)
         {
             // Build Mesh 
-            Mesh mesh = BuildGridMesh(material,gameStart,config);
+            Mesh mesh = BuildGridMesh(material,gameStartMeta,configMeta);
             
 
             // Mesh
@@ -37,7 +37,7 @@ namespace clash.gameplay.GameObject
         }
 
 
-        private Mesh BuildGridMesh(UnityEngine.Material material,GameStartWorldComponent gameStart,ClashConfigWorldComponent clashConfig)
+        private Mesh BuildGridMesh(UnityEngine.Material material,GameStartMeta gameStart,ClashConfigMeta clashConfig)
         {
             // _world.GameData.GridWidth;
 

@@ -10,12 +10,12 @@ namespace clash.gameplay
         private int _uuidSeed = 0;
 
         private Dictionary<int, ClashBaseEntity> _entityMap = null;
-        private Dictionary<Type, ClashBaseWorldComponent> _worldComponentMap = null;
+        private Dictionary<Type, ClashBaseMetaInfo> _worldComponentMap = null;
 
         public ClashBaseWorld()
         {
             _entityMap = new Dictionary<int, ClashBaseEntity>();
-            _worldComponentMap = new Dictionary<Type, ClashBaseWorldComponent>();
+            _worldComponentMap = new Dictionary<Type, ClashBaseMetaInfo>();
         }
 
 
@@ -30,14 +30,14 @@ namespace clash.gameplay
             return entity;
         }
 
-        public T CreateWorldComponent<T>() where T : ClashBaseWorldComponent, new()
+        public T CreateWorldComponent<T>() where T : ClashBaseMetaInfo, new()
         {
             T t = new T();
             _worldComponentMap.Add(t.GetType(),t);
             return t;
         }
 
-        public T GetWorldComponent<T>() where T:ClashBaseWorldComponent
+        public T GetWorldComponent<T>() where T:ClashBaseMetaInfo
         {
             return (T)_worldComponentMap[typeof(T)];
         }
