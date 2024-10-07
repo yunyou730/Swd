@@ -25,7 +25,13 @@ namespace clash
         
         
         public ClashWorld World { get { return _world; } }
-        
+
+        private EClashGameMode _mode = EClashGameMode.Test;
+        public EClashGameMode GameMode
+        {
+            set { _mode = value;}
+            get { return _mode; }
+        }
 
         private void Awake()
         {
@@ -89,11 +95,18 @@ namespace clash
             _world.Start(gameData,config,unitsJsonData,gameObject,_resManager);
             _world.OnStart();           
         }
-
-
+        
         private void ShowGameMenu()
         {
             _menuManager.ShowMenu(EMenuType.GameplayDebug);
+        }
+
+        public void SwitchMode(EClashGameMode nextMode)
+        {
+            if (GameMode != nextMode)
+            {
+                GameMode = nextMode;
+            }
         }
 
     }

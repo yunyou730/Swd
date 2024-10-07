@@ -13,9 +13,13 @@
     {
         GameplayDebug,
     }
-    
-    // public class ClashGameEnum
-    // {
-    //     
-    // }
+
+    public enum EClashGameMode
+    {
+        Test,
+        MapEdit,
+        Play,
+        
+        Max,
+    }
 }
