@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\ClashConfigWorldComponent.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\UnitFactoryWorldComp.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphExposedProperty.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\Config\ClashTileMapConfig.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />
     <Compile Include="Assets\Scripts\ResManager\ResManager.cs" />
@@ -129,6 +130,7 @@
     <None Include="Library\PackageCache\com.unity.formats.fbx@4.2.1\package.json" />
     <None Include="Library\PackageCache\com.unity.ide.vscode@1.2.5\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.visualscripting@1.9.4\ValidationConfig.json" />
+    <None Include="Assets\Resources_moved\clashgame\config\tilemaps\ClashTileMap1.json" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\PackageConversionData_Assets.json" />
     <None Include="Library\PackageCache\com.autodesk.fbx@4.2.1\ValidationExceptions.json" />
     <None Include="Library\PackageCache\com.unity.mathematics@1.2.6\ValidationExceptions.json" />

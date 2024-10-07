@@ -6,6 +6,19 @@ using swd;
 
 namespace clash.gameplay
 {
+    /**
+     Json config.Example:
+     {
+      "u101": {
+        "tag": "u101",
+        "cfg_path": "Assets/Resources_moved/clashgame/config/unit/u101.asset"
+      },
+      "u102": {
+        "tag": "u102",
+        "cfg_path":"Assets/Resources_moved/clashgame/config/unit/u102.asset"
+      }
+    }
+    */
     public class ClashAllUnitsConfig : IDisposable
     {
         private ClashWorld _world = null;

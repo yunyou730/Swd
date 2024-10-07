@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\ClashConfigWorldComponent.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\UnitFactoryWorldComp.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphExposedProperty.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\Config\ClashTileMapConfig.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />
     <Compile Include="Assets\Scripts\ResManager\ResManager.cs" />

@@ -30,7 +30,7 @@ namespace clash.gameplay
             return entity;
         }
 
-        public T CreateWorldComponent<T>() where T : ClashBaseMetaInfo, new()
+        public T CreateWorldMetaInfo<T>() where T : ClashBaseMetaInfo, new()
         {
             T t = new T();
             _worldComponentMap.Add(t.GetType(),t);

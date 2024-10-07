@@ -8,26 +8,30 @@ namespace clash.gameplay
         public int Width;
         public int Height;
 
-        // [x,y] 该格是否能走
-        private ETileWalkable[,] _tilesWalkable = null;
+        
+        private ETileTerrainType[,] _tilesTerrain = null;
 
+        public TileMapMeta()
+        {
+            
+        }
 
-        public TileMapMeta(int width,int height)
+        public void Init(int width,int height)
         {
             Width = width;
             Height = height;
-            _tilesWalkable = new ETileWalkable[Height,Width];
+            _tilesTerrain = new ETileTerrainType[Height,Width];
         }
 
-        public void SetTileWalkable(int tileX,int tileY)
-        {
-                
-        }
-        
-        public ETileWalkable GetTileWalkable(int tileX,int tileY)
+        public void SetTileTerrain(int tileX,int tileY)
         {
             
-            return ETileWalkable.UnWalkable;
+        }
+        
+        public ETileTerrainType GetTileTerrain(int tileX,int tileY)
+        {
+            
+            return ETileTerrainType.Ground;
         }
 
         public override void Dispose()

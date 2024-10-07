@@ -1,13 +1,10 @@
 ﻿namespace clash.gameplay
 {
-    public enum ETileWalkable
+    public enum ETileTerrainType
     {
-        Walkable,
-        UnWalkable,
+        Ground,
+        River,
     }
     
-    public class ClashEnum
-    {
-        
-    }
+    
 }

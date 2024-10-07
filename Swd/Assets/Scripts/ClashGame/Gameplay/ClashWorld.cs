@@ -53,7 +53,7 @@ namespace clash.gameplay
             _allUnitsConfig = new ClashAllUnitsConfig(this,unitsJson);
             
             InitLogicFPS(clashConfig);
-            InitWorldComponents();
+            InitWorldMetaInfo();
             InitSystems();
         }
 
@@ -64,19 +64,22 @@ namespace clash.gameplay
             _logicDeltaTime = 1.0f / _logicFPS;
         }
 
-        private void InitWorldComponents()
+        private void InitWorldMetaInfo()
         {
-            var gameStart = CreateWorldComponent<GameStartMeta>();
-            gameStart.SceneName = _gameData.SceneName;
-            gameStart.GridWidth = _gameData.GridWidth;
-            gameStart.GridHeight = _gameData.GridHeight;
+            var gameStartMeta = CreateWorldMetaInfo<GameStartMeta>();
+            gameStartMeta.SceneName = _gameData.SceneName;
+            gameStartMeta.GridWidth = _gameData.GridWidth;
+            gameStartMeta.GridHeight = _gameData.GridHeight;
             
-            var clashConfig = CreateWorldComponent<ClashConfigMeta>();
-            clashConfig.TileSize = _clashConfig.kTileSize;
-            clashConfig.TileBaseX = _clashConfig.kTileBaseX;
-            clashConfig.TileBaseZ = _clashConfig.kTileBaseZ;
+            var clashConfigMeta = CreateWorldMetaInfo<ClashConfigMeta>();
+            clashConfigMeta.TileSize = _clashConfig.kTileSize;
+            clashConfigMeta.TileBaseX = _clashConfig.kTileBaseX;
+            clashConfigMeta.TileBaseZ = _clashConfig.kTileBaseZ;
             
-            CreateWorldComponent<UnitFactoryMeta>();
+            CreateWorldMetaInfo<UnitFactoryMeta>();
+            
+            var tileMapMeta = CreateWorldMetaInfo<TileMapMeta>();
+            tileMapMeta.Init(_gameData.GridWidth,_gameData.GridHeight);
         }
         
         private void InitSystems()
