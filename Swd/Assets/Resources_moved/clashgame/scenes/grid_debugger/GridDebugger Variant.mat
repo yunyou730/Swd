@@ -40,6 +40,8 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _GridHeight: 10
+    - _GridWidth: 10
     - _QueueControl: 0
     m_Colors:
     - _DebugColor: {r: 1, g: 1, b: 1, a: 0}
