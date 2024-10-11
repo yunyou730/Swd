@@ -45,6 +45,7 @@ namespace clash
             
             StartGame();
             ShowGameMenu();
+            SwitchClashWorldToPlayMode();
         }
         
         private void Update()
@@ -92,8 +93,8 @@ namespace clash
             Debug.Assert(gameData != null && config != null);
             
             _world = new ClashWorld();
-            _world.Start(gameData,config,unitsJsonData,gameObject,_resManager);
-            _world.OnStart();           
+            _world.Init(gameData,config,unitsJsonData,gameObject,_resManager);
+            _world.OnStart();
         }
         
         private void ShowGameMenu()
@@ -101,11 +102,19 @@ namespace clash
             _menuManager.ShowMenu(EMenuType.GameplayDebug);
         }
 
+        private void SwitchClashWorldToPlayMode()
+        {
+            var modeSwitchMeta = _world.GetWorldComponent<ModeSwitchMetaInfo>();
+            modeSwitchMeta.SetNextMode(EClashGameMode.Test);
+        }
+        
         public void SwitchMode(EClashGameMode nextMode)
         {
             if (GameMode != nextMode)
             {
                 GameMode = nextMode;
+                var modeSwitchMeta = _world.GetWorldComponent<ModeSwitchMetaInfo>();
+                modeSwitchMeta.SetNextMode(nextMode);
             }
         }
 

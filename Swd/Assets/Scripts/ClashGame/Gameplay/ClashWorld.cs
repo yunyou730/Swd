@@ -38,7 +38,7 @@ namespace clash.gameplay
         private float _deltaTimeCounter = 0.0f;
         private int _frameIndex = 0;
 
-        public void Start(ClashGameData gameData,
+        public void Init(ClashGameData gameData,
                             ClashConfig clashConfig,
                             JsonData unitsJson,
                             UnityEngine.GameObject rootGameObject,
@@ -80,6 +80,9 @@ namespace clash.gameplay
             
             var tileMapMeta = CreateWorldMetaInfo<TileMapMeta>();
             tileMapMeta.Init(_gameData.GridWidth,_gameData.GridHeight);
+
+            CreateWorldMetaInfo<ModeMetaInfo>();
+            CreateWorldMetaInfo<ModeSwitchMetaInfo>();
         }
         
         private void InitSystems()
@@ -91,6 +94,7 @@ namespace clash.gameplay
 
             RegisterSystem(new SceneCreationSystem(this));
             RegisterSystem(new UnitCreationSystem(this));
+            RegisterSystem(new ModeSystem(this));
         }
 
         private void RegisterSystem(ClashBaseSystem system)
