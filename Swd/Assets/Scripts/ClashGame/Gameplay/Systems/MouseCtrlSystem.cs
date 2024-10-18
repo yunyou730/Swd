@@ -18,12 +18,13 @@ namespace clash.gameplay
         
         public void OnUpdate(float deltaTime)
         {
+            // update mouse at Tile Coordinate
             int tileX, tileY;
             CheckMouseTileCoordinate(out tileX, out tileY);
-            
             _mouseCtrlMeta.TileX = tileX;
             _mouseCtrlMeta.TileY = tileY;
             
+            // update mouse button status
             _mouseCtrlMeta.IsLeftButtonDown = Input.GetMouseButton(0);
             _mouseCtrlMeta.IsRightButtonDown = Input.GetMouseButton(1);
             _mouseCtrlMeta.IsMidButtonDown = Input.GetMouseButton(2);
@@ -52,20 +53,10 @@ namespace clash.gameplay
             if (Physics.Raycast(ray,out hit))
             {
                 Vector3 hitPointWorld = hit.point;
-            
-                // @miao @todo
-                
-
                 ClashUtility.WorldPositionToTileCoordinate(_clashWorld,hitPointWorld,out tileX,out tileY);
-                Debug.Log("[ayy]mouse pos " + hitPointWorld);
-                Debug.Log($"[ayy]mouse tile coordinate:({tileX},{tileY})");
-            
                 return true;
             }
             // }
-
-            
-
             return false;
         }
     }

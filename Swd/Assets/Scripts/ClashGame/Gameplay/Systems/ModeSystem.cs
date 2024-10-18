@@ -1,12 +1,17 @@
-﻿namespace clash.gameplay
+﻿using clash.gameplay.Utilities;
+
+namespace clash.gameplay
 {
     public class ModeSystem:ClashBaseSystem,IUpdateSystem,IStartSystem, ITickSystem
     {
-        private UnityEngine.GameObject _tileSelector = null;
+        // private UnityEngine.GameObject _tileSelector = null;
         
         private ClashWorld _clashWorld = null;
         private ModeMetaInfo _modeMeta = null;
         private ModeSwitchMetaInfo _modeSwitchMeta = null;
+
+
+        private int _tileSelectorUUID = 0;
         
         public ModeSystem(ClashBaseWorld world) : base(world)
         {
@@ -17,8 +22,7 @@
         
         public void OnStart()
         {
-            var tileSelectorPrefab = _clashWorld.ResManager.GetAsset<UnityEngine.GameObject>("Assets/Resources_moved/clashgame/scenes/tile_selector/TileSelector.prefab");
-            _tileSelector = UnityEngine.GameObject.Instantiate(tileSelectorPrefab);
+            _tileSelectorUUID = ClashUtility.CreateTileSelectorEntity(_clashWorld);
         }
         
         public void OnUpdate(float deltaTime)
@@ -47,8 +51,7 @@
         
         public override void Dispose()
         {
-            UnityEngine.Object.Destroy(_tileSelector);
-            _tileSelector = null;
+            _tileSelectorUUID = 0;
         }
 
 
@@ -74,12 +77,16 @@
         
         private void OnEnterEditMode()
         {
-            _tileSelector.SetActive(true);
+            var tileSelectorEntity = _world.GetEntity(_tileSelectorUUID);
+            var gfxComp = tileSelectorEntity.GetComponent<GfxComponent>();
+            gfxComp.SetVisible(true);
         }
 
         private void OnExitEditMode()
         {
-            _tileSelector.SetActive(false);           
+            var tileSelectorEntity = _world.GetEntity(_tileSelectorUUID);
+            var gfxComp = tileSelectorEntity.GetComponent<GfxComponent>();
+            gfxComp.SetVisible(false);           
         }
     }
 }

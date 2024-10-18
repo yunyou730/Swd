@@ -30,6 +30,15 @@ namespace clash.gameplay
             return entity;
         }
 
+        public ClashBaseEntity GetEntity(int uuid)
+        {
+            if (_entityMap.ContainsKey(uuid))
+            {
+                return _entityMap[uuid];
+            }
+            return null;
+        }
+
         public T CreateWorldMetaInfo<T>() where T : ClashBaseMetaInfo, new()
         {
             T t = new T();
@@ -40,6 +49,35 @@ namespace clash.gameplay
         public T GetWorldMeta<T>() where T:ClashBaseMetaInfo
         {
             return (T)_worldComponentMap[typeof(T)];
+        }
+        
+        public List<ClashBaseEntity> GetEntitiesWithComponents(params Type[] componentTypes)
+        {
+            List<ClashBaseEntity> matchingEntities = null;
+
+            foreach (var entity in _entityMap.Values)
+            {
+                bool hasAllComponents = true;
+
+                foreach (var type in componentTypes)
+                {
+                    if (!entity.HasComponent(type))
+                    {
+                        hasAllComponents = false;
+                        break;
+                    }
+                }
+
+                if (hasAllComponents)
+                {
+                    if (matchingEntities == null)
+                        matchingEntities = new List<ClashBaseEntity>();
+                    
+                    matchingEntities.Add(entity);
+                }
+            }
+
+            return matchingEntities;
         }
 
         public void Dispose()

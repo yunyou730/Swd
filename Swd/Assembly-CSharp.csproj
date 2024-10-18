@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Components\GfxComponent.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Config\ClashCfgUnitEntry.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\Components\TileSelectorComponent.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Config\ClashAllUnitsConfig.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Systems\SceneCreationSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Components\ClashBaseComponent.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\GameObject\DebugGrid.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Systems\MouseCtrlSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Systems\UnitCreationSystem.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\Systems\OverlaySystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\GameStartWorldComp.cs" />
     <Compile Include="Assets\Scripts\ClashGame\UI\MenuGameplayDebug.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Config\ClashConfig.cs" />

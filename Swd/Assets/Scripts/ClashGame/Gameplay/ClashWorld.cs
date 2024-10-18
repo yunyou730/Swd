@@ -101,7 +101,8 @@ namespace clash.gameplay
             _startableSystems = new List<IStartSystem>();
             _updatableSystems = new List<IUpdateSystem>();
             _tickableSystems = new List<ITickSystem>();
-
+            
+            RegisterSystem(new OverlaySystem(this));
             RegisterSystem(new SceneCreationSystem(this));
             RegisterSystem(new UnitCreationSystem(this));
             RegisterSystem(new ModeSystem(this));

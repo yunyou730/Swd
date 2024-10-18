@@ -27,7 +27,21 @@ namespace clash.gameplay
             _components.Add(comp.GetType(),comp);
             return comp;
         }
+
+        public T GetComponent<T>() where T : ClashBaseComponent
+        {
+            if (_components.ContainsKey(typeof(T)))
+            {
+                return (T)_components[typeof(T)];
+            }
+            return null;
+        }
         
+        public bool HasComponent(Type tp)
+        {
+            return _components.ContainsKey(tp);
+        }
+
         public void Dispose()
         {
             // Dispose all components

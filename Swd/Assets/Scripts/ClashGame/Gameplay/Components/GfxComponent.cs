@@ -7,6 +7,16 @@ namespace clash.gameplay
     {
         public UnityEngine.GameObject GO = null;
         
+        public void SetVisible(bool bVisible)
+        {
+            GO.SetActive(bVisible);
+        }
+        
+        public void SetPosition(Vector3 pos)
+        {
+            GO.transform.position = pos;
+        }
+
         public override void Dispose()
         {
             base.Dispose();
