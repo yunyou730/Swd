@@ -37,7 +37,7 @@ namespace clash.gameplay
             return t;
         }
 
-        public T GetWorldComponent<T>() where T:ClashBaseMetaInfo
+        public T GetWorldMeta<T>() where T:ClashBaseMetaInfo
         {
             return (T)_worldComponentMap[typeof(T)];
         }

@@ -31,7 +31,6 @@ namespace clash.gameplay.GameObject
             // Build Mesh 
             Mesh mesh = BuildGridMesh(material,gameStartMeta,configMeta);
             
-
             // Mesh
             MeshFilter meshFilter = _go.AddComponent<MeshFilter>();
             meshFilter.mesh = mesh;
@@ -49,6 +48,10 @@ namespace clash.gameplay.GameObject
             meshRenderer.material = material;
         }
 
+        public void AttachCollider()
+        {
+            _go.AddComponent<MeshCollider>();
+        }
 
         private Mesh BuildGridMesh(UnityEngine.Material material,GameStartMeta gameStart,ClashConfigMeta clashConfig)
         {

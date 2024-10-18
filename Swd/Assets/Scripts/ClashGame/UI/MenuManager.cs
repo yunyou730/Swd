@@ -61,7 +61,15 @@ namespace clash.ui
                 _menuInstanceMap.Remove(menuKey);    
             }
         }
-        
+
+        public void OnUpdate(float deltaTime)
+        {
+            foreach (var menu in _menuInstanceMap.Values)
+            {
+                menu.OnUpdate(deltaTime);
+            }
+        }
+
         public void Dispose()
         {
             _menuTypeMap.Clear();

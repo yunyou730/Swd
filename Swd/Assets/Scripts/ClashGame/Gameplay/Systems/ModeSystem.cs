@@ -11,8 +11,8 @@
         public ModeSystem(ClashBaseWorld world) : base(world)
         {
             _clashWorld = (ClashWorld)world;
-            _modeMeta = _clashWorld.GetWorldComponent<ModeMetaInfo>();
-            _modeSwitchMeta = _clashWorld.GetWorldComponent<ModeSwitchMetaInfo>();
+            _modeMeta = _clashWorld.GetWorldMeta<ModeMetaInfo>();
+            _modeSwitchMeta = _clashWorld.GetWorldMeta<ModeSwitchMetaInfo>();
         }
         
         public void OnStart()

@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Components\ClashBaseComponent.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphNodeData.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\GameObject\DebugGrid.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\Systems\MouseCtrlSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Systems\UnitCreationSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\GameStartWorldComp.cs" />
     <Compile Include="Assets\Scripts\ClashGame\UI\MenuGameplayDebug.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\ClashBaseMetaInfo.cs" />
     <Compile Include="Assets\Scripts\ClashGame\ClashGame.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\ClashEnum.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\WorldComponents\MouseCtrlMetaInfo.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Components\RotationComponent.cs" />
     <Compile Include="Assets\Scripts\ResManager\LoadWithAddress.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActor.cs" />

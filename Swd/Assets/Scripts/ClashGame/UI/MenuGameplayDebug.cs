@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using clash;
+using clash.gameplay;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +12,9 @@ namespace clash.ui
     public class MenuGameplayDebug : ClashBaseMenu
     {
         private TextMeshProUGUI _txtMode = null;
+        private TextMeshProUGUI _txtMouseInfo = null;
+
+        private StringBuilder _strMouseInfo = new StringBuilder();
         public MenuGameplayDebug(MenuManager menuManager,EMenuType menuType,GameObject root):base(menuManager,menuType,root)
         {
             
@@ -21,7 +26,7 @@ namespace clash.ui
             btnMode.onClick.AddListener(delegate()
             {
                 ClashGame.Instance.SwitchMode(NextMode(ClashGame.Instance.GameMode));
-                RefreshLabel();
+                RefreshModeLabel();
             });
         
             Button btnClose = _gameObject.transform.Find("Button_Close").GetComponent<Button>();
@@ -31,7 +36,9 @@ namespace clash.ui
             });
             
             _txtMode = _gameObject.transform.Find("Text_GameMode").GetComponent<TextMeshProUGUI>();
-            RefreshLabel();
+            _txtMouseInfo = _gameObject.transform.Find("Text_MouseInfo").GetComponent<TextMeshProUGUI>();
+            
+            RefreshModeLabel();
         }
     
         protected override GameObject LoadGameObject()
@@ -43,7 +50,7 @@ namespace clash.ui
     
         public override void OnUpdate(float deltaTime)
         {
-        
+            RefreshMouseStatusLabel();
         }
 
         // public override void OnClose()
@@ -56,7 +63,7 @@ namespace clash.ui
         
         }
 
-        private void RefreshLabel()
+        private void RefreshModeLabel()
         {
             switch (ClashGame.Instance.GameMode)
             {
@@ -72,6 +79,19 @@ namespace clash.ui
                 default:
                     _txtMode.text = "[Mode Error!]";
                     break;
+            }
+        }
+
+        private void RefreshMouseStatusLabel()
+        {
+            var clashWorld = ClashGame.Instance.World; 
+            if (clashWorld != null)
+            {
+                var mouseCtrlMeta = clashWorld.GetWorldMeta<MouseCtrlMetaInfo>();
+
+                _strMouseInfo.Clear();
+                _strMouseInfo.Append($"mouse info: tile coordinate ({mouseCtrlMeta.TileX},{mouseCtrlMeta.TileY})");
+                _txtMouseInfo.text = _strMouseInfo.ToString(); 
             }
         }
 

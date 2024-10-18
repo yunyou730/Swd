@@ -24,13 +24,17 @@ namespace clash.gameplay
         private ClashConfig _clashConfig = null;
         private ClashAllUnitsConfig _allUnitsConfig = null;
         public ClashAllUnitsConfig AllUnitsCfg { get { return _allUnitsConfig; } }
-        private UnityEngine.GameObject _rootGameObject = null;
-
+        
+        
         // Root GameObject
+        private UnityEngine.GameObject _rootGameObject = null;
         public UnityEngine.GameObject RootGameObject { get { return _rootGameObject; } }
         
-        
-        
+        // Camera GameObject
+        private UnityEngine.Camera _gameplayMainCamera = null;
+        public UnityEngine.Camera GameplayMainCamera { get { return _gameplayMainCamera; } }
+
+
 
         // FPS & Tick Logic
         private float _logicFPS = 16.0f;
@@ -42,11 +46,15 @@ namespace clash.gameplay
                             ClashConfig clashConfig,
                             JsonData unitsJson,
                             UnityEngine.GameObject rootGameObject,
+                            UnityEngine.Camera gameplayMainCamera,
                             ResManager resManager)
         {
             _gameData = gameData;
             _clashConfig = clashConfig;
+            
             _rootGameObject = rootGameObject;
+            _gameplayMainCamera = gameplayMainCamera;
+
             _resManager = resManager;
 
             // configs
@@ -83,6 +91,8 @@ namespace clash.gameplay
 
             CreateWorldMetaInfo<ModeMetaInfo>();
             CreateWorldMetaInfo<ModeSwitchMetaInfo>();
+            
+            CreateWorldMetaInfo<MouseCtrlMetaInfo>();
         }
         
         private void InitSystems()
@@ -95,6 +105,7 @@ namespace clash.gameplay
             RegisterSystem(new SceneCreationSystem(this));
             RegisterSystem(new UnitCreationSystem(this));
             RegisterSystem(new ModeSystem(this));
+            RegisterSystem(new MouseCtrlSystem(this));
         }
 
         private void RegisterSystem(ClashBaseSystem system)

@@ -50,11 +50,9 @@ namespace clash
         
         private void Update()
         {
-            if (_world != null)
-            {
-                float dt = Time.deltaTime;
-                _world.OnUpdate(dt);
-            }
+            float dt = Time.deltaTime;
+            _world?.OnUpdate(dt);
+            _menuManager?.OnUpdate(dt);
         }
 
         public void OnDestroy()
@@ -82,6 +80,8 @@ namespace clash
 
         private void StartGame()
         {
+            Camera camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+            
             var gameData1 = _resManager.GetAsset<ClashGameData>("Assets/Resources_moved/clashgame/data/ClashGameData_1.asset");
             // var gameData2 = _resManager.GetAsset<ClashGameData>("Assets/Resources_moved/clashgame/data/ClashGameData_2.asset");
             var config = _resManager.GetAsset<ClashConfig>("Assets/Resources_moved/clashgame/data/ClashGameConfig.asset");
@@ -93,7 +93,7 @@ namespace clash
             Debug.Assert(gameData != null && config != null);
             
             _world = new ClashWorld();
-            _world.Init(gameData,config,unitsJsonData,gameObject,_resManager);
+            _world.Init(gameData,config,unitsJsonData,gameObject,camera,_resManager);
             _world.OnStart();
         }
         
@@ -104,7 +104,7 @@ namespace clash
 
         private void SwitchClashWorldToPlayMode()
         {
-            var modeSwitchMeta = _world.GetWorldComponent<ModeSwitchMetaInfo>();
+            var modeSwitchMeta = _world.GetWorldMeta<ModeSwitchMetaInfo>();
             modeSwitchMeta.SetNextMode(EClashGameMode.Test);
         }
         
@@ -113,7 +113,7 @@ namespace clash
             if (GameMode != nextMode)
             {
                 GameMode = nextMode;
-                var modeSwitchMeta = _world.GetWorldComponent<ModeSwitchMetaInfo>();
+                var modeSwitchMeta = _world.GetWorldMeta<ModeSwitchMetaInfo>();
                 modeSwitchMeta.SetNextMode(nextMode);
             }
         }

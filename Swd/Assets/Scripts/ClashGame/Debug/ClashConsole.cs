@@ -21,7 +21,7 @@ namespace clash.debug
             {
                 var clashGame = go.GetComponent<ClashGame>();
                 var world = clashGame.World;
-                var unitFactoryMeta = world.GetWorldComponent<UnitFactoryMeta>();
+                var unitFactoryMeta = world.GetWorldMeta<UnitFactoryMeta>();
                 unitFactoryMeta.Datas.Add(new UnitGenerateData(unitTag,tileX,tileY));
             }
         }

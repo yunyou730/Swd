@@ -10,7 +10,7 @@ namespace clash.gameplay
 
         public UnitCreationSystem(ClashBaseWorld world) : base(world)
         {
-            _unitFactory = world.GetWorldComponent<UnitFactoryMeta>();
+            _unitFactory = world.GetWorldMeta<UnitFactoryMeta>();
             _clashWorld = (ClashWorld)_world;
         }
 
