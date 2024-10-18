@@ -26,7 +26,7 @@ namespace clash.gameplay.GameObject
             _go.transform.SetParent(_parentGameObject.transform);
         }
 
-        public void BuildMesh(UnityEngine.Material material,GameStartMeta gameStartMeta,ClashConfigMeta configMeta)
+        public void BuildMesh(UnityEngine.Material material,GameStartMeta gameStartMeta,ClashConfigMeta configMeta,TileMapMeta tilemapMeta)
         {
             // Build Mesh 
             Mesh mesh = BuildGridMesh(material,gameStartMeta,configMeta);
@@ -36,7 +36,7 @@ namespace clash.gameplay.GameObject
             meshFilter.mesh = mesh;
             
             // data texture
-            _tileDataTex = GenerateTexture(gameStartMeta.GridWidth,gameStartMeta.GridHeight);
+            _tileDataTex = GenerateTexture(gameStartMeta.GridWidth,gameStartMeta.GridHeight,tilemapMeta);
 
             // material
             material.SetFloat(kGridWidth,gameStartMeta.GridWidth);
@@ -55,9 +55,6 @@ namespace clash.gameplay.GameObject
 
         private Mesh BuildGridMesh(UnityEngine.Material material,GameStartMeta gameStart,ClashConfigMeta clashConfig)
         {
-            // _world.GameData.GridWidth;
-
-
             // Build Mesh 
             Mesh mesh = new Mesh();
 
@@ -116,29 +113,46 @@ namespace clash.gameplay.GameObject
             return mesh;
         }
 
-        private Texture2D GenerateTexture(int width,int height)
+        private Texture2D GenerateTexture(int width,int height,TileMapMeta tilemapMeta)
         {
             Texture2D tex = new Texture2D(width,height,TextureFormat.RGB24,false);
             tex.filterMode = FilterMode.Point;
             tex.wrapMode = TextureWrapMode.Clamp;
-
-            Random random = new Random();
-
-            // here we should fill with data. @miao @todo
+            RefreshTexture(tex,width,height,tilemapMeta);
+            return tex;
+        }
+        
+        private void RefreshTexture(Texture2D tex,int width,int height,TileMapMeta tilemapMeta)
+        {
             Color[] colors = new Color[width * height];
             for (int x = 0;x < width;x++)
             {
                 for (int y = 0;y < height;y++)
                 {
-                    int randomInRange = random.Next(1,10);
-                    Color col = randomInRange < 5 ? Color.black : Color.white;
+
+                    ETileTerrainType terrainType = tilemapMeta.GetTileTerrain(x, y);
+                    Color col = Color.black;
+
+                    switch (terrainType)
+                    {
+                        case ETileTerrainType.Ground:
+                            col = Color.yellow;
+                            break;
+                        case ETileTerrainType.River:
+                            col = Color.blue;
+                            break;
+                    }
                     colors[y * width + x] = col;
                 }
             }
             tex.SetPixels(colors);
             tex.Apply();
+        }
 
-            return tex;
+
+        public void RefreshTexture(int width,int height,TileMapMeta tilemapMeta)
+        {
+            RefreshTexture(_tileDataTex,width,height,tilemapMeta);
         }
 
         public void Dispose()

@@ -22,7 +22,7 @@ namespace clash.gameplay
         
         public void OnStart()
         {
-            _tileSelectorUUID = ClashUtility.CreateTileSelectorEntity(_clashWorld);
+            _tileSelectorUUID = ClashTileEditFunc.CreateTileSelectorEntity(_clashWorld);
         }
         
         public void OnUpdate(float deltaTime)

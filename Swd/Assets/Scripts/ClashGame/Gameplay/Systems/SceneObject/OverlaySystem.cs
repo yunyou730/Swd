@@ -2,6 +2,7 @@
 using clash.gameplay.GameObject;
 using clash.gameplay.Utilities;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace clash.gameplay
 {
@@ -11,23 +12,29 @@ namespace clash.gameplay
         
         private DebugGrid _debugGrid = null;
         private ClashBaseEntity _tileSelectorEntity = null;
+        
+        
         private MouseCtrlMetaInfo _mouseCtrlMeta = null;
+        private GameStartMeta _gameStartMeta = null;
+        private TileMapMeta _tileMapMeta = null;
 
         public OverlaySystem(ClashBaseWorld world) : base(world)
         {
             _clashWorld = GetWorld<ClashWorld>();
             _mouseCtrlMeta = world.GetWorldMeta<MouseCtrlMetaInfo>();
+            _gameStartMeta = world.GetWorldMeta<GameStartMeta>();
+            _tileMapMeta = world.GetWorldMeta<TileMapMeta>();
         }
 
         public void OnStart()
         {
-            
             GenerateDebugGrid();
         }
 
         public void OnUpdate(float deltaTime)
         {
             UpdateTileSelectorPosition();
+            CheckAndRefreshTerrainGrid();
         }
 
         public void OnTick(int frameIndex)
@@ -43,11 +50,10 @@ namespace clash.gameplay
             var material = world.ResManager.GetAsset<UnityEngine.Material>("Assets/Resources_moved/clashgame/scenes/grid_debugger/GridDebugger Variant.mat");
             
             _debugGrid = new DebugGrid(world,world.RootGameObject);
-            _debugGrid.BuildMesh(material,gameStartMeta,clashConfigMeta);
+            _debugGrid.BuildMesh(material,gameStartMeta,clashConfigMeta,_tileMapMeta);
             _debugGrid.AttachCollider();
         }
-
-
+        
         private void UpdateTileSelectorPosition()
         {
             if (_tileSelectorEntity == null)
@@ -64,6 +70,15 @@ namespace clash.gameplay
                 var gfxComp = _tileSelectorEntity.GetComponent<GfxComponent>();
                 Vector3 position = ClashUtility.GetPositionAtTile(_clashWorld, _mouseCtrlMeta.TileX, _mouseCtrlMeta.TileY);
                 gfxComp.SetPosition(position);
+            }
+        }
+
+        private void CheckAndRefreshTerrainGrid()
+        {
+            if (_tileMapMeta.IsDirty())
+            {
+                _debugGrid.RefreshTexture(_gameStartMeta.GridWidth,_gameStartMeta.GridHeight,_tileMapMeta);
+                _tileMapMeta.ClearDirtyFlag();
             }
         }
 

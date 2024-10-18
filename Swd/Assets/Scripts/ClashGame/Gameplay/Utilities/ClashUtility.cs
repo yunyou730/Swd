@@ -29,21 +29,6 @@ namespace clash.gameplay.Utilities
             tileX = (int)((x - originPos.x) / cfgMeta.TileSize);
             tileY = (int)((y - originPos.z) / cfgMeta.TileSize);
         }
-        
-        public static int CreateTileSelectorEntity(ClashWorld world)
-        {
-            ClashBaseEntity entity = world.CreateEntity();
-            
-            // tile selector component
-            entity.AttachComponent<TileSelectorComponent>();
-            
-            // gfx component
-            var gfxComp = entity.AttachComponent<GfxComponent>();
-            var tileSelectorPrefab = world.ResManager.GetAsset<UnityEngine.GameObject>("Assets/Resources_moved/clashgame/scenes/tile_selector/TileSelector.prefab");
-            gfxComp.GO = UnityEngine.GameObject.Instantiate(tileSelectorPrefab);
-
-            return entity.UUID;
-        }
 
     }
 }

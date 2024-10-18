@@ -91,8 +91,9 @@ namespace clash.gameplay
 
             CreateWorldMetaInfo<ModeMetaInfo>();
             CreateWorldMetaInfo<ModeSwitchMetaInfo>();
-            
             CreateWorldMetaInfo<MouseCtrlMetaInfo>();
+            CreateWorldMetaInfo<CmdMeta>();
+            CreateWorldMetaInfo<TileEditMeta>();
         }
         
         private void InitSystems()
@@ -102,6 +103,8 @@ namespace clash.gameplay
             _updatableSystems = new List<IUpdateSystem>();
             _tickableSystems = new List<ITickSystem>();
             
+            RegisterSystem(new CmdSystem(this));
+            RegisterSystem(new TileEditSystem(this));
             RegisterSystem(new OverlaySystem(this));
             RegisterSystem(new SceneCreationSystem(this));
             RegisterSystem(new UnitCreationSystem(this));

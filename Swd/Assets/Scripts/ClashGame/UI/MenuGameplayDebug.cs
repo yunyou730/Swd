@@ -13,8 +13,11 @@ namespace clash.ui
     {
         private TextMeshProUGUI _txtMode = null;
         private TextMeshProUGUI _txtMouseInfo = null;
-
+        private TMP_Dropdown _dropdownTileTypeSelection = null;
+        
         private StringBuilder _strMouseInfo = new StringBuilder();
+        // private ETileTerrainType? _selectingTieType = null;
+        
         public MenuGameplayDebug(MenuManager menuManager,EMenuType menuType,GameObject root):base(menuManager,menuType,root)
         {
             
@@ -37,6 +40,10 @@ namespace clash.ui
             
             _txtMode = _gameObject.transform.Find("Text_GameMode").GetComponent<TextMeshProUGUI>();
             _txtMouseInfo = _gameObject.transform.Find("Text_MouseInfo").GetComponent<TextMeshProUGUI>();
+            _dropdownTileTypeSelection = _gameObject.transform.Find("Dropdown_TileTypeSelection").GetComponent<TMP_Dropdown>();
+            
+
+            _dropdownTileTypeSelection.onValueChanged.AddListener(OnTileTypeSelectionValueChanged);
             
             RefreshModeLabel();
         }
@@ -60,7 +67,32 @@ namespace clash.ui
 
         public override void Dispose()
         {
+            
+        }
         
+        private void OnTileTypeSelectionValueChanged(int index)
+        {
+            var clashWorld = ClashGame.Instance.World;
+            if (clashWorld == null)
+                return;
+
+            var cmdMeta = clashWorld.GetWorldMeta<CmdMeta>();
+            
+            TMP_Dropdown.OptionData opt = _dropdownTileTypeSelection.options[index];
+            // Debug.Log(opt.text);
+
+            ETileTerrainType? targetTerrainType = null;
+            switch (opt.text)
+            {
+                case "TileType_Ground" :
+                    targetTerrainType = ETileTerrainType.Ground;
+                    break;
+                case "TileType_River":
+                    targetTerrainType = ETileTerrainType.River;
+                    break;
+            }
+            cmdMeta.AddCmdChangeEditSelectedTerrainType(targetTerrainType);
+            // Debug.Log(_selectingTieType);
         }
 
         private void RefreshModeLabel()

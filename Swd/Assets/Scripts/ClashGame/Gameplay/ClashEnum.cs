@@ -4,7 +4,5 @@
     {
         Ground,
         River,
-    }
-    
-       
+    }   
 }
