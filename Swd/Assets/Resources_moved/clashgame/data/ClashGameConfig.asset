@@ -15,3 +15,7 @@ MonoBehaviour:
   kTileSize: 1
   kTileBaseX: 0
   kTileBaseZ: 0
+  kLogicFPS: 16
+  kCameraMoveSpeed: 5
+  kReverseMouseMidBtnDir: 0
+  kCameraZoomSpeed: 500

@@ -1,5 +1,6 @@
 ﻿using clash.gameplay.Utilities;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace clash.gameplay
 {
@@ -24,14 +25,11 @@ namespace clash.gameplay
         
         public void OnUpdate(float deltaTime)
         {
-            //if (_mouseCtrlMeta.LeftButtonClicked && _tileEditMeta.SelectedTerrainType != null)
-            Debug.Log("[ayy-test1]" + Input.GetMouseButton(0));
-            if (Input.GetMouseButton(0) && _tileEditMeta.SelectedTerrainType != null)
+            if (IsMouseClicked() && _tileEditMeta.SelectedTerrainType != null)
             {
-                Debug.Log("[ayy-test2]");
                 ClashTileEditFunc.ChangeTileTerrainType(_clashWorld,_mouseCtrlMeta.TileX,_mouseCtrlMeta.TileY,_tileEditMeta.SelectedTerrainType.Value);
             }
-        }        
+        }
 
         public void OnTick(int frameIndex)
         {
@@ -41,6 +39,16 @@ namespace clash.gameplay
         public override void Dispose()
         {
             
+        }
+
+        private bool IsMouseClicked()
+        {
+            if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
+            {
+                // Left button clicked, and not response by GUI 
+                return true;
+            }
+            return false;
         }
 
     }

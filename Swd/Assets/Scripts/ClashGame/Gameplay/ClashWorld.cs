@@ -23,9 +23,11 @@ namespace clash.gameplay
         private ClashGameData _gameData = null;
         private ClashConfig _clashConfig = null;
         private ClashAllUnitsConfig _allUnitsConfig = null;
+        
+        public ClashConfig ClashCfg { get { return _clashConfig; } }
         public ClashAllUnitsConfig AllUnitsCfg { get { return _allUnitsConfig; } }
-        
-        
+
+
         // Root GameObject
         private UnityEngine.GameObject _rootGameObject = null;
         public UnityEngine.GameObject RootGameObject { get { return _rootGameObject; } }
@@ -105,11 +107,18 @@ namespace clash.gameplay
             
             RegisterSystem(new CmdSystem(this));
             RegisterSystem(new TileEditSystem(this));
+            
+            // Game Mode 
+            RegisterSystem(new ModeSystem(this));
+            
+            // Scene Object Management
             RegisterSystem(new OverlaySystem(this));
             RegisterSystem(new SceneCreationSystem(this));
             RegisterSystem(new UnitCreationSystem(this));
-            RegisterSystem(new ModeSystem(this));
+            
+            // User Control
             RegisterSystem(new MouseCtrlSystem(this));
+            RegisterSystem(new CameraCtrlSystem(this));
         }
 
         private void RegisterSystem(ClashBaseSystem system)

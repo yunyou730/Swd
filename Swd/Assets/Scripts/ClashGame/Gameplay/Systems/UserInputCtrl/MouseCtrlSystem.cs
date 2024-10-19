@@ -25,9 +25,9 @@ namespace clash.gameplay
             _mouseCtrlMeta.TileY = tileY;
             
             // update mouse button status
-            _mouseCtrlMeta.IsLeftButtonDown = Input.GetMouseButton(0);
-            _mouseCtrlMeta.IsRightButtonDown = Input.GetMouseButton(1);
-            _mouseCtrlMeta.IsMidButtonDown = Input.GetMouseButton(2);
+            // _mouseCtrlMeta.IsLeftButtonDown = Input.GetMouseButton(0);
+            // _mouseCtrlMeta.IsRightButtonDown = Input.GetMouseButton(1);
+            // _mouseCtrlMeta.IsMidButtonDown = Input.GetMouseButton(2);
         }
 
         public MouseCtrlSystem(ClashBaseWorld world) : base(world)

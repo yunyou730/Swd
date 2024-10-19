@@ -11,5 +11,10 @@ namespace clash.gameplay
         public float kTileBaseZ = 0;
         
         public int kLogicFPS = 16;
+        
+        public float kCameraMoveSpeed = 5.0f;
+        public bool kReverseMouseMidBtnDir = false;
+
+        public float kCameraZoomSpeed = 5.0f;
     }
 }
