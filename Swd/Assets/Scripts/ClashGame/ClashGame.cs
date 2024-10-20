@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using clash.Event;
 using clash.gameplay;
 using clash.ui;
 using IngameDebugConsole;
 using LitJson;
 using swd;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -18,19 +20,17 @@ namespace clash
         
         private ResManager _resManager = null;
         private MenuManager _menuManager = null;
+        private ClashEventManager _eventManager = null;
 
         public static ClashGame Instance = null;
         public ResManager ResManager { get { return _resManager; } }
         public MenuManager MenuManager { get { return _menuManager; } }
+        public ClashEventManager EventManager { get { return _eventManager; } }
 
 
         private gameplay.Gameplay _gameplay = null;
         public gameplay.Gameplay GP { get {return _gameplay;} }
         
-        
-
-        
-
         private void Awake()
         {
             Instance = this;
@@ -40,6 +40,7 @@ namespace clash
         {
             _resManager = new ResManager();
             _menuManager = new MenuManager(gameObject);
+            _eventManager = new ClashEventManager();
 
             _gameplay = new gameplay.Gameplay();
             

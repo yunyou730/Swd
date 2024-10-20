@@ -9,8 +9,7 @@ public class CmdSystem : ClashBaseSystem,IStartSystem,ITickSystem
 {
     private ClashWorld _clashWorld = null;
     private CmdMeta _cmdMeta = null;
-
-    private TileEditMeta _tileEditMeta = null;
+    private TileMapMeta _tileMapMeta = null;
 
     private Dictionary<Type, HandleCmdDelegate> _handleCmdFuncDict = null;
 
@@ -18,10 +17,11 @@ public class CmdSystem : ClashBaseSystem,IStartSystem,ITickSystem
     {
         _clashWorld = GetWorld<ClashWorld>();
         _cmdMeta = _clashWorld.GetWorldMeta<CmdMeta>();
-        _tileEditMeta = _clashWorld.GetWorldMeta<TileEditMeta>();
+        _tileMapMeta = _clashWorld.GetWorldMeta<TileMapMeta>();
+        // _tileEditMeta = _clashWorld.GetWorldMeta<TileEditMeta>();
         
         _handleCmdFuncDict = new Dictionary<Type, HandleCmdDelegate>();
-        _handleCmdFuncDict.Add(typeof(CmdChangeEditSelectedTerrainType),OnCmdChangeEditSelectedTileTerrainType);
+        _handleCmdFuncDict.Add(typeof(CmdChangeTileTerrainType),OnCmdChangeTileTerrainType);
     }
 
     public void OnStart()
@@ -44,9 +44,9 @@ public class CmdSystem : ClashBaseSystem,IStartSystem,ITickSystem
         _handleCmdFuncDict = null;
     }
 
-    private void OnCmdChangeEditSelectedTileTerrainType(CmdBase cmd)
+    private void OnCmdChangeTileTerrainType(CmdBase cmd)
     {
-        var castedCmd = (CmdChangeEditSelectedTerrainType)cmd;
-        _tileEditMeta.SelectedTerrainType = castedCmd.TileType;
+        var castedCmd = (CmdChangeTileTerrainType)cmd;
+        _tileMapMeta.SetTileTerrain(castedCmd.TileX,castedCmd.TileY,castedCmd.TileType);
     }
 }

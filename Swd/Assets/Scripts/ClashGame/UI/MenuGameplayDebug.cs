@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using clash;
+using clash.Event;
 using clash.gameplay;
 using clash.Gameplay.UserCtrl;
 using TMPro;
@@ -21,10 +22,13 @@ namespace clash.ui
         // private ETileTerrainType? _selectingTieType = null;
 
         private UserController _userCtrl = null;
+
+
+        private ClashEventManager _eventManager = null;
         
         public MenuGameplayDebug(MenuManager menuManager,EMenuType menuType,GameObject root):base(menuManager,menuType,root)
         {
-            
+            _eventManager = ClashGame.Instance.EventManager;
         }
 
         public override void OnEnter()
@@ -91,15 +95,7 @@ namespace clash.ui
 
         private void OnTileTypeSelectionValueChanged(int index)
         {
-            var clashWorld = ClashGame.Instance.GP.World;
-            if (clashWorld == null)
-                return;
-
-            var cmdMeta = clashWorld.GetWorldMeta<CmdMeta>();
-
             TMP_Dropdown.OptionData opt = _dropdownTileTypeSelection.options[index];
-            // Debug.Log(opt.text);
-
             ETileTerrainType? targetTerrainType = null;
             switch (opt.text)
             {
@@ -110,9 +106,7 @@ namespace clash.ui
                     targetTerrainType = ETileTerrainType.River;
                     break;
             }
-
-            cmdMeta.AddCmdChangeEditSelectedTerrainType(targetTerrainType);
-            // Debug.Log(_selectingTieType);
+            _eventManager.Invoke_EventChangeTileTerrainType(targetTerrainType);
         }
 
         private void OnUnitTypeSelectionValueChanged(int index)

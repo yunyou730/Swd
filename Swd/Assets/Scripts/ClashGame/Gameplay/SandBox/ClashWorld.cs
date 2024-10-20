@@ -95,9 +95,6 @@ namespace clash.gameplay
             CreateWorldMetaInfo<ModeSwitchMetaInfo>();
             CreateWorldMetaInfo<UserCtrlMetaInfo>();
             CreateWorldMetaInfo<CmdMeta>();
-            CreateWorldMetaInfo<TileEditMeta>();
-            
-            // CreateWorldMetaInfo<>
         }
         
         private void InitSystems()
@@ -108,8 +105,7 @@ namespace clash.gameplay
             _tickableSystems = new List<ITickSystem>();
             
             RegisterSystem(new CmdSystem(this));
-            RegisterSystem(new TileEditSystem(this));
-            
+
             // Game Mode 
             RegisterSystem(new ModeSystem(this));
             

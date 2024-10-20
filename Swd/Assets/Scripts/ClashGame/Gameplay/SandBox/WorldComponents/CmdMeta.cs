@@ -13,9 +13,11 @@ namespace clash.gameplay
             CmdList = null;
         }
         
-        public void AddCmdChangeEditSelectedTerrainType(ETileTerrainType? terrainType)
+        public void AddCmdChangeTileTerrainType(int tileX,int tileY,ETileTerrainType terrainType)
         {
-            var cmd = new CmdChangeEditSelectedTerrainType();
+            var cmd = new CmdChangeTileTerrainType();
+            cmd.TileX = tileX;
+            cmd.TileY = tileY;
             cmd.TileType = terrainType;
             CmdList.Add(cmd);
         }
@@ -27,8 +29,10 @@ namespace clash.gameplay
         
     }
     
-    public struct CmdChangeEditSelectedTerrainType : CmdBase
+    public struct CmdChangeTileTerrainType : CmdBase
     {
-        public ETileTerrainType? TileType;
+        public int TileX;
+        public int TileY;
+        public ETileTerrainType TileType;
     }
 }

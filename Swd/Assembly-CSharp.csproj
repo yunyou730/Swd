@@ -65,7 +65,6 @@
     <Compile Include="Assets\Scripts\3rd\LitJson\Lexer.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Components\TileSelectorComponent.cs" />
     <Compile Include="Assets\Scripts\ResManager\LoadWithReference.cs" />
-    <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Systems\UserInputCtrl\MouseCtrlSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\WorldComponents\GameStartMeta.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Components\GfxComponent.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Debug\ClashConsole.cs" />
@@ -81,13 +80,11 @@
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterController.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\WorldComponents\CmdMeta.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\ParserToken.cs" />
-    <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\WorldComponents\TileEditMeta.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Systems\ClashBaseSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\UI\MenuManager.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Config\ClashTileMapConfig.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Systems\CmdSystem.cs" />
-    <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Systems\Edit\TileEditSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Systems\SceneObject\SceneCreationSystem.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphNodeData.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\ClashGameData.cs" />
@@ -111,6 +108,7 @@
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Config\ClashCfgUnitEntry.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Components\PositionComponent.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphExposedProperty.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Event\ClashEventManager.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Systems\SceneObject\OverlaySystem.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />

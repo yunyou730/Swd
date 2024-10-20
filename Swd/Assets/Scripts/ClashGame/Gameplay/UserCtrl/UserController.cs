@@ -1,7 +1,9 @@
 ﻿using System;
+using clash.Event;
 using clash.gameplay;
 using UnityEngine;
 using clash.gameplay.Utilities;
+using UnityEngine.EventSystems;
 
 namespace clash.Gameplay.UserCtrl
 {
@@ -12,22 +14,33 @@ namespace clash.Gameplay.UserCtrl
         
         private int _selectTileX = -1;
         private int _selectTileY = -1;
+        private ETileTerrainType? _selectTileTerrainType = null;
+
+        private ClashEventManager _eventManager = null;
         
         public UserController(Camera camera,ClashWorld world)
         {
             _mainCamera = camera;
             _clashWorld = world;
+            _eventManager = ClashGame.Instance.EventManager;
         }
 
 
         public void OnStart()
         {
-            
+            _eventManager.EventChangeTileTerrainType += (sender, args) =>
+            {
+                _selectTileTerrainType = args.TileType;
+            };
         }
 
         public void OnUpdate(float dt)
         {
             RefreshMouseTileCoordinate();
+            if (IsTryingToModifyTileTerrainType())
+            {
+                DoModifyTileTerrainType(_selectTileX,_selectTileY,_selectTileTerrainType.Value);
+            }
         }
         
         public void Dispose()
@@ -47,6 +60,16 @@ namespace clash.Gameplay.UserCtrl
             }
         }
 
+
+        private bool IsTryingToModifyTileTerrainType()
+        {
+            if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject() && _selectTileTerrainType != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private bool CheckMouseTileCoordinate(out int tileX,out int tileY)
         {
             tileX = -1;
@@ -64,7 +87,14 @@ namespace clash.Gameplay.UserCtrl
             
             return false;
         }
-        
+
+
+        private void DoModifyTileTerrainType(int tileX,int tileY,ETileTerrainType terrainType)
+        {
+            var cmdMeta = _clashWorld.GetWorldMeta<CmdMeta>();
+            cmdMeta.AddCmdChangeTileTerrainType(tileX,tileY,terrainType);
+        }
+
     }
 
 }
