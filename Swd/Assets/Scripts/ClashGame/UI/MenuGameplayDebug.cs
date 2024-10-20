@@ -16,7 +16,7 @@ namespace clash.ui
         private TextMeshProUGUI _txtMode = null;
         private TextMeshProUGUI _txtMouseInfo = null;
         private TMP_Dropdown _dropdownTileTypeSelection = null;
-        private TMP_Dropdown _dropdownUnitTypeSelection = null;
+        private TMP_Dropdown _dropdownUnitTagSelection = null;
         
         private StringBuilder _strMouseInfo = new StringBuilder();
         // private ETileTerrainType? _selectingTieType = null;
@@ -49,13 +49,12 @@ namespace clash.ui
             _txtMode = _gameObject.transform.Find("Text_GameMode").GetComponent<TextMeshProUGUI>();
             _txtMouseInfo = _gameObject.transform.Find("Text_MouseInfo").GetComponent<TextMeshProUGUI>();
             _dropdownTileTypeSelection = _gameObject.transform.Find("Dropdown_TileTypeSelection").GetComponent<TMP_Dropdown>();
-            _dropdownUnitTypeSelection = _gameObject.transform.Find("Dropdown_UnitTypeSelection").GetComponent<TMP_Dropdown>();
+            _dropdownUnitTagSelection = _gameObject.transform.Find("Dropdown_UnitTypeSelection").GetComponent<TMP_Dropdown>();
 
             
             InitUnitSelectionOptions();
-            _dropdownUnitTypeSelection.onValueChanged.AddListener(OnUnitTypeSelectionValueChanged);
+            _dropdownUnitTagSelection.onValueChanged.AddListener(OnUnitTypeSelectionValueChanged);
             _dropdownTileTypeSelection.onValueChanged.AddListener(OnTileTypeSelectionValueChanged);
-            
             
             RefreshModeLabel();
         }
@@ -68,7 +67,7 @@ namespace clash.ui
                 return;
 
             var unitTagList = clashWorld.AllUnitsCfg.ToList();
-            _dropdownUnitTypeSelection.AddOptions(unitTagList);
+            _dropdownUnitTagSelection.AddOptions(unitTagList);
         }
 
         protected override GameObject LoadGameObject()
@@ -83,10 +82,13 @@ namespace clash.ui
             RefreshMouseStatusLabel();
         }
 
-        // public override void OnClose()
-        // {
-        //     base.OnClose();
-        // }
+        public override void OnClose()
+        {
+            base.OnClose();
+            
+            _dropdownUnitTagSelection.onValueChanged.RemoveListener(OnUnitTypeSelectionValueChanged);
+            _dropdownTileTypeSelection.onValueChanged.RemoveListener(OnTileTypeSelectionValueChanged);
+        }
 
         public override void Dispose()
         {
@@ -111,7 +113,13 @@ namespace clash.ui
 
         private void OnUnitTypeSelectionValueChanged(int index)
         {
-            
+            string unitTag = null;
+            if (index > 0)
+            {
+                unitTag = _dropdownUnitTagSelection.options[index].text;
+            }
+
+            _eventManager.Invoke_EventChangeDebugMenuSelectUnitTag(unitTag);
         }
 
         private void RefreshModeLabel()

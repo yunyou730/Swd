@@ -1,4 +1,5 @@
 ﻿using clash.gameplay;
+using clash.gameplay.Utilities;
 using UnityEngine;
 using IngameDebugConsole;
 
@@ -20,9 +21,9 @@ namespace clash.debug
             if (go != null)
             {
                 var clashGame = go.GetComponent<ClashGame>();
-                var world = clashGame.GP.World;
-                var unitFactoryMeta = world.GetWorldMeta<UnitFactoryMeta>();
-                unitFactoryMeta.Datas.Add(new UnitGenerateData(unitTag,tileX,tileY));
+                var clashWorld = clashGame.GP.World;
+                var cmdMeta = clashWorld.GetWorldMeta<CmdMeta>();
+                cmdMeta.AddCmdCreateUnitAtTile(tileX,tileY,unitTag);
             }
         }
 

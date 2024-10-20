@@ -29,6 +29,12 @@ namespace clash.gameplay.Utilities
             tileX = (int)((x - originPos.x) / cfgMeta.TileSize);
             tileY = (int)((y - originPos.z) / cfgMeta.TileSize);
         }
+        
+        public static void CreateUnitAtTile(ClashWorld world,string unitTag,int tileX,int tileY)
+        {
+            var unitFactoryMeta = world.GetWorldMeta<UnitFactoryMeta>();
+            unitFactoryMeta.Datas.Add(new UnitGenerateData(unitTag,tileX,tileY));
+        }
 
     }
 }

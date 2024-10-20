@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using clash.gameplay;
+using clash.gameplay.Utilities;
 using UnityEngine;
 
 public delegate void HandleCmdDelegate(CmdBase cmd);
@@ -22,6 +23,7 @@ public class CmdSystem : ClashBaseSystem,IStartSystem,ITickSystem
         
         _handleCmdFuncDict = new Dictionary<Type, HandleCmdDelegate>();
         _handleCmdFuncDict.Add(typeof(CmdChangeTileTerrainType),OnCmdChangeTileTerrainType);
+        _handleCmdFuncDict.Add(typeof(CmdCreateUnitAtTile),OnCmdCreateUnitAtTile);
     }
 
     public void OnStart()
@@ -48,5 +50,11 @@ public class CmdSystem : ClashBaseSystem,IStartSystem,ITickSystem
     {
         var castedCmd = (CmdChangeTileTerrainType)cmd;
         _tileMapMeta.SetTileTerrain(castedCmd.TileX,castedCmd.TileY,castedCmd.TileType);
+    }
+    
+    private void OnCmdCreateUnitAtTile(CmdBase cmd)
+    {
+        var castedCmd = (CmdCreateUnitAtTile)cmd;
+        ClashUtility.CreateUnitAtTile(_clashWorld,castedCmd.UnitTag,castedCmd.TileX,castedCmd.TileY);
     }
 }

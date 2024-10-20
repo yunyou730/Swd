@@ -21,9 +21,17 @@ namespace clash.gameplay
             cmd.TileType = terrainType;
             CmdList.Add(cmd);
         }
+
+        public void AddCmdCreateUnitAtTile(int tileX,int tileY,string unitTag)
+        {
+            var cmd = new CmdCreateUnitAtTile();
+            cmd.TileX = tileX;
+            cmd.TileY = tileY;
+            cmd.UnitTag = unitTag;
+            CmdList.Add(cmd);
+        }
     }
-
-
+    
     public interface CmdBase
     {
         
@@ -34,5 +42,12 @@ namespace clash.gameplay
         public int TileX;
         public int TileY;
         public ETileTerrainType TileType;
+    }
+
+    public struct CmdCreateUnitAtTile : CmdBase
+    {
+        public int TileX;
+        public int TileY;
+        public string UnitTag;
     }
 }
