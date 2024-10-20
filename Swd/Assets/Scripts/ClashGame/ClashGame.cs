@@ -15,23 +15,21 @@ namespace clash
     public class ClashGame: MonoBehaviour
     {
         // private ClashGameEnum.EClashGameState _state = ClashGameEnum.EClashGameState.Ready;
-        private ClashWorld _world = null;
+        
         private ResManager _resManager = null;
         private MenuManager _menuManager = null;
 
         public static ClashGame Instance = null;
         public ResManager ResManager { get { return _resManager; } }
         public MenuManager MenuManager { get { return _menuManager; } }
-        
-        
-        public ClashWorld World { get { return _world; } }
 
-        private EClashGameMode _mode = EClashGameMode.Test;
-        public EClashGameMode GameMode
-        {
-            set { _mode = value;}
-            get { return _mode; }
-        }
+
+        private gameplay.Gameplay _gameplay = null;
+        public gameplay.Gameplay GP { get {return _gameplay;} }
+        
+        
+
+        
 
         private void Awake()
         {
@@ -42,26 +40,26 @@ namespace clash
         {
             _resManager = new ResManager();
             _menuManager = new MenuManager(gameObject);
+
+            _gameplay = new gameplay.Gameplay();
             
-            StartGame();
+            _gameplay.Start();
+            _gameplay.SwitchClashWorldToPlayMode();
+            
             ShowGameMenu();
-            SwitchClashWorldToPlayMode();
         }
         
         private void Update()
         {
             float dt = Time.deltaTime;
-            _world?.OnUpdate(dt);
+            
+            _gameplay.OnUpdate(dt);
             _menuManager?.OnUpdate(dt);
         }
 
         public void OnDestroy()
         {
-            if (_world != null)
-            {
-                _world.Dispose();
-                _world = null;    
-            }
+            _gameplay?.Dispose();
             
             _menuManager.Dispose();
             _menuManager = null;
@@ -78,45 +76,31 @@ namespace clash
             return _resManager;
         }
 
-        private void StartGame()
-        {
-            Camera camera = GameObject.Find("Main Camera").GetComponent<Camera>();
-            
-            var gameData1 = _resManager.GetAsset<ClashGameData>("Assets/Resources_moved/clashgame/data/ClashGameData_1.asset");
-            // var gameData2 = _resManager.GetAsset<ClashGameData>("Assets/Resources_moved/clashgame/data/ClashGameData_2.asset");
-            var config = _resManager.GetAsset<ClashConfig>("Assets/Resources_moved/clashgame/data/ClashGameConfig.asset");
-            
-            TextAsset textAsset = _resManager.GetAsset<TextAsset>("Assets/Resources_moved/clashgame/config/unit/units.json");
-            LitJson.JsonData unitsJsonData = JsonMapper.ToObject(textAsset.text);
-
-            var gameData = gameData1;
-            Debug.Assert(gameData != null && config != null);
-            
-            _world = new ClashWorld();
-            _world.Init(gameData,config,unitsJsonData,gameObject,camera,_resManager);
-            _world.OnStart();
-        }
+        // private void StartGame()
+        // {
+        //     Camera camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        //     
+        //     var gameData1 = _resManager.GetAsset<ClashGameData>("Assets/Resources_moved/clashgame/data/ClashGameData_1.asset");
+        //     // var gameData2 = _resManager.GetAsset<ClashGameData>("Assets/Resources_moved/clashgame/data/ClashGameData_2.asset");
+        //     var config = _resManager.GetAsset<ClashConfig>("Assets/Resources_moved/clashgame/data/ClashGameConfig.asset");
+        //     
+        //     TextAsset textAsset = _resManager.GetAsset<TextAsset>("Assets/Resources_moved/clashgame/config/unit/units.json");
+        //     LitJson.JsonData unitsJsonData = JsonMapper.ToObject(textAsset.text);
+        //
+        //     var gameData = gameData1;
+        //     Debug.Assert(gameData != null && config != null);
+        //     
+        //     _world = new ClashWorld();
+        //     _world.Init(gameData,config,unitsJsonData,gameObject,camera,_resManager);
+        //     _world.OnStart();
+        // }
         
         private void ShowGameMenu()
         {
             _menuManager.ShowMenu(EMenuType.GameplayDebug);
         }
 
-        private void SwitchClashWorldToPlayMode()
-        {
-            var modeSwitchMeta = _world.GetWorldMeta<ModeSwitchMetaInfo>();
-            modeSwitchMeta.SetNextMode(EClashGameMode.Test);
-        }
         
-        public void SwitchMode(EClashGameMode nextMode)
-        {
-            if (GameMode != nextMode)
-            {
-                GameMode = nextMode;
-                var modeSwitchMeta = _world.GetWorldMeta<ModeSwitchMetaInfo>();
-                modeSwitchMeta.SetNextMode(nextMode);
-            }
-        }
 
     }
 }

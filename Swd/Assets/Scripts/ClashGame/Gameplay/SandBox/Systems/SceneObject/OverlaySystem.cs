@@ -56,6 +56,7 @@ namespace clash.gameplay
         
         private void UpdateTileSelectorPosition()
         {
+            // hold entity
             if (_tileSelectorEntity == null)
             {
                 List<ClashBaseEntity> entities = _world.GetEntitiesWithComponents(typeof(TileSelectorComponent),typeof(GfxComponent));

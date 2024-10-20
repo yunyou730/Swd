@@ -29,7 +29,7 @@ namespace clash.ui
             Button btnMode = _gameObject.transform.Find("Button_ToggleMode").GetComponent<Button>();
             btnMode.onClick.AddListener(delegate()
             {
-                ClashGame.Instance.SwitchMode(NextMode(ClashGame.Instance.GameMode));
+                ClashGame.Instance.GP.SwitchMode(NextMode(ClashGame.Instance.GP.GameMode));
                 RefreshModeLabel();
             });
         
@@ -56,7 +56,7 @@ namespace clash.ui
 
         private void InitUnitSelectionOptions()
         {
-            var clashWorld = ClashGame.Instance.World;
+            var clashWorld = ClashGame.Instance.GP.World;
             if (clashWorld == null)
                 return;
 
@@ -88,7 +88,7 @@ namespace clash.ui
 
         private void OnTileTypeSelectionValueChanged(int index)
         {
-            var clashWorld = ClashGame.Instance.World;
+            var clashWorld = ClashGame.Instance.GP.World;
             if (clashWorld == null)
                 return;
 
@@ -119,7 +119,7 @@ namespace clash.ui
 
         private void RefreshModeLabel()
         {
-            switch (ClashGame.Instance.GameMode)
+            switch (ClashGame.Instance.GP.GameMode)
             {
                 case EClashGameMode.Test:
                     _txtMode.text = "Test Mode";
@@ -138,7 +138,7 @@ namespace clash.ui
 
         private void RefreshMouseStatusLabel()
         {
-            var clashWorld = ClashGame.Instance.World; 
+            var clashWorld = ClashGame.Instance.GP.World; 
             if (clashWorld != null)
             {
                 var mouseCtrlMeta = clashWorld.GetWorldMeta<MouseCtrlMetaInfo>();

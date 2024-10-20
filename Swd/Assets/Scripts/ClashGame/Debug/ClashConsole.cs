@@ -20,7 +20,7 @@ namespace clash.debug
             if (go != null)
             {
                 var clashGame = go.GetComponent<ClashGame>();
-                var world = clashGame.World;
+                var world = clashGame.GP.World;
                 var unitFactoryMeta = world.GetWorldMeta<UnitFactoryMeta>();
                 unitFactoryMeta.Datas.Add(new UnitGenerateData(unitTag,tileX,tileY));
             }
