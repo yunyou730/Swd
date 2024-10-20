@@ -47,9 +47,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Swd\Gameplay\camera\CameraController.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\WorldComponents\ClashBaseMetaInfo.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\UserCtrl\CameraController.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Utilities\ClashTileEditFunc.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Gameplay.cs" />
-    <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Systems\UserInputCtrl\CameraCtrlSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\WorldComponents\TileSelectorMeta.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\WorldComponents\UserCtrlMetaInfo.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Config\ClashConfig.cs" />

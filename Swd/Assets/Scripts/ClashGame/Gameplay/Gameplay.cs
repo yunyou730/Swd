@@ -11,10 +11,9 @@ namespace clash.gameplay
         private ClashWorld _world = null;
         public ClashWorld World { get { return _world; } }
 
-        
         private UserController _userCtrl = null;
-        public UserController UserCtrl { get { return _userCtrl; } }
-
+        private CameraController _cameraCtrl = null;
+        
 
         private EClashGameMode _mode = EClashGameMode.Test;
         public EClashGameMode GameMode
@@ -47,12 +46,15 @@ namespace clash.gameplay
             _world.Init(gameData,config,unitsJsonData,gameObject,camera,resManager);
             
 
-            // UserCtrl
+            // Controllers
             _userCtrl = new UserController(camera,_world);
+            _cameraCtrl = new CameraController(_world,camera);
+            
             
             // OnStart
             _world.OnStart();
             _userCtrl.OnStart();
+            _cameraCtrl.OnStart();
         }
         
         
@@ -60,6 +62,7 @@ namespace clash.gameplay
         {
             _world?.OnUpdate(dt);
             _userCtrl?.OnUpdate(dt);
+            _cameraCtrl?.OnUpdate(dt);
         }
         
         
@@ -67,9 +70,11 @@ namespace clash.gameplay
         {
             _world?.Dispose();
             _userCtrl?.Dispose();
+            _cameraCtrl?.Dispose();
             
             _world = null;
             _userCtrl = null;
+            _cameraCtrl = null;
         }
         
         public void SwitchClashWorldToPlayMode()

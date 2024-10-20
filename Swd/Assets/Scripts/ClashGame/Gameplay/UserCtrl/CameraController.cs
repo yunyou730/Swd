@@ -1,41 +1,36 @@
 ﻿using System;
+using clash.gameplay;
 using UnityEngine;
 
-namespace clash.gameplay
+namespace clash.Gameplay.UserCtrl
 {
-    public class CameraCtrlSystem : ClashBaseSystem,IStartSystem,IUpdateSystem
+    public class CameraController : IDisposable
     {
         private ClashWorld _clashWorld = null;
         private Camera _mainCamera = null;
 
         // private ClashConfig _clashCfg = null;
         private Vector2? _prevMouseHoldMidBtnPos = null;
-
-
         private const int kMouseMidBtnKey = 2;
-        
-        public CameraCtrlSystem(ClashBaseWorld world) : base(world)
+
+        public CameraController(ClashWorld world,Camera mainCamera)
         {
-            _clashWorld = GetWorld<ClashWorld>();
-            _mainCamera = _clashWorld.GameplayMainCamera;
+            _clashWorld = world;
+            _mainCamera = mainCamera;
         }
+
 
         public void OnStart()
-        {
-               
-        }
-
-        public void OnUpdate(float deltaTime)
-        {
-            MoveCamera(deltaTime);
-            ZoomCamera(deltaTime);
-        }
-        
-        public override void Dispose()
         {
             
         }
 
+        public void OnUpdate(float dt)
+        {
+            MoveCamera(dt);
+            ZoomCamera(dt);
+        }
+        
         private void MoveCamera(float dt)
         {
             if (Input.GetMouseButtonDown(kMouseMidBtnKey))
@@ -97,5 +92,9 @@ namespace clash.gameplay
             _mainCamera.transform.position += offset3D;
         }
 
+        public void Dispose()
+        {
+            
+        }
     }
 }

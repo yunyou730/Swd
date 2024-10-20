@@ -7,6 +7,10 @@ using UnityEngine.EventSystems;
 
 namespace clash.Gameplay.UserCtrl
 {
+    /*
+     * 控制 Tile 地形刷新
+     * 控制 动态创建 Unit
+     */
     public class UserController : IDisposable
     {
         private Camera _mainCamera = null;
@@ -77,7 +81,7 @@ namespace clash.Gameplay.UserCtrl
 
         private bool IsTryingToCreateUnitAtTile()
         {
-            if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject() && _selectUnitTag != null)
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && _selectUnitTag != null)
             {
                 return true;
             }

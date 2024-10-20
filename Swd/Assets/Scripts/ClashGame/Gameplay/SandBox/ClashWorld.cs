@@ -114,7 +114,7 @@ namespace clash.gameplay
             RegisterSystem(new SceneCreationSystem(this));
             RegisterSystem(new UnitCreationSystem(this));
             // RegisterSystem(new MouseCtrlSystem(this));
-            RegisterSystem(new CameraCtrlSystem(this));
+            // RegisterSystem(new CameraCtrlSystem(this));
         }
 
         private void RegisterSystem(ClashBaseSystem system)
