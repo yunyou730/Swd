@@ -34,7 +34,7 @@ namespace clash.gameplay
             var gameObject = ClashGame.Instance.gameObject;
             
             var gameData1 = resManager.GetAsset<ClashGameData>("Assets/Resources_moved/clashgame/data/ClashGameData_1.asset");
-            var config = resManager.GetAsset<ClashConfig>("Assets/Resources_moved/clashgame/data/ClashGameConfig.asset");
+            var config = resManager.GetAsset<ClashConfigSettings>("Assets/Resources_moved/clashgame/data/ClashGameConfig.asset");
             TextAsset textAsset = resManager.GetAsset<TextAsset>("Assets/Resources_moved/clashgame/config/unit/units.json");
             LitJson.JsonData unitsJsonData = JsonMapper.ToObject(textAsset.text);
 

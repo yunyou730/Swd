@@ -49,12 +49,12 @@ namespace clash.gameplay
         }
 
 
-        public ClashCfgUnitEntry GetConfig(string unitTag)
+        public ClashConfigUnitEntry GetConfig(string unitTag)
         {
             string path = GetConfigPath(unitTag);
             if (!string.IsNullOrEmpty(path))
             {
-                var unitCfgEntry = _world.ResManager.GetAsset<ClashCfgUnitEntry>(path);
+                var unitCfgEntry = _world.ResManager.GetAsset<ClashConfigUnitEntry>(path);
                 return unitCfgEntry;
             }
             return null;

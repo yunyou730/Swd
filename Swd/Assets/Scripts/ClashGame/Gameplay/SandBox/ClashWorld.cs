@@ -21,10 +21,10 @@ namespace clash.gameplay
         
         // Initialize data & configs
         private ClashGameData _gameData = null;
-        private ClashConfig _clashConfig = null;
+        private ClashConfigSettings _clashSettings = null;
         private ClashAllUnitsConfig _allUnitsConfig = null;
         
-        public ClashConfig ClashCfg { get { return _clashConfig; } }
+        public ClashConfigSettings ClashSettings { get { return _clashSettings; } }
         public ClashAllUnitsConfig AllUnitsCfg { get { return _allUnitsConfig; } }
 
 
@@ -45,14 +45,14 @@ namespace clash.gameplay
         private int _frameIndex = 0;
 
         public void Init(ClashGameData gameData,
-                            ClashConfig clashConfig,
+                            ClashConfigSettings clashConfig,
                             JsonData unitsJson,
                             UnityEngine.GameObject rootGameObject,
                             UnityEngine.Camera gameplayMainCamera,
                             ResManager resManager)
         {
             _gameData = gameData;
-            _clashConfig = clashConfig;
+            _clashSettings = clashConfig;
             
             _rootGameObject = rootGameObject;
             _gameplayMainCamera = gameplayMainCamera;
@@ -68,7 +68,7 @@ namespace clash.gameplay
         }
 
 
-        private void InitLogicFPS(ClashConfig clashConfig)
+        private void InitLogicFPS(ClashConfigSettings clashConfig)
         {
             _logicFPS = clashConfig.kLogicFPS;
             _logicDeltaTime = 1.0f / _logicFPS;
@@ -82,9 +82,9 @@ namespace clash.gameplay
             gameStartMeta.GridHeight = _gameData.GridHeight;
             
             var clashConfigMeta = CreateWorldMetaInfo<ClashConfigMeta>();
-            clashConfigMeta.TileSize = _clashConfig.kTileSize;
-            clashConfigMeta.TileBaseX = _clashConfig.kTileBaseX;
-            clashConfigMeta.TileBaseZ = _clashConfig.kTileBaseZ;
+            clashConfigMeta.TileSize = _clashSettings.kTileSize;
+            clashConfigMeta.TileBaseX = _clashSettings.kTileBaseX;
+            clashConfigMeta.TileBaseZ = _clashSettings.kTileBaseZ;
             
             CreateWorldMetaInfo<UnitFactoryMeta>();
             

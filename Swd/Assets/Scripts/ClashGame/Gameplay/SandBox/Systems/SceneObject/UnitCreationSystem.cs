@@ -40,7 +40,7 @@ namespace clash.gameplay
         
         private void CreateUnit(UnitGenerateData data)
         {
-            ClashCfgUnitEntry unitConfig = _clashWorld.AllUnitsCfg.GetConfig(data.UnitTag);
+            ClashConfigUnitEntry unitConfig = _clashWorld.AllUnitsCfg.GetConfig(data.UnitTag);
             UnityEngine.GameObject prefab = _clashWorld.ResManager.GetAsset<UnityEngine.GameObject>(unitConfig.PrefabPath);
             
             UnityEngine.GameObject go = UnityEngine.GameObject.Instantiate(prefab);

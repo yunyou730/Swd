@@ -49,7 +49,7 @@ public class CmdSystem : ClashBaseSystem,IStartSystem,ITickSystem
     private void OnCmdChangeTileTerrainType(CmdBase cmd)
     {
         var castedCmd = (CmdChangeTileTerrainType)cmd;
-        _tileMapMeta.SetTileTerrain(castedCmd.TileX,castedCmd.TileY,castedCmd.TileType);
+        ClashTileEditFunc.ChangeTileTerrainType(_clashWorld, castedCmd.TileX, castedCmd.TileY, castedCmd.TileType);
     }
     
     private void OnCmdCreateUnitAtTile(CmdBase cmd)

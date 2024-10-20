@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Systems\ClashBaseSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\UI\MenuManager.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Config\ClashTileMapConfig.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Config\ClashConfigUnitEntry.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonWriter.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Systems\CmdSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Systems\SceneObject\SceneCreationSystem.cs" />
@@ -105,7 +106,6 @@
     <Compile Include="Assets\Scripts\ResManager\LoadWithAddress.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActor.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Entities\ClashBaseEntity.cs" />
-    <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Config\ClashCfgUnitEntry.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Components\PositionComponent.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphExposedProperty.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Event\ClashEventManager.cs" />

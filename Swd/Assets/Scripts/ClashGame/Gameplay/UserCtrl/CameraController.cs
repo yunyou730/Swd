@@ -68,10 +68,10 @@ namespace clash.Gameplay.UserCtrl
             Vector2 currentMousePos = Input.mousePosition;
             Vector2 offset = currentMousePos - _prevMouseHoldMidBtnPos.Value;
                 
-            Vector3 offset3D = new Vector3(offset.x,0,offset.y) * (_clashWorld.ClashCfg.kCameraMoveSpeed * dt);
+            Vector3 offset3D = new Vector3(offset.x,0,offset.y) * (_clashWorld.ClashSettings.kCameraMoveSpeed * dt);
             Vector3 currentCameraPos = _mainCamera.transform.position;
                 
-            if (_clashWorld.ClashCfg.kReverseMouseMidBtnDir)
+            if (_clashWorld.ClashSettings.kReverseMouseMidBtnDir)
             {
                 _mainCamera.transform.position = currentCameraPos + offset3D;
             }
@@ -87,7 +87,7 @@ namespace clash.Gameplay.UserCtrl
 
         private void DoZoomCamera(float scroll,float dt)
         {
-            float offset = scroll * _clashWorld.ClashCfg.kCameraZoomSpeed * dt;
+            float offset = scroll * _clashWorld.ClashSettings.kCameraZoomSpeed * dt;
             Vector3 offset3D = _mainCamera.transform.forward * offset;
             _mainCamera.transform.position += offset3D;
         }
