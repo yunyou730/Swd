@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
 using LitJson;
 using swd;
 
@@ -22,13 +24,14 @@ namespace clash.gameplay
     public class ClashAllUnitsConfig : IDisposable
     {
         private ClashWorld _world = null;
-        private Dictionary<string, string> _configMap = null;
+        private SortedDictionary<string, string> _configMap = null;
+        
 
         public ClashAllUnitsConfig(ClashWorld world,JsonData jsonData)
         {
             _world = world;
             
-            _configMap = new Dictionary<string, string>();
+            _configMap = new SortedDictionary<string, string>();
             foreach (var unitTag in jsonData.Keys)
             {
                 string configPath = jsonData[unitTag]["cfg_path"].ToString();
@@ -57,6 +60,16 @@ namespace clash.gameplay
             return null;
         }
         
+        public List<string> ToList()
+        {
+            List<string> result = new List<string>();
+            foreach (var key in _configMap.Keys)
+            {
+                result.Add(key);
+            }
+            return result;
+        }
+
         public void Dispose()
         {
             _configMap.Clear();

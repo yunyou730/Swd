@@ -18,4 +18,4 @@ MonoBehaviour:
   kLogicFPS: 16
   kCameraMoveSpeed: 5
   kReverseMouseMidBtnDir: 0
-  kCameraZoomSpeed: 500
+  kCameraZoomSpeed: 1000

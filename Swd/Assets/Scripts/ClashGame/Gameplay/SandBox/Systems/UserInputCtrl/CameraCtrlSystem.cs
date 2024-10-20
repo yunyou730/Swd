@@ -59,7 +59,7 @@ namespace clash.gameplay
         private void ZoomCamera(float dt)
         {
             float scroll = Input.GetAxis("Mouse ScrollWheel");
-            Debug.Log($"scroll: {scroll}");
+            // Debug.Log($"scroll: {scroll}");
             if (Mathf.Abs(scroll) > float.Epsilon)
             {
                 DoZoomCamera(scroll,dt);

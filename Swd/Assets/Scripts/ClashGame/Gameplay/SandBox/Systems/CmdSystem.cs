@@ -47,7 +47,6 @@ public class CmdSystem : ClashBaseSystem,IStartSystem,ITickSystem
     private void OnCmdChangeEditSelectedTileTerrainType(CmdBase cmd)
     {
         var castedCmd = (CmdChangeEditSelectedTerrainType)cmd;
-        // Debug.Log($"[OnCmdChangeEditSelectedTileTerrainType]{castedCmd}");
         _tileEditMeta.SelectedTerrainType = castedCmd.TileType;
     }
 }

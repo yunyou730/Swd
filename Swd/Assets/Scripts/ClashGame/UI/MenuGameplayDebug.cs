@@ -14,6 +14,7 @@ namespace clash.ui
         private TextMeshProUGUI _txtMode = null;
         private TextMeshProUGUI _txtMouseInfo = null;
         private TMP_Dropdown _dropdownTileTypeSelection = null;
+        private TMP_Dropdown _dropdownUnitTypeSelection = null;
         
         private StringBuilder _strMouseInfo = new StringBuilder();
         // private ETileTerrainType? _selectingTieType = null;
@@ -41,13 +42,28 @@ namespace clash.ui
             _txtMode = _gameObject.transform.Find("Text_GameMode").GetComponent<TextMeshProUGUI>();
             _txtMouseInfo = _gameObject.transform.Find("Text_MouseInfo").GetComponent<TextMeshProUGUI>();
             _dropdownTileTypeSelection = _gameObject.transform.Find("Dropdown_TileTypeSelection").GetComponent<TMP_Dropdown>();
-            
+            _dropdownUnitTypeSelection = _gameObject.transform.Find("Dropdown_UnitTypeSelection").GetComponent<TMP_Dropdown>();
 
+            
+            InitUnitSelectionOptions();
+            _dropdownUnitTypeSelection.onValueChanged.AddListener(OnUnitTypeSelectionValueChanged);
             _dropdownTileTypeSelection.onValueChanged.AddListener(OnTileTypeSelectionValueChanged);
+            
             
             RefreshModeLabel();
         }
-    
+
+
+        private void InitUnitSelectionOptions()
+        {
+            var clashWorld = ClashGame.Instance.World;
+            if (clashWorld == null)
+                return;
+
+            var unitTagList = clashWorld.AllUnitsCfg.ToList();
+            _dropdownUnitTypeSelection.AddOptions(unitTagList);
+        }
+
         protected override GameObject LoadGameObject()
         {
             var prefab = ClashGame.Instance.ResManager.GetAsset<GameObject>("Assets/Resources_moved/clashgame/ui/Canvas_MenueGameplayDebug.prefab");
@@ -69,7 +85,7 @@ namespace clash.ui
         {
             
         }
-        
+
         private void OnTileTypeSelectionValueChanged(int index)
         {
             var clashWorld = ClashGame.Instance.World;
@@ -77,22 +93,28 @@ namespace clash.ui
                 return;
 
             var cmdMeta = clashWorld.GetWorldMeta<CmdMeta>();
-            
+
             TMP_Dropdown.OptionData opt = _dropdownTileTypeSelection.options[index];
             // Debug.Log(opt.text);
 
             ETileTerrainType? targetTerrainType = null;
             switch (opt.text)
             {
-                case "TileType_Ground" :
+                case "TileType_Ground":
                     targetTerrainType = ETileTerrainType.Ground;
                     break;
                 case "TileType_River":
                     targetTerrainType = ETileTerrainType.River;
                     break;
             }
+
             cmdMeta.AddCmdChangeEditSelectedTerrainType(targetTerrainType);
             // Debug.Log(_selectingTieType);
+        }
+
+        private void OnUnitTypeSelectionValueChanged(int index)
+        {
+            
         }
 
         private void RefreshModeLabel()
