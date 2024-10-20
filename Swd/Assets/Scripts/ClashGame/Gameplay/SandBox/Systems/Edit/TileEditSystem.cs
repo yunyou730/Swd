@@ -8,13 +8,13 @@ namespace clash.gameplay
     {
         private ClashWorld _clashWorld = null;
 
-        private MouseCtrlMetaInfo _mouseCtrlMeta = null;
+        private UserCtrlMetaInfo _userCtrlMeta = null;
         private TileEditMeta _tileEditMeta = null;
 
         public TileEditSystem(ClashBaseWorld world) : base(world)
         {
             _clashWorld = GetWorld<ClashWorld>();
-            _mouseCtrlMeta = _clashWorld.GetWorldMeta<MouseCtrlMetaInfo>();
+            _userCtrlMeta = _clashWorld.GetWorldMeta<UserCtrlMetaInfo>();
             _tileEditMeta = _clashWorld.GetWorldMeta<TileEditMeta>();
         }
         
@@ -27,7 +27,7 @@ namespace clash.gameplay
         {
             if (IsMouseClicked() && _tileEditMeta.SelectedTerrainType != null)
             {
-                ClashTileEditFunc.ChangeTileTerrainType(_clashWorld,_mouseCtrlMeta.TileX,_mouseCtrlMeta.TileY,_tileEditMeta.SelectedTerrainType.Value);
+                ClashTileEditFunc.ChangeTileTerrainType(_clashWorld,_userCtrlMeta.SelectTileX,_userCtrlMeta.SelectTileY,_tileEditMeta.SelectedTerrainType.Value);
             }
         }
 

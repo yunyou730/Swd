@@ -14,14 +14,14 @@ namespace clash.gameplay
         private ClashBaseEntity _tileSelectorEntity = null;
         
         
-        private MouseCtrlMetaInfo _mouseCtrlMeta = null;
+        private UserCtrlMetaInfo _userCtrlMeta = null;
         private GameStartMeta _gameStartMeta = null;
         private TileMapMeta _tileMapMeta = null;
 
         public OverlaySystem(ClashBaseWorld world) : base(world)
         {
             _clashWorld = GetWorld<ClashWorld>();
-            _mouseCtrlMeta = world.GetWorldMeta<MouseCtrlMetaInfo>();
+            _userCtrlMeta = world.GetWorldMeta<UserCtrlMetaInfo>();
             _gameStartMeta = world.GetWorldMeta<GameStartMeta>();
             _tileMapMeta = world.GetWorldMeta<TileMapMeta>();
         }
@@ -56,7 +56,7 @@ namespace clash.gameplay
         
         private void UpdateTileSelectorPosition()
         {
-            // hold entity
+            // get and hold entity
             if (_tileSelectorEntity == null)
             {
                 List<ClashBaseEntity> entities = _world.GetEntitiesWithComponents(typeof(TileSelectorComponent),typeof(GfxComponent));
@@ -65,12 +65,14 @@ namespace clash.gameplay
                     _tileSelectorEntity = entities[0];
                 }
             }
-
-            if (_tileSelectorEntity != null)
+            
+            // do move selector entity
+            if (_tileSelectorEntity != null && _userCtrlMeta.SelectTileDirtyFlag)
             {
                 var gfxComp = _tileSelectorEntity.GetComponent<GfxComponent>();
-                Vector3 position = ClashUtility.GetPositionAtTile(_clashWorld, _mouseCtrlMeta.TileX, _mouseCtrlMeta.TileY);
+                Vector3 position = ClashUtility.GetPositionAtTile(_clashWorld, _userCtrlMeta.SelectTileX, _userCtrlMeta.SelectTileY);
                 gfxComp.SetPosition(position);
+                _userCtrlMeta.ResetSelectTileDirtyFlag();
             }
         }
 

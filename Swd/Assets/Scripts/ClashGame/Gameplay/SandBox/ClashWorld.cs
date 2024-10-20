@@ -93,9 +93,11 @@ namespace clash.gameplay
 
             CreateWorldMetaInfo<ModeMetaInfo>();
             CreateWorldMetaInfo<ModeSwitchMetaInfo>();
-            CreateWorldMetaInfo<MouseCtrlMetaInfo>();
+            CreateWorldMetaInfo<UserCtrlMetaInfo>();
             CreateWorldMetaInfo<CmdMeta>();
             CreateWorldMetaInfo<TileEditMeta>();
+            
+            // CreateWorldMetaInfo<>
         }
         
         private void InitSystems()
@@ -115,9 +117,7 @@ namespace clash.gameplay
             RegisterSystem(new OverlaySystem(this));
             RegisterSystem(new SceneCreationSystem(this));
             RegisterSystem(new UnitCreationSystem(this));
-            
-            // User Control
-            RegisterSystem(new MouseCtrlSystem(this));
+            // RegisterSystem(new MouseCtrlSystem(this));
             RegisterSystem(new CameraCtrlSystem(this));
         }
 

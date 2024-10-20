@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using clash;
 using clash.gameplay;
+using clash.Gameplay.UserCtrl;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +19,8 @@ namespace clash.ui
         
         private StringBuilder _strMouseInfo = new StringBuilder();
         // private ETileTerrainType? _selectingTieType = null;
+
+        private UserController _userCtrl = null;
         
         public MenuGameplayDebug(MenuManager menuManager,EMenuType menuType,GameObject root):base(menuManager,menuType,root)
         {
@@ -141,10 +144,10 @@ namespace clash.ui
             var clashWorld = ClashGame.Instance.GP.World; 
             if (clashWorld != null)
             {
-                var mouseCtrlMeta = clashWorld.GetWorldMeta<MouseCtrlMetaInfo>();
+                var userCtrlMeta = clashWorld.GetWorldMeta<UserCtrlMetaInfo>();
 
                 _strMouseInfo.Clear();
-                _strMouseInfo.Append($"mouse info: tile coordinate ({mouseCtrlMeta.TileX},{mouseCtrlMeta.TileY})");
+                _strMouseInfo.Append($"mouse info: tile coordinate ({userCtrlMeta.SelectTileX},{userCtrlMeta.SelectTileY})");
                 _txtMouseInfo.text = _strMouseInfo.ToString(); 
             }
         }

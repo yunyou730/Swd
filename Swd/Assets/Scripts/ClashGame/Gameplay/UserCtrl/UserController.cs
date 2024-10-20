@@ -11,7 +11,7 @@ namespace clash.Gameplay.UserCtrl
         private ClashWorld _clashWorld = null;
         
         private int _selectTileX = -1;
-        private int _selectTile = -1;
+        private int _selectTileY = -1;
         
         public UserController(Camera camera,ClashWorld world)
         {
@@ -27,12 +27,24 @@ namespace clash.Gameplay.UserCtrl
 
         public void OnUpdate(float dt)
         {
-            
+            RefreshMouseTileCoordinate();
         }
         
         public void Dispose()
         {
             
+        }
+
+        private void RefreshMouseTileCoordinate()
+        {
+            int tileX, tileY;
+            CheckMouseTileCoordinate(out tileX,out tileY);
+            if (tileX != _selectTileX || tileY != _selectTileY)
+            {
+                _selectTileX = tileX;
+                _selectTileY = tileY;
+                _clashWorld.GetWorldMeta<UserCtrlMetaInfo>().SetSelectTile(_selectTileX,_selectTileY);
+            }
         }
 
         private bool CheckMouseTileCoordinate(out int tileX,out int tileY)
