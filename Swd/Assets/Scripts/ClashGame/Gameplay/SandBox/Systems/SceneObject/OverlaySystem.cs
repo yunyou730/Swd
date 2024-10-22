@@ -47,7 +47,7 @@ namespace clash.gameplay
             ClashWorld world = GetWorld<ClashWorld>();
             var gameStartMeta = world.GetWorldMeta<GameStartMeta>();
             var clashConfigMeta = world.GetWorldMeta<ClashConfigMeta>();
-            var material = world.ResManager.GetAsset<UnityEngine.Material>("Assets/Resources_moved/clashgame/scenes/grid_debugger/GridDebugger Variant.mat");
+            var material = world.ResManager.GetAsset<UnityEngine.Material>("Assets/Resources_moved/clashgame/materials/grid_debugger/GridDebugger Variant.mat");
             
             _debugGrid = new DebugGrid(world,world.RootGameObject);
             _debugGrid.BuildMesh(material,gameStartMeta,clashConfigMeta,_tileMapMeta);

@@ -11,7 +11,7 @@
             
             // gfx component
             var gfxComp = entity.AttachComponent<GfxComponent>();
-            var tileSelectorPrefab = world.ResManager.GetAsset<UnityEngine.GameObject>("Assets/Resources_moved/clashgame/scenes/tile_selector/TileSelector.prefab");
+            var tileSelectorPrefab = world.ResManager.GetAsset<UnityEngine.GameObject>("Assets/Resources_moved/clashgame/materials/tile_selector/TileSelector.prefab");
             gfxComp.GO = UnityEngine.GameObject.Instantiate(tileSelectorPrefab);
 
             return entity.UUID;

@@ -99,8 +99,8 @@
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\WorldComponents\TileMapWorldComponent.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphDataContainer.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActionController.cs" />
-    <Compile Include="Assets\Scripts\ClashGame\ClashGame.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Config\ClashAllUnitsConfig.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\ClashGame.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Systems\ModeSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\GameObject\DebugGrid.cs" />
     <Compile Include="Assets\Scripts\ResManager\LoadWithAddress.cs" />

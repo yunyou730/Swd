@@ -48,5 +48,6 @@ Material:
     - _GridWidth: 17
     - _QueueControl: 0
     m_Colors:
-    - _DebugColor: {r: 1, g: 1, b: 1, a: 0}
+    - _BorderColor: {r: 1, g: 0.1273585, b: 0.15174034, a: 0}
+    - _DebugColor: {r: 0, g: 0.83177423, b: 1, a: 0}
   m_BuildTextureStacks: []

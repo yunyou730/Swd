@@ -61,7 +61,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34a09b87b0ea2704c82706efc1d52d29
-    m_Address: Assets/Resources_moved/clashgame/scenes/grid_debugger/GridDebugger
+    m_Address: Assets/Resources_moved/clashgame/materials/grid_debugger/GridDebugger
       Variant.mat
     m_ReadOnly: 0
     m_SerializedLabels: []
@@ -102,7 +102,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b13e7ba2f59f39448bfe153cda4aa45
-    m_Address: Assets/Resources_moved/clashgame/scenes/tile_selector/TileSelector.prefab
+    m_Address: Assets/Resources_moved/clashgame/materials/tile_selector/TileSelector.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
