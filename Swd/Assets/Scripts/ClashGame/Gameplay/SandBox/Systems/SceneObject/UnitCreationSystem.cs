@@ -1,4 +1,5 @@
-﻿using clash.gameplay.Utilities;
+﻿using clash.gameplay.GameObject;
+using clash.gameplay.Utilities;
 using swd;
 
 namespace clash.gameplay
@@ -40,19 +41,22 @@ namespace clash.gameplay
         
         private void CreateUnit(UnitGenerateData data)
         {
+            ClashBaseEntity entity = _world.CreateEntity();
+            var gfxComp = entity.AttachComponent<GfxComponent>();
+            var posComp = entity.AttachComponent<PositionComponent>();
+            var rotComp = entity.AttachComponent<RotationComponent>();
+            
             ClashConfigUnitEntry unitConfig = _clashWorld.AllUnitsCfg.GetConfig(data.UnitTag);
             UnityEngine.GameObject prefab = _clashWorld.ResManager.GetAsset<UnityEngine.GameObject>(unitConfig.PrefabPath);
             
             UnityEngine.GameObject go = UnityEngine.GameObject.Instantiate(prefab);
             go.transform.SetParent(_clashWorld.RootGameObject.transform);
             
+            var clashUnitMB = go.AddComponent<ClashUnitMB>(); 
+            clashUnitMB.Init(entity.UUID,data.UnitTag);
+            
             UnityEngine.Vector3 pos = ClashUtility.GetPositionAtTile(_clashWorld, data.TileX, data.TileY);
             go.transform.position = pos;
-            
-            ClashBaseEntity entity = _world.CreateEntity();
-            var gfxComp = entity.AttachComponent<GfxComponent>();
-            var posComp = entity.AttachComponent<PositionComponent>();
-            var rotComp = entity.AttachComponent<RotationComponent>();
             
             gfxComp.GO = go;
             posComp.Pos = pos;

@@ -50,8 +50,6 @@
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\UserCtrl\CameraController.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Utilities\ClashTileEditFunc.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\Gameplay.cs" />
-    <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\WorldComponents\TileSelectorMeta.cs" />
-    <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\WorldComponents\UserCtrlMetaInfo.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Config\ClashConfig.cs" />
     <Compile Include="Assets\Scripts\ResManager\LoadWithLabel.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonMapper.cs" />
@@ -110,6 +108,7 @@
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Systems\SceneObject\OverlaySystem.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\JsonException.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Netstandard15Polyfill.cs" />
+    <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\GameObject\UnitMB.cs" />
     <Compile Include="Assets\Scripts\ClashGame\UI\ClashBaseMenu.cs" />
     <Compile Include="Assets\Scripts\ResManager\ResManager.cs" />
     <Compile Include="Assets\SurfaceGraph\Data\SurfaceGraphLinkData.cs" />

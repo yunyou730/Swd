@@ -17,8 +17,12 @@ namespace clash.ui
         private TextMeshProUGUI _txtMouseInfo = null;
         private TMP_Dropdown _dropdownTileTypeSelection = null;
         private TMP_Dropdown _dropdownUnitTagSelection = null;
-        
+
+        private TextMeshProUGUI _txtUnitSelectInfo = null;
+
         private StringBuilder _strMouseInfo = new StringBuilder();
+
+        private StringBuilder _strUnitSelectionInfo = new StringBuilder();
         // private ETileTerrainType? _selectingTieType = null;
 
         private UserController _userCtrl = null;
@@ -29,6 +33,7 @@ namespace clash.ui
         public MenuGameplayDebug(MenuManager menuManager,EMenuType menuType,GameObject root):base(menuManager,menuType,root)
         {
             _eventManager = ClashGame.Instance.EventManager;
+            _userCtrl = ClashGame.Instance.GP.UserCtrl;
         }
 
         public override void OnEnter()
@@ -50,7 +55,7 @@ namespace clash.ui
             _txtMouseInfo = _gameObject.transform.Find("Text_MouseInfo").GetComponent<TextMeshProUGUI>();
             _dropdownTileTypeSelection = _gameObject.transform.Find("Dropdown_TileTypeSelection").GetComponent<TMP_Dropdown>();
             _dropdownUnitTagSelection = _gameObject.transform.Find("Dropdown_UnitTypeSelection").GetComponent<TMP_Dropdown>();
-
+            _txtUnitSelectInfo = _gameObject.transform.Find("Panel_UnitSelection").Find("Text_UnitSelection").GetComponent<TextMeshProUGUI>();
             
             InitUnitSelectionOptions();
             _dropdownUnitTagSelection.onValueChanged.AddListener(OnUnitTypeSelectionValueChanged);
@@ -80,6 +85,7 @@ namespace clash.ui
         public override void OnUpdate(float deltaTime)
         {
             RefreshMouseStatusLabel();
+            RefreshSelectUnitPanel();
         }
 
         public override void OnClose()
@@ -151,6 +157,20 @@ namespace clash.ui
             }
         }
 
+
+        private void RefreshSelectUnitPanel()
+        {
+            if (_userCtrl != null)
+            {
+                int uuid = _userCtrl.SelectUnitEntityId;
+                string tag = _userCtrl.SelectedUnitTag;
+            
+                _strUnitSelectionInfo.Clear();
+                _strUnitSelectionInfo.Append((uuid == 0) ?"no unit be selected" : $"unit uuid:{uuid},tag{tag}");
+                _txtUnitSelectInfo.text = _strUnitSelectionInfo.ToString();
+            }
+        }
+        
         private EClashGameMode NextMode(EClashGameMode curMode)
         {
             int nextMode = (int)curMode + 1;

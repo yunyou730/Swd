@@ -14,6 +14,10 @@ namespace clash.gameplay
         private UserController _userCtrl = null;
         private CameraController _cameraCtrl = null;
         
+        public UserController UserCtrl
+        {
+            get { return _userCtrl; }
+        }
 
         private EClashGameMode _mode = EClashGameMode.Test;
         public EClashGameMode GameMode

@@ -76,11 +76,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6aa4232655b825848b28747de225273b
-    m_Address: Assets/Resources_moved/clashgame/units/u101/prefab.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c352af16f16254646974811b2e77d480
     m_Address: Assets/Resources_moved/clashgame/config/unit/u101.asset
     m_ReadOnly: 0
@@ -106,7 +101,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 999b407213225c7448474e1665b483c8
+  - m_GUID: 1f8ce60b307b1b341afa572a8b5cc684
+    m_Address: Assets/Resources_moved/clashgame/units/u101/prefab.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41edb27bbeda7b947b825931c3f2da3f
     m_Address: Assets/Resources_moved/clashgame/units/u102/prefab.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []

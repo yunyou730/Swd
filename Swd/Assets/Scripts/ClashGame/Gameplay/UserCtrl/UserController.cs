@@ -1,6 +1,7 @@
 ﻿using System;
 using clash.Event;
 using clash.gameplay;
+using clash.gameplay.GameObject;
 using UnityEngine;
 using clash.gameplay.Utilities;
 using UnityEngine.EventSystems;
@@ -17,7 +18,7 @@ namespace clash.Gameplay.UserCtrl
         private Camera _mainCamera = null;
         private ClashWorld _clashWorld = null;
         
-        // selecting tile 
+        // selecting tile terrain type
         private int _selectTileX = -1;
         private int _selectTileY = -1;
         private ETileTerrainType? _selectTileTerrainType = null;
@@ -25,8 +26,16 @@ namespace clash.Gameplay.UserCtrl
         public int SelectTileX { get { return _selectTileX; } }
         public int SelectTileY { get { return _selectTileY; } }
         
-        // selecting unit 
-        private string _selectUnitTag = null; 
+        // selecting unit type
+        private string _selectToCreateUnitTag = null;
+        
+        // selecting unit
+        private int _selectUnitEntityId = 0;
+        private string _selectedUnitTag = null;
+        public int SelectUnitEntityId { get { return _selectUnitEntityId; } }
+        public string SelectedUnitTag { get { return _selectedUnitTag; } }
+        
+        
         
         private ClashEventManager _eventManager = null;
         
@@ -41,33 +50,20 @@ namespace clash.Gameplay.UserCtrl
         public void OnStart()
         {
             _eventManager.EventChangeTileTerrainType += OnChangeTileTerrainType;
-            _eventManager.EventChangeDebugMenuSelectUnitTag += OnChangeSelectUnitTag;
+            _eventManager.EventChangeDebugMenuSelectUnitTag += OnChangeSelectToCreateUnitTag;
             CreateTileSelector();
         }
         
         public void OnUpdate(float dt)
         {
-            bool bSelectAnyNeedTileSelector = HasSelectTileTerrainOrUnitTag();
-            UpdateTileSelectorVisibility(bSelectAnyNeedTileSelector);
-            if (bSelectAnyNeedTileSelector)
-            {
-                RefreshMouseTileCoordinate();
-                UpdateTileSelectorPosition();
-                if (IsTryingToCreateUnitAtTile())
-                {
-                    DoCreateUnitAtTile(_selectTileX,_selectTileY,_selectUnitTag);
-                }
-                else if (IsTryingToModifyTileTerrainType())
-                {
-                    DoModifyTileTerrainType(_selectTileX,_selectTileY,_selectTileTerrainType.Value);
-                }   
-            }
+            RefreshTileSelector();
+            RefreshSelectingUnit();
         }
         
         public void Dispose()
         {
             _eventManager.EventChangeTileTerrainType -= OnChangeTileTerrainType;
-            _eventManager.EventChangeDebugMenuSelectUnitTag -= OnChangeSelectUnitTag;
+            _eventManager.EventChangeDebugMenuSelectUnitTag -= OnChangeSelectToCreateUnitTag;
             DestroyTileSelector();
         }
 
@@ -85,6 +81,61 @@ namespace clash.Gameplay.UserCtrl
                 Object.Destroy(_tileSelectorGameObject);
                 _tileSelectorGameObject = null;
             }
+        }
+
+
+
+        private void RefreshTileSelector()
+        {
+            bool bSelectAnyNeedTileSelector = ShoudShowTileSelector();
+            UpdateTileSelectorVisibility(bSelectAnyNeedTileSelector);
+            if (bSelectAnyNeedTileSelector)
+            {
+                RefreshMouseTileCoordinate();
+                UpdateTileSelectorPosition();
+                if (IsTryingToCreateUnitAtTile())
+                {
+                    DoCreateUnitAtTile(_selectTileX,_selectTileY,_selectToCreateUnitTag);
+                }
+                else if (IsTryingToModifyTileTerrainType())
+                {
+                    DoModifyTileTerrainType(_selectTileX,_selectTileY,_selectTileTerrainType.Value);
+                }   
+            }
+        }
+
+        private void RefreshSelectingUnit()
+        {
+            if (!ShouldCheckUnitSelection())
+            {
+                DoCancelSelectUnit();
+                return;
+            }
+
+            if (!Input.GetMouseButton(0))
+            {
+                return;
+            }
+
+            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit) && hit.collider.GetComponent<ClashUnitMB>() != null)
+            {
+                var unitMB = hit.collider.GetComponent<ClashUnitMB>();
+                DoSelectUnit(unitMB);
+            }
+        }
+        
+        private void DoSelectUnit(ClashUnitMB unitMB)
+        {
+            _selectUnitEntityId = unitMB.EntityUUID;
+            _selectedUnitTag = unitMB.UnitTag;
+        }
+
+        private void DoCancelSelectUnit()
+        {
+            _selectUnitEntityId = 0;
+            _selectedUnitTag = null;
         }
 
         private void UpdateTileSelectorPosition()
@@ -107,7 +158,6 @@ namespace clash.Gameplay.UserCtrl
             {
                 _selectTileX = tileX;
                 _selectTileY = tileY;
-                // _clashWorld.GetWorldMeta<UserCtrlMetaInfo>().SetSelectTile(_selectTileX,_selectTileY);
             }
         }
         
@@ -122,16 +172,21 @@ namespace clash.Gameplay.UserCtrl
 
         private bool IsTryingToCreateUnitAtTile()
         {
-            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && _selectUnitTag != null)
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && _selectToCreateUnitTag != null)
             {
                 return true;
             }
             return false;
         }
         
-        private bool HasSelectTileTerrainOrUnitTag()
+        private bool ShoudShowTileSelector()
         {
-            return _selectTileTerrainType != null || _selectUnitTag != null;
+            return _selectTileTerrainType != null || _selectToCreateUnitTag != null;
+        }
+
+        private bool ShouldCheckUnitSelection()
+        {
+            return !ShoudShowTileSelector();
         }
 
         private bool CheckMouseTileCoordinate(out int tileX,out int tileY)
@@ -170,9 +225,9 @@ namespace clash.Gameplay.UserCtrl
             _selectTileTerrainType = args.TileType;           
         }
 
-        private void OnChangeSelectUnitTag(object sender,string unitTag)
+        private void OnChangeSelectToCreateUnitTag(object sender,string unitTag)
         {
-            _selectUnitTag = unitTag;           
+            _selectToCreateUnitTag = unitTag;           
         }
 
     }
