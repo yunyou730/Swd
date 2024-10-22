@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: u102
   m_EditorClassIdentifier: 
   Tag: u101
-  PrefabPath: Assets/Resources_moved/clashgame/units/u101/prefab.prefab
+  PrefabPath: Assets/Resources_moved/clashgame/units/u102/prefab.prefab
   MovementSpeed: 3

@@ -136,7 +136,7 @@
     <None Include="Library\PackageCache\com.autodesk.fbx@4.2.1\package.json" />
     <None Include="Library\PackageCache\com.unity.addressables@1.21.21\package.json" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\PackageConversionData.json" />
-    <None Include="Assets\Resources_moved\clashgame\materials\grid_debugger\GridDebuggerShader.hlsl" />
+    <None Include="Assets\Resources_moved\clashgame\scenes\grid_debugger\GridDebuggerShader.hlsl" />
     <None Include="Library\PackageCache\com.unity.ide.visualstudio@2.0.22\package.json" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Library\PackageCache\com.unity.textmeshpro@3.0.6\ValidationExceptions.json" />
