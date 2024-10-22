@@ -93,7 +93,7 @@ namespace clash.gameplay
 
             CreateWorldMetaInfo<ModeMetaInfo>();
             CreateWorldMetaInfo<ModeSwitchMetaInfo>();
-            CreateWorldMetaInfo<UserCtrlMetaInfo>();
+            // CreateWorldMetaInfo<UserCtrlMetaInfo>();
             CreateWorldMetaInfo<CmdMeta>();
         }
         
@@ -107,7 +107,7 @@ namespace clash.gameplay
             RegisterSystem(new CmdSystem(this));
 
             // Game Mode 
-            RegisterSystem(new ModeSystem(this));
+            // RegisterSystem(new ModeSystem(this));
             
             // Scene Object Management
             RegisterSystem(new OverlaySystem(this));

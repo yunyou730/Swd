@@ -63,7 +63,6 @@
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\Swd\Config\ActorConstants.cs" />
     <Compile Include="Assets\Scripts\3rd\LitJson\Lexer.cs" />
-    <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Components\TileSelectorComponent.cs" />
     <Compile Include="Assets\Scripts\ResManager\LoadWithReference.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\WorldComponents\GameStartMeta.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Components\GfxComponent.cs" />
@@ -101,7 +100,6 @@
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActionController.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Config\ClashAllUnitsConfig.cs" />
     <Compile Include="Assets\Scripts\ClashGame\ClashGame.cs" />
-    <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\Systems\ModeSystem.cs" />
     <Compile Include="Assets\Scripts\ClashGame\Gameplay\SandBox\GameObject\DebugGrid.cs" />
     <Compile Include="Assets\Scripts\ResManager\LoadWithAddress.cs" />
     <Compile Include="Assets\Scripts\Swd\Gameplay\character\CharacterActor.cs" />

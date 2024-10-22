@@ -11,17 +11,17 @@ namespace clash.gameplay
         private ClashWorld _clashWorld = null;
         
         private DebugGrid _debugGrid = null;
-        private ClashBaseEntity _tileSelectorEntity = null;
+        //private ClashBaseEntity _tileSelectorEntity = null;
         
         
-        private UserCtrlMetaInfo _userCtrlMeta = null;
+        // private UserCtrlMetaInfo _userCtrlMeta = null;
         private GameStartMeta _gameStartMeta = null;
         private TileMapMeta _tileMapMeta = null;
 
         public OverlaySystem(ClashBaseWorld world) : base(world)
         {
             _clashWorld = GetWorld<ClashWorld>();
-            _userCtrlMeta = world.GetWorldMeta<UserCtrlMetaInfo>();
+            // _userCtrlMeta = world.GetWorldMeta<UserCtrlMetaInfo>();
             _gameStartMeta = world.GetWorldMeta<GameStartMeta>();
             _tileMapMeta = world.GetWorldMeta<TileMapMeta>();
         }
@@ -33,7 +33,8 @@ namespace clash.gameplay
 
         public void OnUpdate(float deltaTime)
         {
-            UpdateTileSelectorPosition();
+            //UpdateTileSelectorVisibility();
+            // UpdateTileSelectorPosition();
             CheckAndRefreshTerrainGrid();
         }
 
@@ -55,27 +56,25 @@ namespace clash.gameplay
             _debugGrid.AttachCollider();
         }
         
-        private void UpdateTileSelectorPosition()
-        {
-            // get and hold entity
-            if (_tileSelectorEntity == null)
-            {
-                List<ClashBaseEntity> entities = _world.GetEntitiesWithComponents(typeof(TileSelectorComponent),typeof(GfxComponent));
-                if (entities != null && entities.Count > 0)
-                {
-                    _tileSelectorEntity = entities[0];
-                }
-            }
-            
-            // do move selector entity
-            if (_tileSelectorEntity != null && _userCtrlMeta.SelectTileDirtyFlag)
-            {
-                var gfxComp = _tileSelectorEntity.GetComponent<GfxComponent>();
-                Vector3 position = ClashUtility.GetPositionAtTile(_clashWorld, _userCtrlMeta.SelectTileX, _userCtrlMeta.SelectTileY);
-                gfxComp.SetPosition(position);
-                _userCtrlMeta.ResetSelectTileDirtyFlag();
-            }
-        }
+        // private void UpdateTileSelectorVisibility()
+        // {
+        //     // @miao @todo
+        // }
+
+        // private void UpdateTileSelectorPosition()
+        // {
+        //     // get and hold tile selector entity
+        //     _tileSelectorEntity = GetTileSelectorEntity();
+        //     
+        //     // do move selector entity
+        //     if (_tileSelectorEntity != null && _userCtrlMeta.SelectTileDirtyFlag)
+        //     {
+        //         var gfxComp = _tileSelectorEntity.GetComponent<GfxComponent>();
+        //         Vector3 position = ClashUtility.GetPositionAtTile(_clashWorld, _userCtrlMeta.SelectTileX, _userCtrlMeta.SelectTileY);
+        //         gfxComp.SetPosition(position);
+        //         _userCtrlMeta.ResetSelectTileDirtyFlag();
+        //     }
+        // }
 
         private void CheckAndRefreshTerrainGrid()
         {
@@ -85,6 +84,20 @@ namespace clash.gameplay
                 _tileMapMeta.ClearDirtyFlag();
             }
         }
+
+        // private ClashBaseEntity GetTileSelectorEntity()
+        // {
+        //     if (_tileSelectorEntity == null)
+        //     {
+        //         List<ClashBaseEntity> entities = _world.GetEntitiesWithComponents(typeof(TileSelectorComponent),typeof(GfxComponent));
+        //         if (entities != null && entities.Count > 0)
+        //         {
+        //             _tileSelectorEntity = entities[0];
+        //         }
+        //     }
+        //
+        //     return _tileSelectorEntity;
+        // }
 
         public override void Dispose()
         {

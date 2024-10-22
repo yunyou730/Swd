@@ -143,13 +143,10 @@ namespace clash.ui
 
         private void RefreshMouseStatusLabel()
         {
-            var clashWorld = ClashGame.Instance.GP.World; 
-            if (clashWorld != null)
+            if (_userCtrl != null)
             {
-                var userCtrlMeta = clashWorld.GetWorldMeta<UserCtrlMetaInfo>();
-
                 _strMouseInfo.Clear();
-                _strMouseInfo.Append($"mouse info: tile coordinate ({userCtrlMeta.SelectTileX},{userCtrlMeta.SelectTileY})");
+                _strMouseInfo.Append($"mouse info: tile coordinate ({_userCtrl.SelectTileX},{_userCtrl.SelectTileY})");
                 _txtMouseInfo.text = _strMouseInfo.ToString(); 
             }
         }
